@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج الإيرادات — سوقك</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">S</div>
+            سوقك
+        </a>
+        <button class="nav-toggle">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="hierarchy.html">الهيكل التنظيمي</a></li>
+            <li><a href="revenue.html" class="active">الإيرادات</a></li>
+            <li><a href="plans.html">الباقات</a></li>
+            <li><a href="apps.html">التطبيقات</a></li>
+            <li><a href="differences.html">الفروقات</a></li>
+            <li><a href="technical.html">التقنية</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+    <h1>نموذج الإيرادات</h1>
+    <p>كيف تتدفق الأموال في سوقك وكيف تتوزع بين جميع الأطراف</p>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container">
+    <div class="breadcrumb">
+        <a href="index.html">الرئيسية</a> &larr; نموذج الإيرادات
+    </div>
+</div>
+
+<!-- Two Payment Models -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128176;</span>
+            نظاما الدفع للتاجر
+        </h2>
+        <p class="section-desc">التاجر حر في اختيار نظام الدفع المناسب له، ويقدر يغيّر في أي وقت:</p>
+
+        <div class="cards-grid cards-grid-2">
+            <div class="card" style="border-top: 4px solid var(--primary);">
+                <div class="card-icon">&#128197;</div>
+                <h3>نظام الاشتراك الشهري</h3>
+                <p>التاجر يدفع مبلغ ثابت شهرياً (مثال: 3-5 دولار) بغض النظر عن عدد الطلبات أو المبيعات. مناسب للتجار اللي عندهم حجم طلبات كبير.</p>
+                <ul>
+                    <li>مبلغ ثابت ومعروف مسبقاً</li>
+                    <li>لا عمولة على الطلبات</li>
+                    <li>أفضل للتجار ذوي المبيعات العالية</li>
+                    <li>باقات مختلفة بميزات مختلفة</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top: 4px solid #FF9800;">
+                <div class="card-icon">&#128200;</div>
+                <h3>نظام العمولة</h3>
+                <p>التاجر لا يدفع اشتراك شهري، لكن يُخصم منه نسبة على كل طلب يتم. مناسب للتجار الجدد أو اللي عندهم حجم طلبات قليل.</p>
+                <ul>
+                    <li>لا تكلفة ثابتة — ادفع فقط عند البيع</li>
+                    <li>نسبة محددة من كل طلب</li>
+                    <li>أفضل للتجار المبتدئين</li>
+                    <li>التاجر يقدر يتحول للاشتراك لاحقاً</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top:1.5rem;">
+            <strong>مرونة كاملة:</strong> التاجر يقدر يبدأ بنظام العمولة وبعد ما يكبر ويزيد حجم مبيعاته يتحول لنظام الاشتراك — أو العكس. الحرية كاملة.
+        </div>
+    </div>
+</section>
+
+<!-- Revenue Flow -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128184;</span>
+            تدفق الإيرادات
+        </h2>
+        <p class="section-desc">كل الأموال تمر عبر الوكيل (صاحب الدولة) لأنه هو الذي يربط بوابة الدفع. ثم تتوزع النسب كالتالي:</p>
+
+        <div class="diagram">
+            <div class="diagram-node" style="background:#FFF8E1; border-color:#FFC107; min-width:280px;">
+                <h4>&#128100; العميل يدفع</h4>
+                <span>قيمة الطلب + رسوم التوصيل</span>
+            </div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-arrow-label">عبر بوابة الدفع</div>
+
+            <div class="diagram-node agent" style="min-width:280px;">
+                <h4>&#127758; الوكيل يستقبل كل الأموال</h4>
+                <span>بوابة الدفع مربوطة ببيانات الوكيل</span>
+            </div>
+            <div class="diagram-arrow"></div>
+
+            <div class="diagram-row">
+                <div class="diagram-node" style="min-width:200px;">
+                    <h4>&#127981; حصة التاجر</h4>
+                    <span>قيمة المنتجات (بعد خصم العمولة)</span>
+                </div>
+                <div class="diagram-node admin" style="min-width:200px;">
+                    <h4>&#128081; حصة الأدمن</h4>
+                    <span>النسبة المحددة (مثال: 30%)</span>
+                </div>
+                <div class="diagram-node agent" style="min-width:200px;">
+                    <h4>&#127758; حصة الوكيل</h4>
+                    <span>الباقي (مثال: 70%)</span>
+                </div>
+            </div>
+            <div class="diagram-arrow"></div>
+
+            <div class="diagram-row">
+                <div class="diagram-node" style="min-width:200px; background:#FFF3E0; border-color:#FF9800;">
+                    <h4>&#128205; حصة مدير المنطقة</h4>
+                    <span>نسبة من حصة الوكيل (مثال: 50%)</span>
+                </div>
+                <div class="diagram-node agent" style="min-width:200px;">
+                    <h4>&#127758; صافي الوكيل</h4>
+                    <span>الباقي بعد خصم حصة مدير المنطقة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Numerical Example -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#129518;</span>
+            مثال رقمي توضيحي
+        </h2>
+        <p class="section-desc">لنفترض أن إجمالي إيرادات المنصة في مصر خلال شهر واحد هو 1000 دولار (اشتراكات + عمولات + توصيل):</p>
+
+        <div class="info-box" style="margin-bottom: 2rem; font-size: 0.9rem;">
+            <strong>إعدادات هذا المثال:</strong> نسبة الأدمن من مصر = 30% | نسبة مدير المنطقة من حصة الوكيل = 50%
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الطرف</th>
+                        <th>الحساب</th>
+                        <th>المبلغ</th>
+                        <th>النسبة الفعلية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>إجمالي الإيرادات</strong></td>
+                        <td>—</td>
+                        <td><strong>$1,000</strong></td>
+                        <td>100%</td>
+                    </tr>
+                    <tr style="background: var(--primary-lighter);">
+                        <td><strong>&#128081; حصة الأدمن</strong></td>
+                        <td>$1,000 &times; 30%</td>
+                        <td><strong>$300</strong></td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>&#127758; حصة الوكيل (إجمالي)</strong></td>
+                        <td>$1,000 &times; 70%</td>
+                        <td><strong>$700</strong></td>
+                        <td>70%</td>
+                    </tr>
+                    <tr style="background: #FFF3E0;">
+                        <td>&emsp; &#128205; حصة مدير المنطقة</td>
+                        <td>$700 &times; 50%</td>
+                        <td><strong>$350</strong></td>
+                        <td>35% من الإجمالي</td>
+                    </tr>
+                    <tr style="background: var(--primary-lighter);">
+                        <td>&emsp; &#127758; صافي الوكيل</td>
+                        <td>$700 - $350</td>
+                        <td><strong>$350</strong></td>
+                        <td>35% من الإجمالي</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box warning-box" style="margin-top: 1.5rem;">
+            <strong>نقطة مهمة:</strong> بما أن الوكيل هو المحصّل (بوابة الدفع بياناته)، فالوكيل هو الذي يدفع للأدمن نسبته ($300) في بداية الشهر الجديد. الأدمن لا يحصّل فلوس مباشرة من العملاء.
+        </div>
+    </div>
+</section>
+
+<!-- Revenue Sources -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128178;</span>
+            مصادر الإيرادات
+        </h2>
+        <p class="section-desc">كل المصادر التالية تدخل في نفس نظام توزيع النسب بين الأدمن والوكيل ومدير المنطقة:</p>
+
+        <div class="cards-grid cards-grid-3">
+            <div class="card">
+                <div class="card-icon">&#128197;</div>
+                <h3>اشتراكات التجار</h3>
+                <p>المبالغ الشهرية الثابتة التي يدفعها التجار المشتركين بنظام الاشتراك.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">&#128200;</div>
+                <h3>عمولات الطلبات</h3>
+                <p>النسبة المخصومة من كل طلب للتجار المشتركين بنظام العمولة.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">&#128666;</div>
+                <h3>رسوم التوصيل</h3>
+                <p>رسوم التوصيل التي يدفعها العميل — يحددها الوكيل. عمولة الأدمن على التوصيل تدخل ضمن النسبة العامة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Settlement -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128198;</span>
+            آلية التسوية الشهرية
+        </h2>
+        <p class="section-desc">كيف تتم تسوية الأموال بين الأطراف كل شهر:</p>
+
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="flow-step-num">1</div>
+                <div class="flow-step-content">
+                    <h4>الوكيل يحصّل كل الأموال</h4>
+                    <p>طوال الشهر، كل المدفوعات من العملاء تدخل مباشرة لحساب الوكيل عبر بوابة الدفع المربوطة ببياناته.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">2</div>
+                <div class="flow-step-content">
+                    <h4>نهاية الشهر — حساب النسب</h4>
+                    <p>النظام يحسب تلقائياً إجمالي الإيرادات في الدولة ويحدد حصة كل طرف بناءً على النسب المحددة.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">3</div>
+                <div class="flow-step-content">
+                    <h4>الوكيل يدفع للأدمن</h4>
+                    <p>في بداية الشهر الجديد، الوكيل يحوّل نسبة الأدمن المتفق عليها.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">4</div>
+                <div class="flow-step-content">
+                    <h4>الوكيل يدفع لمدير المنطقة</h4>
+                    <p>الوكيل يحوّل نسبة مدير المنطقة المتفق عليها (من حصة الوكيل).</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">5</div>
+                <div class="flow-step-content">
+                    <h4>الوكيل يدفع للتجار</h4>
+                    <p>في حالة نظام العمولة، الوكيل يحوّل للتاجر حصته من كل طلب (بعد خصم العمولة).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cash on Delivery -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128181;</span>
+            الدفع عند الاستلام ونظام المحفظة
+        </h2>
+        <p class="section-desc">سوقك يدعم الدفع عند الاستلام (كاش) مع نظام محفظة ذكي يضمن حقوق جميع الأطراف:</p>
+
+        <div class="cards-grid cards-grid-2">
+            <div class="card" style="border-top: 4px solid #4CAF50;">
+                <div class="card-icon">&#128176;</div>
+                <h3>سائق المنصة يحصّل كاش</h3>
+                <p>عندما يوصّل سائق المنصة طلب ويحصّل المبلغ كاش من العميل، هذا المبلغ يُسجّل في النظام ويُحسب ضمن الإيرادات العامة التي تتوزع بالنسب المحددة.</p>
+            </div>
+            <div class="card" style="border-top: 4px solid #E91E63;">
+                <div class="card-icon">&#127981;</div>
+                <h3>سائق التاجر يحصّل كاش</h3>
+                <p>عندما يوصّل سائق التاجر الخاص ويحصّل كاش، المبلغ يُسجّل كـ<strong>مديونية على محفظة التاجر</strong>. لأن الفلوس وصلت للتاجر مباشرة لكن المنصة لها نسبتها.</p>
+                <ul style="margin-top:1rem;">
+                    <li>المديونية تُخصم تلقائياً من أرباح الطلبات القادمة</li>
+                    <li>أو التاجر يدفعها يدوياً من محفظته</li>
+                    <li>النظام يتابع رصيد المحفظة تلقائياً</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Monthly Invoicing -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128196;</span>
+            الفواتير الشهرية التلقائية
+        </h2>
+        <p class="section-desc">في بداية كل شهر جديد، النظام يُنشئ فواتير تلقائية لكل الأطراف:</p>
+
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="flow-step-num">1</div>
+                <div class="flow-step-content">
+                    <h4>اليوم الأول من الشهر الجديد</h4>
+                    <p>النظام يحسب تلقائياً إجمالي إيرادات كل دولة خلال الشهر المنتهي.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">2</div>
+                <div class="flow-step-content">
+                    <h4>إنشاء فاتورة لكل دولة</h4>
+                    <p>النظام يُنشئ فاتورة/مديونية على كل دولة (وكيل) توضح: إجمالي الإيرادات، نسبة الأدمن، المبلغ المطلوب دفعه.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">3</div>
+                <div class="flow-step-content">
+                    <h4>إشعار الوكيل</h4>
+                    <p>الوكيل يتلقى إشعار بالفاتورة الشهرية والمبلغ المطلوب دفعه للأدمن.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-num">4</div>
+                <div class="flow-step-content">
+                    <h4>الوكيل يدفع نسبة الأدمن</h4>
+                    <p>الوكيل يحوّل المبلغ المطلوب للأدمن. النظام يُحدّث حالة الفاتورة (مدفوعة / معلّقة).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top:1.5rem;">
+            <strong>مثال:</strong> في 1 يونيو 2026، النظام يحسب أن إيرادات مصر في مايو كانت 10,000 جنيه. نسبة الأدمن 30% = 3,000 جنيه. تُنشأ فاتورة بـ 3,000 جنيه على الوكيل المصري.
+        </div>
+    </div>
+</section>
+
+<!-- Key Notes -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#9888;</span>
+            ملاحظات مهمة
+        </h2>
+
+        <div class="cards-grid cards-grid-2">
+            <div class="card">
+                <h3>&#128273; النسب قابلة للتخصيص</h3>
+                <p>الأدمن يحدد نسبته لكل دولة على حدة — ممكن دولة تكون 30% ودولة تانية 20% حسب الاتفاق مع الوكيل. نفس الشيء الوكيل يحدد نسبة كل مدير منطقة.</p>
+            </div>
+            <div class="card">
+                <h3>&#128176; كل الإيرادات في سلة واحدة</h3>
+                <p>لا فرق بين إيرادات الاشتراكات وإيرادات العمولات وإيرادات التوصيل — كلها تدخل في نفس نظام توزيع النسب.</p>
+            </div>
+            <div class="card">
+                <h3>&#128181; العملة حسب الدولة</h3>
+                <p>كل الحسابات والتقارير المالية في كل دولة بعملة تلك الدولة. مصر بالجنيه، السعودية بالريال، وهكذا.</p>
+            </div>
+            <div class="card">
+                <h3>&#128202; تقارير لكل مستوى</h3>
+                <p>كل طرف يشوف تقاريره المالية الخاصة فقط. الأدمن يشوف كل الدول. الوكيل يشوف دولته. مدير المنطقة يشوف منطقته.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>سوقك &copy; 2026 — دليل المشروع الداخلي | <a href="index.html">الرئيسية</a></p>
+</footer>
+
+<script src="../shared/main.js"></script>
+</body>
+</html>

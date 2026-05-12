@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:utdsoftware.com)",
+      "WebFetch(domain:www.zegocloud.com)",
+      "WebFetch(domain:docs.zegocloud.com)",
+      "WebFetch(domain:www.agora.io)",
+      "WebFetch(domain:trtc.io)",
+      "WebFetch(domain:www.daily.co)",
+      "WebFetch(domain:docs.agora.io)"
+    ]
+  }
+}

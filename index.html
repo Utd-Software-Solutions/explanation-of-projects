@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح المشاريع — UTD Software Solutions</title>
+    <link rel="stylesheet" href="shared/base.css">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --primary-dark: #0f0f1a;
+            --primary-light: #f0f0f5;
+            --primary-lighter: #f7f7fa;
+            --shadow-hover: 0 8px 30px rgba(26, 26, 46, 0.12);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 6rem 2rem;
+        }
+
+        .hero .company-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: #4A90D9;
+        }
+
+        .projects-section {
+            padding: 4rem 0;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            border-color: #4A90D9;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .project-card .project-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-card .project-tag {
+            background: var(--primary-light);
+            color: var(--text-light);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card .project-status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-ready {
+            background: #E8F5EE;
+            color: #039D55;
+        }
+
+        .status-soon {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .workspace-footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body style="padding-top: 0;">
+
+<section class="hero">
+    <div style="position: relative; max-width: 800px; margin: 0 auto;">
+        <div class="company-badge">UTD SOFTWARE SOLUTIONS</div>
+        <h1>شرح <span>المشاريع</span></h1>
+        <p class="subtitle">هذا الموقع يحتوي على شرح تفصيلي لكل مشاريع الشركة. كل مشروع موثّق بالكامل — البيزنس، الهيكل، الإيرادات، والتفاصيل التقنية — عشان الفريق ينفذ بدقة.</p>
+    </div>
+</section>
+
+<section class="projects-section">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="icon">&#128218;</span>
+            المشاريع
+        </h2>
+        <p class="section-desc">اختر المشروع اللي تحب تطّلع على شرحه:</p>
+
+        <div class="projects-grid">
+            <a href="sooqak/index.html" class="project-card">
+                <span class="project-status status-ready">جاهز</span>
+                <div class="project-logo" style="background: #039D55;">S</div>
+                <h3>سوقك</h3>
+                <p>منصة تجارة إلكترونية متعددة الدول بنظام وكلاء. تُمكّن التجار من إنشاء متاجرهم الخاصة بأقل تكلفة، والوكلاء من إدارة أسواقهم المحلية باستقلالية.</p>
+                <div class="project-tags">
+                    <span class="project-tag">تجارة إلكترونية</span>
+                    <span class="project-tag">نظام وكلاء</span>
+                    <span class="project-tag">متعدد الدول</span>
+                    <span class="project-tag">7 صفحات</span>
+                </div>
+            </a>
+
+            <a href="utd-website/index.html" class="project-card">
+                <span class="project-status status-ready">قيد العمل</span>
+                <div class="project-logo" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">U</div>
+                <h3>UTD Software Solutions — الموقع الرسمي</h3>
+                <p>الموقع الرسمي للشركة — يعرض 7 خدمات تقنية متكاملة: Stream, OTP, Games, Dev, Cloud, Realtime, Pay. بوابة العملاء الرئيسية.</p>
+                <div class="project-tags">
+                    <span class="project-tag">موقع شركة</span>
+                    <span class="project-tag">7 خدمات</span>
+                    <span class="project-tag">بوابة عملاء</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="workspace-footer">
+    <p>UTD Software Solutions &copy; 2026 — دليل المشاريع الداخلي</p>
+</footer>
+
+</body>
+</html>
