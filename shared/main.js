@@ -22,9 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Sidebar: scroll to active link and preserve position
+    var sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        var activeLink = sidebar.querySelector('.sidebar-subitems a.active, .sidebar-sub-items a.active');
+        if (activeLink) {
+            var savedPos = sessionStorage.getItem('sidebarScroll');
+            if (savedPos) {
+                sidebar.scrollTop = parseInt(savedPos);
+            } else {
+                setTimeout(function () {
+                    activeLink.scrollIntoView({ block: 'center', behavior: 'instant' });
+                }, 50);
+            }
+        }
+
+        sidebar.addEventListener('scroll', function () {
+            sessionStorage.setItem('sidebarScroll', sidebar.scrollTop);
+        });
+    }
+
     // Sidebar mobile toggle
     var sidebarToggle = document.querySelector('.sidebar-toggle-btn');
-    var sidebar = document.querySelector('.sidebar');
     var overlay = document.querySelector('.sidebar-overlay');
     if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener('click', function () {
@@ -53,6 +72,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 }
             });
+        });
+    }
+
+    // Page content animations on scroll
+    var animatedElements = document.querySelectorAll('.card, .flow-step, .info-box, .warning-box, .stats-bar, .table-wrapper, .page-header, .section-title, .section-desc, .pricing-card');
+    if (animatedElements.length && window.IntersectionObserver) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        animatedElements.forEach(function (el) {
+            el.classList.add('animate-ready');
+            observer.observe(el);
         });
     }
 });
