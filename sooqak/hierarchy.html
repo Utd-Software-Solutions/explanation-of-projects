@@ -7,432 +7,435 @@
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="assets/theme.css">
 </head>
-<body>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> سوقك</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-label">أقسام الدليل</div>
+        <div class="sidebar-section open">
+            <button class="sidebar-section-title">سوقك <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">الرئيسية</a>
+                <a href="hierarchy.html" class="active">الهيكل التنظيمي</a>
+                <a href="revenue.html">الإيرادات</a>
+                <a href="plans.html">الباقات</a>
+                <a href="apps.html">التطبيقات</a>
+                <a href="differences.html">الفروقات عن 6amMart</a>
+                <a href="technical.html">الملاحظات التقنية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
 
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">S</div>
-            سوقك
-        </a>
-        <button class="nav-toggle">&#9776;</button>
-        <ul class="nav-links">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="hierarchy.html" class="active">الهيكل التنظيمي</a></li>
-            <li><a href="revenue.html">الإيرادات</a></li>
-            <li><a href="plans.html">الباقات</a></li>
-            <li><a href="apps.html">التطبيقات</a></li>
-            <li><a href="differences.html">الفروقات</a></li>
-            <li><a href="technical.html">التقنية</a></li>
-        </ul>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>الهيكل التنظيمي والأدوار</h1>
+        <p>شرح تفصيلي لكل دور في منصة سوقك وعلاقته بالأدوار الأخرى</p>
     </div>
-</nav>
 
-<!-- Page Header -->
-<div class="page-header">
-    <h1>الهيكل التنظيمي والأدوار</h1>
-    <p>شرح تفصيلي لكل دور في منصة سوقك وعلاقته بالأدوار الأخرى</p>
-</div>
-
-<!-- Breadcrumb -->
-<div class="container">
-    <div class="breadcrumb">
-        <a href="index.html">الرئيسية</a> &larr; الهيكل التنظيمي والأدوار
-    </div>
-</div>
-
-<!-- Diagram -->
-<section class="section">
+    <!-- Breadcrumb -->
     <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128466;</span>
-            الهيكل التنظيمي
-        </h2>
-        <p class="section-desc">سوقك يعتمد على هيكل هرمي من 6 مستويات. كل مستوى له صلاحيات ومسؤوليات محددة:</p>
+        <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a> &larr; الهيكل التنظيمي والأدوار
+        </div>
+    </div>
 
-        <div class="diagram">
-            <div class="diagram-node admin">
-                <h4>&#128081; الأدمن (مالك المنصة)</h4>
-                <span>يدير المنصة بالكامل — ينشئ الدول ويعيّن الوكلاء</span>
-            </div>
-            <div class="diagram-arrow"></div>
-            <div class="diagram-arrow-label">ينشئ ويحدد النسبة</div>
+    <!-- Diagram -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128466;</span>
+                الهيكل التنظيمي
+            </h2>
+            <p class="section-desc">سوقك يعتمد على هيكل هرمي من 6 مستويات. كل مستوى له صلاحيات ومسؤوليات محددة:</p>
 
-            <div class="diagram-node agent">
-                <h4>&#127758; الوكيل (صاحب الدولة)</h4>
-                <span>يدير كل شيء في دولته — المناطق، الدفع، الدعم</span>
-            </div>
-            <div class="diagram-arrow"></div>
-            <div class="diagram-arrow-label">يعيّن ويحدد النسبة</div>
+            <div class="diagram">
+                <div class="diagram-node admin">
+                    <h4>&#128081; الأدمن (مالك المنصة)</h4>
+                    <span>يدير المنصة بالكامل — ينشئ الدول ويعيّن الوكلاء</span>
+                </div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">ينشئ ويحدد النسبة</div>
 
-            <div class="diagram-node">
-                <h4>&#128205; مدير المنطقة (البوابة)</h4>
-                <span>يدير منطقة محددة — يسجّل التجار ويدير السائقين</span>
-            </div>
-            <div class="diagram-arrow"></div>
-            <div class="diagram-arrow-label">يسجّل ويدير</div>
+                <div class="diagram-node agent">
+                    <h4>&#127758; الوكيل (صاحب الدولة)</h4>
+                    <span>يدير كل شيء في دولته — المناطق، الدفع، الدعم</span>
+                </div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">يعيّن ويحدد النسبة</div>
 
-            <div class="diagram-row">
                 <div class="diagram-node">
-                    <h4>&#127981; التاجر</h4>
-                    <span>يملك متجره ويبيع منتجاته</span>
+                    <h4>&#128205; مدير المنطقة (البوابة)</h4>
+                    <span>يدير منطقة محددة — يسجّل التجار ويدير السائقين</span>
                 </div>
-                <div class="diagram-node" style="border-color:#FF5722;">
-                    <h4>&#128666; سائق التوصيل (المنصة)</h4>
-                    <span>فريلانسر — يُقبل من مدير المنطقة</span>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">يسجّل ويدير</div>
+
+                <div class="diagram-row">
+                    <div class="diagram-node">
+                        <h4>&#127981; التاجر</h4>
+                        <span>يملك متجره ويبيع منتجاته</span>
+                    </div>
+                    <div class="diagram-node" style="border-color:#FF5722;">
+                        <h4>&#128666; سائق التوصيل (المنصة)</h4>
+                        <span>فريلانسر — يُقبل من مدير المنطقة</span>
+                    </div>
                 </div>
-            </div>
-            <div class="diagram-arrow"></div>
-            <div class="diagram-arrow-label">التاجر يمكنه إضافة سائقين خاصين</div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">التاجر يمكنه إضافة سائقين خاصين</div>
 
-            <div class="diagram-node" style="background:#FBE9E7; border-color:#FF5722;">
-                <h4>&#128666; سائق التاجر (خاص)</h4>
-                <span>سائق تابع للتاجر — يستخدم نفس تطبيق التوصيل لكن تكلفته على التاجر</span>
-            </div>
-            <div class="diagram-arrow"></div>
-            <div class="diagram-arrow-label">يخدمون</div>
+                <div class="diagram-node" style="background:#FBE9E7; border-color:#FF5722;">
+                    <h4>&#128666; سائق التاجر (خاص)</h4>
+                    <span>سائق تابع للتاجر — يستخدم نفس تطبيق التوصيل لكن تكلفته على التاجر</span>
+                </div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">يخدمون</div>
 
-            <div class="diagram-node" style="background:#FFF8E1; border-color:#FFC107;">
-                <h4>&#128100; العميل (المشتري)</h4>
-                <span>يتسوق ويطلب من المتاجر في دولته</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Detailed Roles -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128101;</span>
-            تفاصيل كل دور
-        </h2>
-        <p class="section-desc">شرح مفصّل لمسؤوليات وصلاحيات كل دور في النظام:</p>
-
-        <!-- Admin -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid var(--primary);">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:var(--primary); color:white;">&#128081;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">الأدمن — مالك المنصة</h3>
-                    <span class="tag">المستوى الأعلى</span>
+                <div class="diagram-node" style="background:#FFF8E1; border-color:#FFC107;">
+                    <h4>&#128100; العميل (المشتري)</h4>
+                    <span>يتسوق ويطلب من المتاجر في دولته</span>
                 </div>
             </div>
-            <p>الأدمن هو صاحب منصة سوقك بالكامل. هو الذي يدير البنية التحتية العامة ويتحكم في كل الدول والوكلاء. لا يتدخل في العمليات اليومية لكل دولة — هذه مسؤولية الوكيل.</p>
-            <ul>
-                <li>إنشاء الدول وتحديد عملة كل دولة</li>
-                <li>تعيين وكيل لكل دولة</li>
-                <li>تحديد نسبة الأدمن من إيرادات كل دولة (مثال: 30%)</li>
-                <li>إدارة إعدادات المنصة العامة</li>
-                <li>مراقبة التقارير المالية الشاملة لكل الدول</li>
-                <li>التطوير المستمر للمنصة وإضافة ميزات جديدة</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>ملاحظة مهمة:</strong> الأدمن لا يتدخل في الدعم الفني أو إدارة التجار أو التوصيل — كل هذا مسؤولية الوكيل في كل دولة.
-            </div>
         </div>
+    </section>
 
-        <!-- Agent -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #2196F3;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#E3F2FD; color:#1565C0;">&#127758;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">الوكيل — صاحب الدولة</h3>
-                    <span class="tag tag-new">دور جديد — غير موجود في 6amMart</span>
+    <!-- Detailed Roles -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128101;</span>
+                تفاصيل كل دور
+            </h2>
+            <p class="section-desc">شرح مفصّل لمسؤوليات وصلاحيات كل دور في النظام:</p>
+
+            <!-- Admin -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid var(--primary);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:var(--primary); color:white;">&#128081;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">الأدمن — مالك المنصة</h3>
+                        <span class="tag">المستوى الأعلى</span>
+                    </div>
+                </div>
+                <p>الأدمن هو صاحب منصة سوقك بالكامل. هو الذي يدير البنية التحتية العامة ويتحكم في كل الدول والوكلاء. لا يتدخل في العمليات اليومية لكل دولة — هذه مسؤولية الوكيل.</p>
+                <ul>
+                    <li>إنشاء الدول وتحديد عملة كل دولة</li>
+                    <li>تعيين وكيل لكل دولة</li>
+                    <li>تحديد نسبة الأدمن من إيرادات كل دولة (مثال: 30%)</li>
+                    <li>إدارة إعدادات المنصة العامة</li>
+                    <li>مراقبة التقارير المالية الشاملة لكل الدول</li>
+                    <li>التطوير المستمر للمنصة وإضافة ميزات جديدة</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>ملاحظة مهمة:</strong> الأدمن لا يتدخل في الدعم الفني أو إدارة التجار أو التوصيل — كل هذا مسؤولية الوكيل في كل دولة.
                 </div>
             </div>
-            <p>الوكيل هو الشخص المسؤول عن كل شيء في دولة معينة. هو عملياً "صاحب التطبيق" في هذه الدولة. يتعامل مع كل الجوانب التشغيلية والمالية.</p>
-            <ul>
-                <li>إنشاء المناطق (الزونات) داخل دولته</li>
-                <li>تعيين مديري مناطق والاتفاق معهم على النسب</li>
-                <li>ربط بوابة الدفع الخاصة بدولته (هو اللي بيحصّل الفلوس)</li>
-                <li>تحديد أسعار التوصيل في دولته</li>
-                <li>إنشاء الكوبونات والعروض في دولته</li>
-                <li>إدارة الدعم الفني وخدمة العملاء في دولته</li>
-                <li>دفع نسبة الأدمن أول كل شهر</li>
-                <li>مراقبة التقارير المالية لدولته</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>النقطة الأهم:</strong> بوابة الدفع التي يراها العملاء في هذه الدولة هي بوابة الوكيل — هو الذي يربطها ببياناته الخاصة، وبالتالي هو الذي يستقبل كل الأموال ثم يدفع نسبة الأدمن.
-            </div>
-        </div>
 
-        <!-- Zone Manager -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF9800;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#FFF3E0; color:#E65100;">&#128205;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">مدير المنطقة — صاحب البوابة (الزون)</h3>
-                    <span class="tag tag-modified">دور معدّل — صلاحيات موسّعة عن 6amMart</span>
+            <!-- Agent -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #2196F3;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#E3F2FD; color:#1565C0;">&#127758;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">الوكيل — صاحب الدولة</h3>
+                        <span class="tag tag-new">دور جديد — غير موجود في 6amMart</span>
+                    </div>
+                </div>
+                <p>الوكيل هو الشخص المسؤول عن كل شيء في دولة معينة. هو عملياً "صاحب التطبيق" في هذه الدولة. يتعامل مع كل الجوانب التشغيلية والمالية.</p>
+                <ul>
+                    <li>إنشاء المناطق (الزونات) داخل دولته</li>
+                    <li>تعيين مديري مناطق والاتفاق معهم على النسب</li>
+                    <li>ربط بوابة الدفع الخاصة بدولته (هو اللي بيحصّل الفلوس)</li>
+                    <li>تحديد أسعار التوصيل في دولته</li>
+                    <li>إنشاء الكوبونات والعروض في دولته</li>
+                    <li>إدارة الدعم الفني وخدمة العملاء في دولته</li>
+                    <li>دفع نسبة الأدمن أول كل شهر</li>
+                    <li>مراقبة التقارير المالية لدولته</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>النقطة الأهم:</strong> بوابة الدفع التي يراها العملاء في هذه الدولة هي بوابة الوكيل — هو الذي يربطها ببياناته الخاصة، وبالتالي هو الذي يستقبل كل الأموال ثم يدفع نسبة الأدمن.
                 </div>
             </div>
-            <p>مدير المنطقة مسؤول عن زون (منطقة جغرافية) معينة داخل الدولة. هو حلقة الوصل بين الوكيل والتجار. يديره الوكيل ويتفق معه على نسبة من الأرباح.</p>
-            <ul>
-                <li>تسجيل التجار الجدد في منطقته وقبولهم أو رفضهم</li>
-                <li>إدارة التجار في منطقته ومتابعة عملياتهم</li>
-                <li>قبول أو رفض طلبات سائقي التوصيل في منطقته</li>
-                <li>إدارة سائقي التوصيل في منطقته</li>
-                <li>مراقبة التقارير المالية الخاصة بمنطقته فقط</li>
-                <li>يأخذ نسبة متفق عليها من حصة الوكيل (مثال: 50% من حصة الوكيل)</li>
-            </ul>
-            <div class="info-box warning-box" style="margin-top:1rem;">
-                <strong>تنبيه:</strong> نسبة مدير المنطقة تُحسب من حصة الوكيل وليس من إجمالي الإيرادات. مثلاً: إذا حصة الوكيل 70% = 50 دولار، ونسبة مدير المنطقة 50%، فهو يأخذ 25 دولار (50% من 50).
-            </div>
-        </div>
 
-        <!-- Merchant -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #9C27B0;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">التاجر — صاحب المتجر</h3>
-                    <span class="tag">مستخدم أساسي</span>
+            <!-- Zone Manager -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF9800;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#FFF3E0; color:#E65100;">&#128205;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">مدير المنطقة — صاحب البوابة (الزون)</h3>
+                        <span class="tag tag-modified">دور معدّل — صلاحيات موسّعة عن 6amMart</span>
+                    </div>
+                </div>
+                <p>مدير المنطقة مسؤول عن زون (منطقة جغرافية) معينة داخل الدولة. هو حلقة الوصل بين الوكيل والتجار. يديره الوكيل ويتفق معه على نسبة من الأرباح.</p>
+                <ul>
+                    <li>تسجيل التجار الجدد في منطقته وقبولهم أو رفضهم</li>
+                    <li>إدارة التجار في منطقته ومتابعة عملياتهم</li>
+                    <li>قبول أو رفض طلبات سائقي التوصيل في منطقته</li>
+                    <li>إدارة سائقي التوصيل في منطقته</li>
+                    <li>مراقبة التقارير المالية الخاصة بمنطقته فقط</li>
+                    <li>يأخذ نسبة متفق عليها من حصة الوكيل (مثال: 50% من حصة الوكيل)</li>
+                </ul>
+                <div class="info-box warning-box" style="margin-top:1rem;">
+                    <strong>تنبيه:</strong> نسبة مدير المنطقة تُحسب من حصة الوكيل وليس من إجمالي الإيرادات. مثلاً: إذا حصة الوكيل 70% = 50 دولار، ونسبة مدير المنطقة 50%، فهو يأخذ 25 دولار (50% من 50).
                 </div>
             </div>
-            <p>التاجر هو صاحب متجر داخل منصة سوقك. بدلاً من بناء موقع خاص بتكلفة عالية، يفتح متجره على سوقك بتكلفة بسيطة (3-5 دولار/شهر) ويحصل على كل الأدوات التي يحتاجها.</p>
-            <ul>
-                <li>اختيار نظام الدفع: اشتراك شهري أو عمولة على كل طلب (يقدر يغيّر في أي وقت)</li>
-                <li>تخصيص صفحة المتجر بالكامل: الألوان، الاسم، الوصف، الصور، بيانات التواصل</li>
-                <li>إضافة وإدارة المنتجات</li>
-                <li>استقبال وإدارة الطلبات</li>
-                <li>تفعيل التوصيل المنزلي الخاص وإضافة سائقين تابعين للتاجر</li>
-                <li>التواصل مع العملاء عبر الشات</li>
-                <li>مراقبة التقارير المالية والمبيعات</li>
-                <li>الوصول من لوحة التحكم (ويب) + تطبيق الموبايل</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>التوصيل الخاص بالتاجر:</strong> التاجر يقدر يفعّل خيار "التوصيل المنزلي" من إعدادات متجره ويضيف سائقين خاصين به. هؤلاء السائقين يستخدمون نفس تطبيق التوصيل، لكن تكلفة التوصيل تكون على التاجر وليس على المنصة. في حالة الدفع عند الاستلام (كاش)، المبلغ المحصّل يُسجّل كمديونية على التاجر في محفظته وتُخصم تلقائياً من الطلبات القادمة.
-            </div>
-        </div>
 
-        <!-- Customer -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #00BCD4;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#E0F7FA; color:#00838F;">&#128100;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">العميل — المشتري</h3>
-                    <span class="tag">المستخدم النهائي</span>
+            <!-- Merchant -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #9C27B0;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">التاجر — صاحب المتجر</h3>
+                        <span class="tag">مستخدم أساسي</span>
+                    </div>
+                </div>
+                <p>التاجر هو صاحب متجر داخل منصة سوقك. بدلاً من بناء موقع خاص بتكلفة عالية، يفتح متجره على سوقك بتكلفة بسيطة (3-5 دولار/شهر) ويحصل على كل الأدوات التي يحتاجها.</p>
+                <ul>
+                    <li>اختيار نظام الدفع: اشتراك شهري أو عمولة على كل طلب (يقدر يغيّر في أي وقت)</li>
+                    <li>تخصيص صفحة المتجر بالكامل: الألوان، الاسم، الوصف، الصور، بيانات التواصل</li>
+                    <li>إضافة وإدارة المنتجات</li>
+                    <li>استقبال وإدارة الطلبات</li>
+                    <li>تفعيل التوصيل المنزلي الخاص وإضافة سائقين تابعين للتاجر</li>
+                    <li>التواصل مع العملاء عبر الشات</li>
+                    <li>مراقبة التقارير المالية والمبيعات</li>
+                    <li>الوصول من لوحة التحكم (ويب) + تطبيق الموبايل</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>التوصيل الخاص بالتاجر:</strong> التاجر يقدر يفعّل خيار "التوصيل المنزلي" من إعدادات متجره ويضيف سائقين خاصين به. هؤلاء السائقين يستخدمون نفس تطبيق التوصيل، لكن تكلفة التوصيل تكون على التاجر وليس على المنصة. في حالة الدفع عند الاستلام (كاش)، المبلغ المحصّل يُسجّل كمديونية على التاجر في محفظته وتُخصم تلقائياً من الطلبات القادمة.
                 </div>
             </div>
-            <p>العميل هو المستخدم النهائي الذي يتسوق من المتاجر على سوقك. يرى فقط المتاجر والمنتجات المتاحة في دولته.</p>
-            <ul>
-                <li>تصفح المتاجر والمنتجات في دولته فقط</li>
-                <li>البحث عن المنتجات والمتاجر</li>
-                <li>إضافة منتجات للسلة وإتمام الطلب</li>
-                <li>تتبع حالة الطلب</li>
-                <li>التواصل مع التاجر أو سائق التوصيل أو خدمة العملاء (الوكيل)</li>
-                <li>محفظة داخلية للدفع</li>
-                <li>نظام إحالة الأصدقاء (Referral)</li>
-                <li>تقييم المتاجر والمنتجات</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>ملاحظة:</strong> العميل لا يمكنه الطلب من أكثر من متجر في نفس الطلب — كل طلب من متجر واحد فقط.
-            </div>
-        </div>
 
-        <!-- Delivery Driver - Platform -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF5722;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#FBE9E7; color:#D84315;">&#128666;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">سائق التوصيل (المنصة)</h3>
-                    <span class="tag">فريلانسر — تابع للمنطقة</span>
+            <!-- Customer -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #00BCD4;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#E0F7FA; color:#00838F;">&#128100;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">العميل — المشتري</h3>
+                        <span class="tag">المستخدم النهائي</span>
+                    </div>
+                </div>
+                <p>العميل هو المستخدم النهائي الذي يتسوق من المتاجر على سوقك. يرى فقط المتاجر والمنتجات المتاحة في دولته.</p>
+                <ul>
+                    <li>تصفح المتاجر والمنتجات في دولته فقط</li>
+                    <li>البحث عن المنتجات والمتاجر</li>
+                    <li>إضافة منتجات للسلة وإتمام الطلب</li>
+                    <li>تتبع حالة الطلب</li>
+                    <li>التواصل مع التاجر أو سائق التوصيل أو خدمة العملاء (الوكيل)</li>
+                    <li>محفظة داخلية للدفع</li>
+                    <li>نظام إحالة الأصدقاء (Referral)</li>
+                    <li>تقييم المتاجر والمنتجات</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>ملاحظة:</strong> العميل لا يمكنه الطلب من أكثر من متجر في نفس الطلب — كل طلب من متجر واحد فقط.
                 </div>
             </div>
-            <p>سائق التوصيل هو شخص مستقل (فريلانسر) يسجل على المنصة لتوصيل الطلبات. يتقدم بطلب ويُقبل أو يُرفض من <strong>مدير المنطقة</strong> في الزون الخاص به.</p>
-            <ul>
-                <li>التسجيل عبر التطبيق أو الموقع كسائق توصيل</li>
-                <li>يُقبل أو يُرفض من مدير المنطقة (مش الوكيل)</li>
-                <li>يعمل في نطاق المنطقة (الزون) المسجّل فيها</li>
-                <li>استقبال طلبات التوصيل وتنفيذها</li>
-                <li>التواصل مع العميل والتاجر</li>
-                <li>سعر التوصيل يحدده الوكيل</li>
-            </ul>
-        </div>
 
-        <!-- Delivery Driver - Merchant -->
-        <div class="card" style="border-right: 4px solid #E91E63;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#FCE4EC; color:#C2185B;">&#128666;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">سائق التاجر (خاص)</h3>
-                    <span class="tag">تابع للتاجر مباشرة</span>
+            <!-- Delivery Driver - Platform -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF5722;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#FBE9E7; color:#D84315;">&#128666;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">سائق التوصيل (المنصة)</h3>
+                        <span class="tag">فريلانسر — تابع للمنطقة</span>
+                    </div>
+                </div>
+                <p>سائق التوصيل هو شخص مستقل (فريلانسر) يسجل على المنصة لتوصيل الطلبات. يتقدم بطلب ويُقبل أو يُرفض من <strong>مدير المنطقة</strong> في الزون الخاص به.</p>
+                <ul>
+                    <li>التسجيل عبر التطبيق أو الموقع كسائق توصيل</li>
+                    <li>يُقبل أو يُرفض من مدير المنطقة (مش الوكيل)</li>
+                    <li>يعمل في نطاق المنطقة (الزون) المسجّل فيها</li>
+                    <li>استقبال طلبات التوصيل وتنفيذها</li>
+                    <li>التواصل مع العميل والتاجر</li>
+                    <li>سعر التوصيل يحدده الوكيل</li>
+                </ul>
+            </div>
+
+            <!-- Delivery Driver - Merchant -->
+            <div class="card" style="border-right: 4px solid #E91E63;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#FCE4EC; color:#C2185B;">&#128666;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">سائق التاجر (خاص)</h3>
+                        <span class="tag">تابع للتاجر مباشرة</span>
+                    </div>
+                </div>
+                <p>بعض التجار (خاصة المطاعم) لديهم سائقين خاصين بهم. التاجر يفعّل خيار "التوصيل المنزلي" من إعدادات متجره ويضيف سائقينه. هذه الميزة موجودة في 6amMart الأصلي.</p>
+                <ul>
+                    <li>التاجر يضيفهم من إعدادات متجره (لوحة التحكم أو التطبيق)</li>
+                    <li>يستخدمون نفس تطبيق التوصيل بالضبط</li>
+                    <li>تكلفة التوصيل على التاجر وليس على المنصة</li>
+                    <li>في حالة الدفع عند الاستلام (كاش): المبلغ المحصّل يُسجّل كمديونية على التاجر</li>
+                    <li>المديونية تُخصم تلقائياً من الطلبات القادمة أو يدفعها التاجر من محفظته</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>نظام المحفظة والمديونية:</strong> عندما يحصّل سائق التاجر فلوس كاش من العميل، النظام يسجّل هذا المبلغ كمديونية على محفظة التاجر. التاجر يقدر يدفعها يدوياً أو تُخصم تلقائياً من أرباح الطلبات القادمة. هذا يضمن أن المنصة تأخذ حقها حتى في حالة الدفع الكاش.
                 </div>
             </div>
-            <p>بعض التجار (خاصة المطاعم) لديهم سائقين خاصين بهم. التاجر يفعّل خيار "التوصيل المنزلي" من إعدادات متجره ويضيف سائقينه. هذه الميزة موجودة في 6amMart الأصلي.</p>
-            <ul>
-                <li>التاجر يضيفهم من إعدادات متجره (لوحة التحكم أو التطبيق)</li>
-                <li>يستخدمون نفس تطبيق التوصيل بالضبط</li>
-                <li>تكلفة التوصيل على التاجر وليس على المنصة</li>
-                <li>في حالة الدفع عند الاستلام (كاش): المبلغ المحصّل يُسجّل كمديونية على التاجر</li>
-                <li>المديونية تُخصم تلقائياً من الطلبات القادمة أو يدفعها التاجر من محفظته</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>نظام المحفظة والمديونية:</strong> عندما يحصّل سائق التاجر فلوس كاش من العميل، النظام يسجّل هذا المبلغ كمديونية على محفظة التاجر. التاجر يقدر يدفعها يدوياً أو تُخصم تلقائياً من أرباح الطلبات القادمة. هذا يضمن أن المنصة تأخذ حقها حتى في حالة الدفع الكاش.
+        </div>
+    </section>
+
+    <!-- Key Rules -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128220;</span>
+                قواعد أساسية في النظام
+            </h2>
+
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>&#128274; الفصل بين الدول</h3>
+                    <p>كل دولة مستقلة تماماً عن الأخرى. العميل يشوف دولته فقط. الوكيل يدير دولته فقط. التجار والسائقين مرتبطين بدولة واحدة.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128176; الوكيل هو المحصّل</h3>
+                    <p>كل الأموال تمر عبر الوكيل — هو الذي يربط بوابة الدفع الخاصة به. ثم يدفع نسبة الأدمن أول كل شهر.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128101; كل دولة، عملة واحدة</h3>
+                    <p>كل دولة لها عملتها الخاصة (ريال سعودي، جنيه مصري، دينار أردني...). العملة مرتبطة بالدولة وليس بالتاجر.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128172; الدعم عبر الوكيل</h3>
+                    <p>الأدمن لا يقدم دعم فني للعملاء أو التجار. كل دعم يمر عبر الوكيل الذي يبني فريق خدمة عملاء خاص بدولته.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Key Rules -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128220;</span>
-            قواعد أساسية في النظام
-        </h2>
+    <!-- Summary Table -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128203;</span>
+                ملخص الصلاحيات
+            </h2>
 
-        <div class="cards-grid cards-grid-2">
-            <div class="card">
-                <h3>&#128274; الفصل بين الدول</h3>
-                <p>كل دولة مستقلة تماماً عن الأخرى. العميل يشوف دولته فقط. الوكيل يدير دولته فقط. التجار والسائقين مرتبطين بدولة واحدة.</p>
-            </div>
-            <div class="card">
-                <h3>&#128176; الوكيل هو المحصّل</h3>
-                <p>كل الأموال تمر عبر الوكيل — هو الذي يربط بوابة الدفع الخاصة به. ثم يدفع نسبة الأدمن أول كل شهر.</p>
-            </div>
-            <div class="card">
-                <h3>&#128101; كل دولة، عملة واحدة</h3>
-                <p>كل دولة لها عملتها الخاصة (ريال سعودي، جنيه مصري، دينار أردني...). العملة مرتبطة بالدولة وليس بالتاجر.</p>
-            </div>
-            <div class="card">
-                <h3>&#128172; الدعم عبر الوكيل</h3>
-                <p>الأدمن لا يقدم دعم فني للعملاء أو التجار. كل دعم يمر عبر الوكيل الذي يبني فريق خدمة عملاء خاص بدولته.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الصلاحية</th>
+                            <th>الأدمن</th>
+                            <th>الوكيل</th>
+                            <th>مدير المنطقة</th>
+                            <th>التاجر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>إنشاء الدول</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>تعيين الوكلاء</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>إنشاء المناطق (الزونات)</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>تعيين مديري المناطق</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>ربط بوابة الدفع</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>تحديد أسعار التوصيل</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>قبول سائقي المنصة</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>إضافة سائقين خاصين</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                        </tr>
+                        <tr>
+                            <td>إنشاء كوبونات وعروض</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>الدعم الفني وخدمة العملاء</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>تسجيل التجار</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>إدارة التجار</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                            <td class="cross">&#10008;</td>
+                        </tr>
+                        <tr>
+                            <td>تخصيص صفحة المتجر</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                        </tr>
+                        <tr>
+                            <td>إدارة المنتجات والطلبات</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="cross">&#10008;</td>
+                            <td class="check">&#10004;</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Summary Table -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128203;</span>
-            ملخص الصلاحيات
-        </h2>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>الصلاحية</th>
-                        <th>الأدمن</th>
-                        <th>الوكيل</th>
-                        <th>مدير المنطقة</th>
-                        <th>التاجر</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>إنشاء الدول</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>تعيين الوكلاء</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>إنشاء المناطق (الزونات)</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>تعيين مديري المناطق</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>ربط بوابة الدفع</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>تحديد أسعار التوصيل</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>قبول سائقي المنصة</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>إضافة سائقين خاصين</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                    </tr>
-                    <tr>
-                        <td>إنشاء كوبونات وعروض</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>الدعم الفني وخدمة العملاء</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>تسجيل التجار</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>إدارة التجار</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                        <td class="cross">&#10008;</td>
-                    </tr>
-                    <tr>
-                        <td>تخصيص صفحة المتجر</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                    </tr>
-                    <tr>
-                        <td>إدارة المنتجات والطلبات</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="cross">&#10008;</td>
-                        <td class="check">&#10004;</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>سوقك &copy; 2026 — دليل المشروع الداخلي | <a href="index.html">الرئيسية</a></p>
-</footer>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <p>سوقك &copy; 2026 — دليل المشروع | <a href="../index.html">العودة للمشاريع</a></p>
+    </footer>
+</div>
 <script src="../shared/main.js"></script>
 </body>
 </html>

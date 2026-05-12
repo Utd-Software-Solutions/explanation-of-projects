@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Dev — المتجر</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="../index.html" class="sidebar-logo">
+        <div class="logo-icon">U</div>
+        UTD Software Solutions
+    </a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المنصة الرئيسية <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../index.html">نظرة عامة</a>
+                <a href="../platform/wallet.html">المحفظة الأم</a>
+                <a href="../platform/billing.html">الفوترة الموحدة</a>
+                <a href="../platform/team.html">إدارة الفريق</a>
+                <a href="../platform/activate.html">تفعيل الخدمات</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">UTD Stream <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../stream/index.html">نظرة عامة</a>
+                <a href="../stream/services.html">الخدمات</a>
+                <a href="../stream/pricing.html">الأسعار</a>
+                <a href="../stream/dashboard.html">لوحة التحكم</a>
+                <a href="../stream/projects.html">المشاريع</a>
+                <a href="../stream/usage.html">الاستهلاك</a>
+                <a href="../stream/wallet.html">محفظة Stream</a>
+                <a href="../stream/packages.html">الباقات</a>
+                <a href="../stream/invoices.html">الفواتير</a>
+                <a href="../stream/analytics.html">لوحة التحليلات</a>
+                <a href="../stream/docs.html">التوثيق</a>
+                <a href="../stream/support.html">الدعم</a>
+                <a href="../stream/journey.html">رحلة العميل</a>
+                <a href="../stream/usecases.html">حالات الاستخدام</a>
+                <a href="../stream/landing.html">اللاندنج بيج</a>
+            </div>
+        </div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">UTD Dev <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">نظرة عامة</a>
+                <a href="product.html">منتج ابن تطبيقك</a>
+                <a href="marketplace.html" class="active">المتجر</a>
+                <a href="developers.html">للمطورين</a>
+                <a href="pricing.html">الأسعار والباقات</a>
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="wallet.html">محفظة Dev</a>
+                <a href="support.html">الدعم</a>
+                <a href="journey.html">رحلة العميل</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD OTP — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Games — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Cloud — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Realtime — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Pay — قريباً</a>
+        <div class="sidebar-divider"></div>
+        <a href="../../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>المتجر</h1>
+        <p>متجر الباكيجات والبلاجنز والأحداث — اشترِ الإضافات اللي تحتاجها لتطبيقك أو ارفع منتجاتك وابدأ تبيع</p>
+    </div>
+
+    <!-- كيف يعمل المتجر -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128722;</span> كيف يعمل المتجر؟</h2>
+            <p class="section-desc">المتجر هو المكان اللي يلتقي فيه العملاء والمطورون. العملاء يشترون الإضافات اللي يحتاجونها، والمطورون يرفعون منتجاتهم ويبيعونها. زي CodeCanyon — بس مخصص لمنصة "ابن تطبيقك".</p>
+
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">&#128269;</div>
+                    <h3>تصفح واختار</h3>
+                    <p>العميل يتصفح المتجر حسب النوع (باكج / بلاجن / حدث)، أو يبحث بالاسم، أو يفلتر حسب التصنيف والسعر والتقييم.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128179;</div>
+                    <h3>اشترِ وربط</h3>
+                    <p>يشتري المنتج من محفظة Dev أو بطاقة ائتمان، ويربطه بالبيس بروجكت في دقيقة واحدة حسب التوثيق المرفق.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128640;</div>
+                    <h3>شغّل واستمتع</h3>
+                    <p>المنتج يشتغل فوراً مع البيس بروجكت. لو فيه مشكلة — الدعم من المطور اللي رفع المنتج حسب سياسة الدعم المحددة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأنواع الثلاثة -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128230;</span> أنواع المنتجات في المتجر</h2>
+            <p class="section-desc">ثلاثة أنواع من المنتجات — كل نوع له دوره ومكانه في المنظومة:</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">&#128230;</div>
+                    <h3>الباكيجات (Packages)</h3>
+                    <p>وحدات وظيفية كبيرة تضيف ميزة كاملة للتطبيق.</p>
+                    <ul>
+                        <li>تتربط مباشرة بالبيس بروجكت</li>
+                        <li>كل باكج مستقلة وتعمل بشكل كامل</li>
+                        <li>يمكن توسيعها ببلاجنز إضافية</li>
+                        <li>بعضها مجاني (أوبن سورس) وبعضها مدفوع</li>
+                    </ul>
+                    <p style="margin-top:0.5rem;color:#666;"><strong>أمثلة:</strong> غرف الدردشة الصوتية، بوابات الدفع، نظام الهدايا، نظام الإشعارات</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128268;</div>
+                    <h3>البلاجنز (Plugins)</h3>
+                    <p>إضافات تعمل داخل باكج محددة وتوسّع إمكانياتها.</p>
+                    <ul>
+                        <li>مرتبطة بباكج محددة — لا تعمل بدونها</li>
+                        <li>توسّع وتخصص سلوك الباكج</li>
+                        <li>كل باكج يمكن أن يكون لها عدد غير محدود من البلاجنز</li>
+                        <li>بعضها مجاني وبعضها مدفوع</li>
+                    </ul>
+                    <p style="margin-top:0.5rem;color:#666;"><strong>أمثلة:</strong> بلاجن Stripe لباكج الدفع، بلاجن الكاريزما لباكج الغرف الصوتية</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127881;</div>
+                    <h3>الأحداث (Events)</h3>
+                    <p>عناصر مؤقتة أو موسمية تضيف تجارب خاصة للتطبيق.</p>
+                    <ul>
+                        <li>مرتبطة بمناسبات أو فترات محددة</li>
+                        <li>ثيمات، هدايا موسمية، تحديات خاصة</li>
+                        <li>يمكن تفعيلها وإلغاؤها حسب الحاجة</li>
+                        <li>تضيف تجربة مميزة للمستخدمين</li>
+                    </ul>
+                    <p style="margin-top:0.5rem;color:#666;"><strong>أمثلة:</strong> ثيم رمضان، هدايا العيد، تحدي الأسبوع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- صفحة المنتج -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128196;</span> ماذا يرى العميل في صفحة المنتج؟</h2>
+            <p class="section-desc">كل منتج في المتجر (سواء باكج أو بلاجن أو حدث) له صفحة تفصيلية تحتوي على كل المعلومات اللي يحتاجها العميل قبل الشراء:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>العنصر</th>
+                            <th>التفاصيل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>اسم المنتج</strong></td>
+                            <td>الاسم الواضح للباكج أو البلاجن أو الحدث</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الوصف</strong></td>
+                            <td>شرح تفصيلي لما يقدمه المنتج وكيف يعمل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>النوع</strong></td>
+                            <td>باكج / بلاجن / حدث — مع تحديد الباكج الأم إذا كان بلاجن</td>
+                        </tr>
+                        <tr>
+                            <td><strong>المطور</strong></td>
+                            <td>اسم المطور أو الشركة اللي رفعت المنتج + تقييم المطور</td>
+                        </tr>
+                        <tr>
+                            <td><strong>السعر</strong></td>
+                            <td>مجاني أو السعر بالدولار — يحدده المطور</td>
+                        </tr>
+                        <tr>
+                            <td><strong>سياسة الدعم</strong></td>
+                            <td>مدة الدعم المتضمنة (مثلاً: 6 أشهر) ونوع الدعم (تذاكر / واتساب)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التقييم والمراجعات</strong></td>
+                            <td>تقييم العملاء السابقين + تعليقاتهم</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التوثيق</strong></td>
+                            <td>دليل الربط خطوة بخطوة + المتطلبات + أمثلة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الإصدار</strong></td>
+                            <td>رقم الإصدار الحالي + تاريخ آخر تحديث</td>
+                        </tr>
+                        <tr>
+                            <td><strong>حالة التحديثات</strong></td>
+                            <td>نشطة أو متوقفة — إذا مرّت مدة محددة بدون تحديث يُعلّم المنتج تلقائياً "تحديثات متوقفة"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التوافق</strong></td>
+                            <td>إصدارات البيس بروجكت المتوافقة + المتطلبات التقنية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>عدد التحميلات</strong></td>
+                            <td>عدد مرات تحميل أو شراء المنتج</td>
+                        </tr>
+                        <tr>
+                            <td><strong>البلاجنز المتاحة</strong></td>
+                            <td>إذا كان المنتج باكج — قائمة بالبلاجنز المتاحة لها</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- التصنيفات والفلاتر -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128269;</span> التصفح والبحث</h2>
+            <p class="section-desc">المتجر يوفر أدوات بحث وتصفية قوية تساعد العميل يلاقي اللي يحتاجه بسرعة:</p>
+
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>الفلاتر المتاحة</h3>
+                    <ul>
+                        <li><strong>النوع:</strong> باكيجات / بلاجنز / أحداث</li>
+                        <li><strong>السعر:</strong> مجاني / مدفوع / نطاق سعري</li>
+                        <li><strong>التصنيف:</strong> تواصل، دفع، ترفيه، أدوات، إلخ</li>
+                        <li><strong>التقييم:</strong> من 1 إلى 5 نجوم</li>
+                        <li><strong>المطور:</strong> UTD / مطورين خارجيين</li>
+                        <li><strong>الترتيب:</strong> الأحدث، الأكثر تحميلاً، الأعلى تقييماً</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>البحث</h3>
+                    <ul>
+                        <li>بحث نصي بالاسم أو الوصف</li>
+                        <li>بحث بالتاجات والكلمات المفتاحية</li>
+                        <li>اقتراحات تلقائية أثناء الكتابة</li>
+                        <li>نتائج مرتبة حسب الصلة</li>
+                        <li>عرض المنتجات المشابهة</li>
+                        <li>تصفح حسب الباكج الأم (للبلاجنز)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- عملية الشراء -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128179;</span> عملية الشراء</h2>
+            <p class="section-desc">خطوات شراء أي منتج من المتجر:</p>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>اختيار المنتج</h4>
+                        <p>العميل يتصفح المتجر ويختار الباكج أو البلاجن أو الحدث اللي يحتاجه. يقرأ الوصف والتوثيق والمراجعات.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>الشراء</h4>
+                        <p>يضغط "شراء" — يتم الخصم من محفظة Dev. إذا كان المنتج مجاني، يتم التحميل مباشرة بدون خصم.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>الربط بالبيس بروجكت</h4>
+                        <p>يتبع خطوات التوثيق لربط المنتج بالبيس بروجكت. العملية مصممة لتتم في دقيقة واحدة مع توثيق واضح خطوة بخطوة.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>الاستخدام والدعم</h4>
+                        <p>المنتج يشتغل فوراً. لو واجه مشكلة — يتواصل مع المطور حسب سياسة الدعم المحددة في صفحة المنتج.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>ملاحظة:</strong> كل عملية شراء مسجلة في سجل المعاملات. العميل يقدر يرجع لقائمة مشترياته في أي وقت من لوحة التحكم.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>UTD Software Solutions &copy; 2026 — دليل شرح الموقع | <a href="../../index.html">العودة للمشاريع</a></p>
+    </footer>
+</div>
+<script src="../../shared/main.js"></script>
+</body>
+</html>

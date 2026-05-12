@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream — التوثيق</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="../index.html" class="sidebar-logo"><div class="logo-icon">U</div> UTD Software Solutions</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المنصة الرئيسية <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../index.html">نظرة عامة</a>
+                <a href="../platform/wallet.html">المحفظة الأم</a>
+                <a href="../platform/billing.html">الفوترة الموحدة</a>
+                <a href="../platform/team.html">إدارة الفريق</a>
+                <a href="../platform/activate.html">تفعيل الخدمات</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">UTD Stream <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">نظرة عامة</a>
+                <a href="services.html">الخدمات</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="usage.html">الاستهلاك</a>
+                <a href="wallet.html">محفظة Stream</a>
+                <a href="packages.html">الباقات</a>
+                <a href="invoices.html">الفواتير</a>
+                <span class="sidebar-sublabel">— التحليلات —</span>
+                <a href="analytics/index.html">نظرة عامة</a>
+                <a href="analytics/quality.html">جودة المكالمات والبث</a>
+                <a href="analytics/rooms.html">الغرف والجلسات</a>
+                <a href="analytics/operations.html">لوحة العمليات</a>
+                <a href="analytics/realtime.html">المراقبة اللحظية</a>
+                <a href="analytics/alerts.html">التنبيهات</a>
+                <a href="analytics/analysis.html">التحليل الجغرافي والتقني</a>
+                <span class="sidebar-sublabel">— أخرى —</span>
+                <a href="docs.html" class="active">التوثيق</a>
+                <a href="support.html">الدعم</a>
+                <a href="journey.html">رحلة العميل</a>
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="landing.html">اللاندنج بيج</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD OTP — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Games — قريباً</a>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">UTD Dev <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../dev/index.html">نظرة عامة</a>
+                <a href="../dev/product.html">منتج ابن تطبيقك</a>
+                <a href="../dev/marketplace.html">المتجر</a>
+                <a href="../dev/developers.html">للمطورين</a>
+                <a href="../dev/pricing.html">الأسعار والباقات</a>
+                <a href="../dev/dashboard.html">لوحة التحكم</a>
+                <a href="../dev/wallet.html">محفظة Dev</a>
+                <a href="../dev/support.html">الدعم</a>
+                <a href="../dev/journey.html">رحلة العميل</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD Cloud — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Realtime — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Pay — قريباً</a>
+        <div class="sidebar-divider"></div>
+        <a href="../../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>التوثيق</h1>
+        <p>دليل التكامل الكامل — SDKs جاهزة، أمثلة كود، وتوثيق بالعربي</p>
+    </div>
+
+    <!-- دليل التكامل -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📖</span> التوثيق — دليل التكامل</h2>
+            <p class="section-desc">كل ما يحتاجه المطور اللي يبي يدمج UTD Stream في تطبيقه. SDKs جاهزة، أمثلة كود، وتوثيق كامل بالعربي.</p>
+        </div>
+    </div>
+
+    <!-- الـ SDK — من LiveKit -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🧩</span> الـ SDK — من LiveKit</h2>
+
+            <div class="info-box warning-box">
+                <strong>تنبيه:</strong> SDKs بتاعة UTD Stream مبنية على LiveKit. المطور يحمّل SDK المنصة المناسبة من LiveKit ويربطه ببيانات مشروعه (App ID, App Sign).
+            </div>
+
+            <div class="info-box">
+                <strong>ملاحظة:</strong> LiveKit هي منصة بث مفتوحة المصدر عالية الأداء. UTD Stream بتستخدم بنيتها التحتية مع تعديلات خاصة. المطور يتعامل مع LiveKit SDKs مباشرة.
+            </div>
+        </div>
+    </div>
+
+    <!-- SDKs المتاحة -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📦</span> SDKs المتاحة</h2>
+
+            <div class="cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>Android SDK</h3>
+                    <p>Java و Kotlin</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍎</div>
+                    <h3>iOS SDK</h3>
+                    <p>Swift و Objective-C</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Web SDK</h3>
+                    <p>JavaScript / TypeScript</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🦋</div>
+                    <h3>Flutter SDK</h3>
+                    <p>iOS و Android من كود واحد</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚛</div>
+                    <h3>React Native SDK</h3>
+                    <p>متعدد المنصات</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>React.js SDK</h3>
+                    <p>تطبيقات ويب</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- محتوى التوثيق -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📚</span> محتوى التوثيق</h2>
+
+            <div class="cards-grid-2">
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>دليل البدء السريع</h3>
+                    <p>من الصفر للشغل في 10 دقائق — لكل SDK.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>مرجع API</h3>
+                    <p>كل الـ methods والـ events.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>أمثلة كود جاهزة</h3>
+                    <p>لكل حالة استخدام (مكالمة صوتية، فيديو، بث، غرفة صوتية، دردشة).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <h3>سجل التحديثات (Changelog)</h3>
+                    <p>تاريخ كل تحديث.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- اللغة -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🌍</span> اللغة</h2>
+
+            <div class="info-box">
+                <strong>ميزة تنافسية:</strong> كل التوثيق مكتوب بالعربي أصلاً (مش مترجم) + نسخة إنجليزية. هذه ميزة تنافسية — لا Zegocloud ولا Agora عندهم توثيق عربي أصلي.
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../../shared/main.js"></script>
+</body>
+</html>

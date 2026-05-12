@@ -7,323 +7,326 @@
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="assets/theme.css">
 </head>
-<body>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> سوقك</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-label">أقسام الدليل</div>
+        <div class="sidebar-section open">
+            <button class="sidebar-section-title">سوقك <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">الرئيسية</a>
+                <a href="hierarchy.html">الهيكل التنظيمي</a>
+                <a href="revenue.html">الإيرادات</a>
+                <a href="plans.html">الباقات</a>
+                <a href="apps.html" class="active">التطبيقات</a>
+                <a href="differences.html">الفروقات عن 6amMart</a>
+                <a href="technical.html">الملاحظات التقنية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
 
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">S</div>
-            سوقك
-        </a>
-        <button class="nav-toggle">&#9776;</button>
-        <ul class="nav-links">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="hierarchy.html">الهيكل التنظيمي</a></li>
-            <li><a href="revenue.html">الإيرادات</a></li>
-            <li><a href="plans.html">الباقات</a></li>
-            <li><a href="apps.html" class="active">التطبيقات</a></li>
-            <li><a href="differences.html">الفروقات</a></li>
-            <li><a href="technical.html">التقنية</a></li>
-        </ul>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>التطبيقات ولوحات التحكم</h1>
+        <p>كل التطبيقات واللوحات في منظومة سوقك وصلاحيات كل واحدة</p>
     </div>
-</nav>
 
-<!-- Page Header -->
-<div class="page-header">
-    <h1>التطبيقات ولوحات التحكم</h1>
-    <p>كل التطبيقات واللوحات في منظومة سوقك وصلاحيات كل واحدة</p>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a> &larr; التطبيقات ولوحات التحكم
+        </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128241;</span>
+                نظرة عامة
+            </h2>
+            <p class="section-desc">منظومة سوقك تتكون من 7 واجهات مختلفة — 4 لوحات تحكم (ويب) و 3 تطبيقات موبايل:</p>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">لوحات تحكم (ويب)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">تطبيقات موبايل</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">إجمالي الواجهات</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Panels -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128187;</span>
+                لوحات التحكم (ويب)
+            </h2>
+
+            <!-- Admin Panel -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid var(--primary);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:var(--primary); color:white;">&#128081;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">لوحة الأدمن</h3>
+                        <span class="tag">موجودة في 6amMart — تحتاج تعديل</span>
+                    </div>
+                </div>
+                <p>لوحة التحكم الرئيسية لمالك المنصة. تتحكم في كل الإعدادات العامة وإدارة الدول والوكلاء.</p>
+                <ul>
+                    <li>إنشاء وإدارة الدول (مع تحديد العملة لكل دولة)</li>
+                    <li>إنشاء حسابات الوكلاء وربطهم بالدول</li>
+                    <li>تحديد نسبة الأدمن من إيرادات كل دولة</li>
+                    <li>إدارة أنواع المتاجر (مطاعم، بقالة، صيدلية...)</li>
+                    <li>التقارير المالية الشاملة لكل الدول</li>
+                    <li>إعدادات المنصة العامة (اللغات، الإشعارات...)</li>
+                    <li>إدارة باقات الاشتراك</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>التعديل المطلوب:</strong> إضافة نظام إدارة الدول والوكلاء، وتحويل بعض الصلاحيات (التوصيل، الدعم، الكوبونات) من الأدمن إلى الوكيل.
+                </div>
+            </div>
+
+            <!-- Agent Panel -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #2196F3;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#E3F2FD; color:#1565C0;">&#127758;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">لوحة الوكيل</h3>
+                        <span class="tag tag-new">جديدة بالكامل</span>
+                    </div>
+                </div>
+                <p>لوحة تحكم جديدة تماماً خاصة بالوكيل (صاحب الدولة). هي أهم إضافة في سوقك لأنها تدير كل شيء في الدولة.</p>
+                <ul>
+                    <li>إنشاء وإدارة المناطق (الزونات) داخل الدولة</li>
+                    <li>إنشاء حسابات مديري المناطق وتحديد نسبهم</li>
+                    <li>ربط بوابة الدفع الخاصة بالدولة</li>
+                    <li>تحديد أسعار وسياسات التوصيل</li>
+                    <li>تحديد سياسات التوصيل العامة للدولة</li>
+                    <li>إنشاء الكوبونات والعروض الترويجية</li>
+                    <li>إدارة الدعم الفني وخدمة العملاء (شات)</li>
+                    <li>التقارير المالية للدولة</li>
+                    <li>إدارة بوابات الدفع المتاحة في الدولة</li>
+                </ul>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>ملاحظة تقنية:</strong> هذه اللوحة يجب بناؤها من الصفر. يمكن الاستفادة من مكونات لوحة الأدمن الأصلية كقاعدة، مع تعديل الصلاحيات والبيانات المعروضة.
+                </div>
+            </div>
+
+            <!-- Zone Manager Panel -->
+            <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF9800;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#FFF3E0; color:#E65100;">&#128205;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">لوحة مدير المنطقة</h3>
+                        <span class="tag tag-modified">جديدة / معدّلة</span>
+                    </div>
+                </div>
+                <p>لوحة خاصة بمدير المنطقة (البوابة/الزون). تركز على إدارة التجار في المنطقة والتقارير المالية.</p>
+                <ul>
+                    <li>عرض وإدارة التجار المسجلين في المنطقة</li>
+                    <li>قبول/رفض طلبات التجار الجدد</li>
+                    <li>قبول/رفض طلبات سائقي التوصيل في منطقته</li>
+                    <li>إدارة سائقي التوصيل في المنطقة</li>
+                    <li>متابعة أداء التجار</li>
+                    <li>التقارير المالية الخاصة بالمنطقة فقط</li>
+                    <li>عرض نسبته وأرباحه من حصة الوكيل</li>
+                </ul>
+            </div>
+
+            <!-- Merchant Panel -->
+            <div class="card" style="border-right: 4px solid #9C27B0;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0; background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
+                    <div>
+                        <h3 style="margin-bottom:2px;">لوحة التاجر</h3>
+                        <span class="tag">موجودة في 6amMart — تحتاج تعديل</span>
+                    </div>
+                </div>
+                <p>لوحة التحكم الخاصة بالتاجر لإدارة متجره ومنتجاته وطلباته من المتصفح.</p>
+                <ul>
+                    <li>تخصيص صفحة المتجر (ألوان، وصف، صور، بيانات تواصل)</li>
+                    <li>إضافة وإدارة المنتجات والتصنيفات</li>
+                    <li>استقبال وإدارة الطلبات</li>
+                    <li>التقارير المالية والمبيعات</li>
+                    <li>إدارة نظام نقطة البيع (POS) حسب الباقة</li>
+                    <li>الشات مع العملاء (حسب الباقة)</li>
+                    <li>إدارة العروض والخصومات على المنتجات</li>
+                    <li>اختيار/تغيير نظام الدفع (اشتراك أو عمولة)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Apps -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128242;</span>
+                تطبيقات الموبايل
+            </h2>
+
+            <div class="cards-grid">
+                <!-- Customer App -->
+                <div class="card" style="border-top: 4px solid #00BCD4;">
+                    <div class="card-icon" style="background:#E0F7FA; color:#00838F;">&#128722;</div>
+                    <h3>تطبيق العميل</h3>
+                    <p style="margin-bottom:1rem;">التطبيق الرئيسي الذي يستخدمه المشتري للتسوق والطلب.</p>
+                    <ul>
+                        <li>تصفح المتاجر والمنتجات (في دولته فقط)</li>
+                        <li>البحث المتقدم عن المنتجات</li>
+                        <li>إضافة للسلة وإتمام الشراء</li>
+                        <li>تتبع حالة الطلب في الوقت الفعلي</li>
+                        <li>الدفع عبر بوابات الدفع المحلية</li>
+                        <li>محفظة داخلية</li>
+                        <li>نظام إحالة الأصدقاء (Referral)</li>
+                        <li>تقييم المتاجر والمنتجات</li>
+                        <li>الشات مع التاجر / السائق / خدمة العملاء</li>
+                        <li>سجل الطلبات السابقة</li>
+                        <li>العناوين المحفوظة</li>
+                    </ul>
+                    <div class="info-box" style="margin-top:1rem;">
+                        <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart ويحتاج تعديل لدعم نظام الدول والعملات المتعددة.
+                    </div>
+                </div>
+
+                <!-- Merchant App -->
+                <div class="card" style="border-top: 4px solid #9C27B0;">
+                    <div class="card-icon" style="background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
+                    <h3>تطبيق التاجر</h3>
+                    <p style="margin-bottom:1rem;">تطبيق موبايل للتاجر لإدارة متجره وطلباته أثناء التنقل.</p>
+                    <ul>
+                        <li>استقبال إشعارات الطلبات الجديدة فوراً</li>
+                        <li>قبول/رفض الطلبات</li>
+                        <li>تتبع حالة الطلبات</li>
+                        <li>إدارة المنتجات (إضافة، تعديل، حذف)</li>
+                        <li>التقارير السريعة</li>
+                        <li>الشات مع العملاء</li>
+                        <li>تشغيل/إيقاف المتجر مؤقتاً</li>
+                    </ul>
+                    <div class="info-box" style="margin-top:1rem;">
+                        <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart ويحتاج تعديلات بسيطة.
+                    </div>
+                </div>
+
+                <!-- Delivery App -->
+                <div class="card" style="border-top: 4px solid #FF5722;">
+                    <div class="card-icon" style="background:#FBE9E7; color:#D84315;">&#128666;</div>
+                    <h3>تطبيق سائق التوصيل</h3>
+                    <p style="margin-bottom:1rem;">تطبيق خاص بسائقي التوصيل لاستقبال وتنفيذ طلبات التوصيل.</p>
+                    <ul>
+                        <li>استقبال طلبات التوصيل الجديدة</li>
+                        <li>قبول/رفض الطلبات</li>
+                        <li>الملاحة والتوجيه لعنوان التاجر والعميل</li>
+                        <li>تحديث حالة التوصيل</li>
+                        <li>الشات مع العميل والتاجر</li>
+                        <li>سجل التوصيلات والأرباح</li>
+                        <li>تشغيل/إيقاف وضع الاستقبال</li>
+                    </ul>
+                    <div class="info-box" style="margin-top:1rem;">
+                        <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart. التعديل الرئيسي: قبول/رفض السائقين يتم من مدير المنطقة بدلاً من الأدمن. بالإضافة لدعم سائقي التاجر الخاصين (موجود أصلاً في 6amMart).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Summary -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128466;</span>
+                ملخص البنية
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الواجهة</th>
+                            <th>النوع</th>
+                            <th>التقنية</th>
+                            <th>الحالة</th>
+                            <th>المستخدم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>لوحة الأدمن</td>
+                            <td>ويب</td>
+                            <td>Laravel (Blade)</td>
+                            <td><span class="tag tag-modified">تحتاج تعديل</span></td>
+                            <td>مالك المنصة</td>
+                        </tr>
+                        <tr>
+                            <td>لوحة الوكيل</td>
+                            <td>ويب</td>
+                            <td>Laravel (Blade)</td>
+                            <td><span class="tag tag-new">جديدة بالكامل</span></td>
+                            <td>صاحب الدولة</td>
+                        </tr>
+                        <tr>
+                            <td>لوحة مدير المنطقة</td>
+                            <td>ويب</td>
+                            <td>Laravel (Blade)</td>
+                            <td><span class="tag tag-new">جديدة بالكامل</span></td>
+                            <td>مدير الزون</td>
+                        </tr>
+                        <tr>
+                            <td>لوحة التاجر</td>
+                            <td>ويب</td>
+                            <td>Laravel (Blade)</td>
+                            <td><span class="tag tag-modified">تحتاج تعديل</span></td>
+                            <td>صاحب المتجر</td>
+                        </tr>
+                        <tr>
+                            <td>تطبيق العميل</td>
+                            <td>موبايل</td>
+                            <td>Flutter</td>
+                            <td><span class="tag tag-modified">تحتاج تعديل</span></td>
+                            <td>المشتري</td>
+                        </tr>
+                        <tr>
+                            <td>تطبيق التاجر</td>
+                            <td>موبايل</td>
+                            <td>Flutter</td>
+                            <td><span class="tag tag-modified">تحتاج تعديل</span></td>
+                            <td>صاحب المتجر</td>
+                        </tr>
+                        <tr>
+                            <td>تطبيق التوصيل</td>
+                            <td>موبايل</td>
+                            <td>Flutter</td>
+                            <td><span class="tag tag-modified">تحتاج تعديل</span></td>
+                            <td>سائق التوصيل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>سوقك &copy; 2026 — دليل المشروع | <a href="../index.html">العودة للمشاريع</a></p>
+    </footer>
 </div>
-
-<!-- Breadcrumb -->
-<div class="container">
-    <div class="breadcrumb">
-        <a href="index.html">الرئيسية</a> &larr; التطبيقات ولوحات التحكم
-    </div>
-</div>
-
-<!-- Overview -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128241;</span>
-            نظرة عامة
-        </h2>
-        <p class="section-desc">منظومة سوقك تتكون من 7 واجهات مختلفة — 4 لوحات تحكم (ويب) و 3 تطبيقات موبايل:</p>
-
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span class="stat-number">4</span>
-                <span class="stat-label">لوحات تحكم (ويب)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">تطبيقات موبايل</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">7</span>
-                <span class="stat-label">إجمالي الواجهات</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Web Panels -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128187;</span>
-            لوحات التحكم (ويب)
-        </h2>
-
-        <!-- Admin Panel -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid var(--primary);">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:var(--primary); color:white;">&#128081;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">لوحة الأدمن</h3>
-                    <span class="tag">موجودة في 6amMart — تحتاج تعديل</span>
-                </div>
-            </div>
-            <p>لوحة التحكم الرئيسية لمالك المنصة. تتحكم في كل الإعدادات العامة وإدارة الدول والوكلاء.</p>
-            <ul>
-                <li>إنشاء وإدارة الدول (مع تحديد العملة لكل دولة)</li>
-                <li>إنشاء حسابات الوكلاء وربطهم بالدول</li>
-                <li>تحديد نسبة الأدمن من إيرادات كل دولة</li>
-                <li>إدارة أنواع المتاجر (مطاعم، بقالة، صيدلية...)</li>
-                <li>التقارير المالية الشاملة لكل الدول</li>
-                <li>إعدادات المنصة العامة (اللغات، الإشعارات...)</li>
-                <li>إدارة باقات الاشتراك</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>التعديل المطلوب:</strong> إضافة نظام إدارة الدول والوكلاء، وتحويل بعض الصلاحيات (التوصيل، الدعم، الكوبونات) من الأدمن إلى الوكيل.
-            </div>
-        </div>
-
-        <!-- Agent Panel -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #2196F3;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#E3F2FD; color:#1565C0;">&#127758;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">لوحة الوكيل</h3>
-                    <span class="tag tag-new">جديدة بالكامل</span>
-                </div>
-            </div>
-            <p>لوحة تحكم جديدة تماماً خاصة بالوكيل (صاحب الدولة). هي أهم إضافة في سوقك لأنها تدير كل شيء في الدولة.</p>
-            <ul>
-                <li>إنشاء وإدارة المناطق (الزونات) داخل الدولة</li>
-                <li>إنشاء حسابات مديري المناطق وتحديد نسبهم</li>
-                <li>ربط بوابة الدفع الخاصة بالدولة</li>
-                <li>تحديد أسعار وسياسات التوصيل</li>
-                <li>تحديد سياسات التوصيل العامة للدولة</li>
-                <li>إنشاء الكوبونات والعروض الترويجية</li>
-                <li>إدارة الدعم الفني وخدمة العملاء (شات)</li>
-                <li>التقارير المالية للدولة</li>
-                <li>إدارة بوابات الدفع المتاحة في الدولة</li>
-            </ul>
-            <div class="info-box" style="margin-top:1rem;">
-                <strong>ملاحظة تقنية:</strong> هذه اللوحة يجب بناؤها من الصفر. يمكن الاستفادة من مكونات لوحة الأدمن الأصلية كقاعدة، مع تعديل الصلاحيات والبيانات المعروضة.
-            </div>
-        </div>
-
-        <!-- Zone Manager Panel -->
-        <div class="card" style="margin-bottom: 1.5rem; border-right: 4px solid #FF9800;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#FFF3E0; color:#E65100;">&#128205;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">لوحة مدير المنطقة</h3>
-                    <span class="tag tag-modified">جديدة / معدّلة</span>
-                </div>
-            </div>
-            <p>لوحة خاصة بمدير المنطقة (البوابة/الزون). تركز على إدارة التجار في المنطقة والتقارير المالية.</p>
-            <ul>
-                <li>عرض وإدارة التجار المسجلين في المنطقة</li>
-                <li>قبول/رفض طلبات التجار الجدد</li>
-                <li>قبول/رفض طلبات سائقي التوصيل في منطقته</li>
-                <li>إدارة سائقي التوصيل في المنطقة</li>
-                <li>متابعة أداء التجار</li>
-                <li>التقارير المالية الخاصة بالمنطقة فقط</li>
-                <li>عرض نسبته وأرباحه من حصة الوكيل</li>
-            </ul>
-        </div>
-
-        <!-- Merchant Panel -->
-        <div class="card" style="border-right: 4px solid #9C27B0;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0; background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
-                <div>
-                    <h3 style="margin-bottom:2px;">لوحة التاجر</h3>
-                    <span class="tag">موجودة في 6amMart — تحتاج تعديل</span>
-                </div>
-            </div>
-            <p>لوحة التحكم الخاصة بالتاجر لإدارة متجره ومنتجاته وطلباته من المتصفح.</p>
-            <ul>
-                <li>تخصيص صفحة المتجر (ألوان، وصف، صور، بيانات تواصل)</li>
-                <li>إضافة وإدارة المنتجات والتصنيفات</li>
-                <li>استقبال وإدارة الطلبات</li>
-                <li>التقارير المالية والمبيعات</li>
-                <li>إدارة نظام نقطة البيع (POS) حسب الباقة</li>
-                <li>الشات مع العملاء (حسب الباقة)</li>
-                <li>إدارة العروض والخصومات على المنتجات</li>
-                <li>اختيار/تغيير نظام الدفع (اشتراك أو عمولة)</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Mobile Apps -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128242;</span>
-            تطبيقات الموبايل
-        </h2>
-
-        <div class="cards-grid">
-            <!-- Customer App -->
-            <div class="card" style="border-top: 4px solid #00BCD4;">
-                <div class="card-icon" style="background:#E0F7FA; color:#00838F;">&#128722;</div>
-                <h3>تطبيق العميل</h3>
-                <p style="margin-bottom:1rem;">التطبيق الرئيسي الذي يستخدمه المشتري للتسوق والطلب.</p>
-                <ul>
-                    <li>تصفح المتاجر والمنتجات (في دولته فقط)</li>
-                    <li>البحث المتقدم عن المنتجات</li>
-                    <li>إضافة للسلة وإتمام الشراء</li>
-                    <li>تتبع حالة الطلب في الوقت الفعلي</li>
-                    <li>الدفع عبر بوابات الدفع المحلية</li>
-                    <li>محفظة داخلية</li>
-                    <li>نظام إحالة الأصدقاء (Referral)</li>
-                    <li>تقييم المتاجر والمنتجات</li>
-                    <li>الشات مع التاجر / السائق / خدمة العملاء</li>
-                    <li>سجل الطلبات السابقة</li>
-                    <li>العناوين المحفوظة</li>
-                </ul>
-                <div class="info-box" style="margin-top:1rem;">
-                    <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart ويحتاج تعديل لدعم نظام الدول والعملات المتعددة.
-                </div>
-            </div>
-
-            <!-- Merchant App -->
-            <div class="card" style="border-top: 4px solid #9C27B0;">
-                <div class="card-icon" style="background:#F3E5F5; color:#7B1FA2;">&#127981;</div>
-                <h3>تطبيق التاجر</h3>
-                <p style="margin-bottom:1rem;">تطبيق موبايل للتاجر لإدارة متجره وطلباته أثناء التنقل.</p>
-                <ul>
-                    <li>استقبال إشعارات الطلبات الجديدة فوراً</li>
-                    <li>قبول/رفض الطلبات</li>
-                    <li>تتبع حالة الطلبات</li>
-                    <li>إدارة المنتجات (إضافة، تعديل، حذف)</li>
-                    <li>التقارير السريعة</li>
-                    <li>الشات مع العملاء</li>
-                    <li>تشغيل/إيقاف المتجر مؤقتاً</li>
-                </ul>
-                <div class="info-box" style="margin-top:1rem;">
-                    <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart ويحتاج تعديلات بسيطة.
-                </div>
-            </div>
-
-            <!-- Delivery App -->
-            <div class="card" style="border-top: 4px solid #FF5722;">
-                <div class="card-icon" style="background:#FBE9E7; color:#D84315;">&#128666;</div>
-                <h3>تطبيق سائق التوصيل</h3>
-                <p style="margin-bottom:1rem;">تطبيق خاص بسائقي التوصيل لاستقبال وتنفيذ طلبات التوصيل.</p>
-                <ul>
-                    <li>استقبال طلبات التوصيل الجديدة</li>
-                    <li>قبول/رفض الطلبات</li>
-                    <li>الملاحة والتوجيه لعنوان التاجر والعميل</li>
-                    <li>تحديث حالة التوصيل</li>
-                    <li>الشات مع العميل والتاجر</li>
-                    <li>سجل التوصيلات والأرباح</li>
-                    <li>تشغيل/إيقاف وضع الاستقبال</li>
-                </ul>
-                <div class="info-box" style="margin-top:1rem;">
-                    <strong>تقنياً:</strong> مبني بـ Flutter — موجود في 6amMart. التعديل الرئيسي: قبول/رفض السائقين يتم من مدير المنطقة بدلاً من الأدمن. بالإضافة لدعم سائقي التاجر الخاصين (موجود أصلاً في 6amMart).
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Architecture Summary -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128466;</span>
-            ملخص البنية
-        </h2>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>الواجهة</th>
-                        <th>النوع</th>
-                        <th>التقنية</th>
-                        <th>الحالة</th>
-                        <th>المستخدم</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>لوحة الأدمن</td>
-                        <td>ويب</td>
-                        <td>Laravel (Blade)</td>
-                        <td><span class="tag tag-modified">تحتاج تعديل</span></td>
-                        <td>مالك المنصة</td>
-                    </tr>
-                    <tr>
-                        <td>لوحة الوكيل</td>
-                        <td>ويب</td>
-                        <td>Laravel (Blade)</td>
-                        <td><span class="tag tag-new">جديدة بالكامل</span></td>
-                        <td>صاحب الدولة</td>
-                    </tr>
-                    <tr>
-                        <td>لوحة مدير المنطقة</td>
-                        <td>ويب</td>
-                        <td>Laravel (Blade)</td>
-                        <td><span class="tag tag-new">جديدة بالكامل</span></td>
-                        <td>مدير الزون</td>
-                    </tr>
-                    <tr>
-                        <td>لوحة التاجر</td>
-                        <td>ويب</td>
-                        <td>Laravel (Blade)</td>
-                        <td><span class="tag tag-modified">تحتاج تعديل</span></td>
-                        <td>صاحب المتجر</td>
-                    </tr>
-                    <tr>
-                        <td>تطبيق العميل</td>
-                        <td>موبايل</td>
-                        <td>Flutter</td>
-                        <td><span class="tag tag-modified">تحتاج تعديل</span></td>
-                        <td>المشتري</td>
-                    </tr>
-                    <tr>
-                        <td>تطبيق التاجر</td>
-                        <td>موبايل</td>
-                        <td>Flutter</td>
-                        <td><span class="tag tag-modified">تحتاج تعديل</span></td>
-                        <td>صاحب المتجر</td>
-                    </tr>
-                    <tr>
-                        <td>تطبيق التوصيل</td>
-                        <td>موبايل</td>
-                        <td>Flutter</td>
-                        <td><span class="tag tag-modified">تحتاج تعديل</span></td>
-                        <td>سائق التوصيل</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>سوقك &copy; 2026 — دليل المشروع الداخلي | <a href="index.html">الرئيسية</a></p>
-</footer>
-
 <script src="../shared/main.js"></script>
 </body>
 </html>

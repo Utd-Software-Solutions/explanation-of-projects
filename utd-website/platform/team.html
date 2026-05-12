@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Software Solutions — إدارة الفريق</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="../index.html" class="sidebar-logo"><div class="logo-icon">U</div> UTD Software Solutions</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">المنصة الرئيسية <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../index.html">نظرة عامة</a>
+                <a href="wallet.html">المحفظة الأم</a>
+                <a href="billing.html">الفوترة الموحدة</a>
+                <a href="team.html" class="active">إدارة الفريق</a>
+                <a href="activate.html">تفعيل الخدمات</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">UTD Stream <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../stream/index.html">نظرة عامة</a>
+                <a href="../stream/services.html">الخدمات</a>
+                <a href="../stream/pricing.html">الأسعار</a>
+                <a href="../stream/dashboard.html">لوحة التحكم</a>
+                <a href="../stream/projects.html">المشاريع</a>
+                <a href="../stream/usage.html">الاستهلاك</a>
+                <a href="../stream/wallet.html">محفظة Stream</a>
+                <a href="../stream/packages.html">الباقات</a>
+                <a href="../stream/invoices.html">الفواتير</a>
+                <a href="../stream/analytics/index.html">لوحة التحليلات</a>
+                <a href="../stream/docs.html">التوثيق</a>
+                <a href="../stream/support.html">الدعم</a>
+                <a href="../stream/journey.html">رحلة العميل</a>
+                <a href="../stream/usecases.html">حالات الاستخدام</a>
+                <a href="../stream/landing.html">اللاندنج بيج</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD OTP — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Games — قريباً</a>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">UTD Dev <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../dev/index.html">نظرة عامة</a>
+                <a href="../dev/product.html">منتج ابن تطبيقك</a>
+                <a href="../dev/marketplace.html">المتجر</a>
+                <a href="../dev/developers.html">للمطورين</a>
+                <a href="../dev/pricing.html">الأسعار والباقات</a>
+                <a href="../dev/dashboard.html">لوحة التحكم</a>
+                <a href="../dev/wallet.html">محفظة Dev</a>
+                <a href="../dev/support.html">الدعم</a>
+                <a href="../dev/journey.html">رحلة العميل</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD Cloud — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Realtime — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Pay — قريباً</a>
+        <div class="sidebar-divider"></div>
+        <a href="../../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- إدارة الفريق -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128101;</span>
+                إدارة الفريق
+            </h2>
+            <p class="section-desc">العميل يقدر يضيف أعضاء فريقه بأدوار مختلفة. لا حاجة لمشاركة بيانات الحساب مع أي شخص — كل عضو يدخل بحسابه الخاص وبصلاحياته المحددة.</p>
+        </div>
+    </section>
+
+    <!-- الأدوار والصلاحيات -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128274;</span>
+                الأدوار والصلاحيات
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>الدور</th><th>الصلاحيات الكاملة</th><th>القيود</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>المالك (Owner)</strong></td>
+                            <td>صلاحيات كاملة — كل شيء بدون استثناء</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مدير (Admin)</strong></td>
+                            <td>إدارة المشاريع + المحفظة + الفريق + الفوترة + الخدمات</td>
+                            <td>لا يمكنه حذف الحساب أو تغيير المالك</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مطور (Developer)</strong></td>
+                            <td>إدارة المشاريع + عرض بيانات الاعتماد (API Keys) + التوثيق</td>
+                            <td>قراءة فقط للمعلومات المالية — لا وصول للمحفظة أو الفوترة أو الفريق</td>
+                        </tr>
+                        <tr>
+                            <td><strong>محاسب (Billing)</strong></td>
+                            <td>المحفظة + الفواتير + الباقات + سجل المعاملات</td>
+                            <td>لا وصول للمشاريع أو المفاتيح أو الإعدادات التقنية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مشاهد (Viewer)</strong></td>
+                            <td>عرض كل شيء — قراءة فقط</td>
+                            <td>لا يمكنه تعديل أي شيء</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- إضافة عضو جديد -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#10133;</span>
+                كيف يضيف العميل عضو جديد
+            </h2>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>إدخال إيميل العضو</h4>
+                        <p>العميل يدخل البريد الإلكتروني للعضو الجديد.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>اختيار الدور</h4>
+                        <p>يختار الدور المناسب: مدير، مطور، محاسب، أو مشاهد.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>تحديد الخدمات المتاحة</h4>
+                        <p>يحدد أي خدمات يقدر العضو يشوفها — أو يختار "جميع الخدمات".</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>إرسال الدعوة</h4>
+                        <p>يضغط "إرسال الدعوة" ← العضو يستلم إيميل بالرابط.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>العضو ينضم</h4>
+                        <p>العضو ينشئ حسابه ← يدخل الداشبورد بصلاحياته المحددة فوراً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قائمة الأعضاء -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128203;</span>
+                قائمة الأعضاء
+            </h2>
+            <p class="section-desc">المالك والمدير يشوفان قائمة بجميع أعضاء الفريق مع تفاصيل كل عضو:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>الاسم</th><th>الإيميل</th><th>الدور</th><th>الخدمات</th><th>تاريخ الانضمام</th><th>الإجراءات</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>أحمد محمد</td>
+                            <td>ahmed@company.com</td>
+                            <td><span class="tag">المالك</span></td>
+                            <td>الكل</td>
+                            <td>15 يناير 2024</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>سارة علي</td>
+                            <td>sara@company.com</td>
+                            <td><span class="tag">مدير</span></td>
+                            <td>الكل</td>
+                            <td>20 مارس 2024</td>
+                            <td>تعديل | إزالة</td>
+                        </tr>
+                        <tr>
+                            <td>خالد يوسف</td>
+                            <td>khaled@company.com</td>
+                            <td><span class="tag">مطور</span></td>
+                            <td>Stream, Cloud</td>
+                            <td>5 يونيو 2024</td>
+                            <td>تعديل | إزالة</td>
+                        </tr>
+                        <tr>
+                            <td>فاطمة حسن</td>
+                            <td>fatma@company.com</td>
+                            <td><span class="tag">محاسب</span></td>
+                            <td>الكل</td>
+                            <td>10 أغسطس 2024</td>
+                            <td>تعديل | إزالة</td>
+                        </tr>
+                        <tr>
+                            <td>عمر سعيد</td>
+                            <td>omar@company.com</td>
+                            <td><span class="tag">مشاهد</span></td>
+                            <td>Stream</td>
+                            <td>1 نوفمبر 2024</td>
+                            <td>تعديل | إزالة</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- تقييد على مستوى الخدمة -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128295;</span>
+                تقييد على مستوى الخدمة
+            </h2>
+
+            <div class="card">
+                <h3>صلاحيات دقيقة لكل خدمة</h3>
+                <p>المالك يقدر يحدد لكل عضو أي خدمات يشوفها بالضبط. مثلاً:</p>
+                <ul style="margin-top:1rem;">
+                    <li>مطور مقيّد بـ Stream فقط — لا يشوف Cloud ولا OTP</li>
+                    <li>محاسب يشوف فواتير كل الخدمات لكن ما يقدر يدخل المشاريع</li>
+                    <li>مشاهد مقيّد بـ Stream — يشوف الإحصائيات بس لخدمة واحدة</li>
+                </ul>
+            </div>
+
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>الفائدة:</strong> التحكم الدقيق يحمي البيانات الحساسة. الفريق التقني يشوف بس اللي يخصه، وفريق المحاسبة يشوف بس الأرقام.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../../shared/main.js"></script>
+</body>
+</html>

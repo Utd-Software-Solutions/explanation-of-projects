@@ -7,539 +7,542 @@
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="assets/theme.css">
 </head>
-<body>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> سوقك</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-label">أقسام الدليل</div>
+        <div class="sidebar-section open">
+            <button class="sidebar-section-title">سوقك <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">الرئيسية</a>
+                <a href="hierarchy.html">الهيكل التنظيمي</a>
+                <a href="revenue.html">الإيرادات</a>
+                <a href="plans.html">الباقات</a>
+                <a href="apps.html">التطبيقات</a>
+                <a href="differences.html">الفروقات عن 6amMart</a>
+                <a href="technical.html" class="active">الملاحظات التقنية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
 
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">S</div>
-            سوقك
-        </a>
-        <button class="nav-toggle">&#9776;</button>
-        <ul class="nav-links">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="hierarchy.html">الهيكل التنظيمي</a></li>
-            <li><a href="revenue.html">الإيرادات</a></li>
-            <li><a href="plans.html">الباقات</a></li>
-            <li><a href="apps.html">التطبيقات</a></li>
-            <li><a href="differences.html">الفروقات</a></li>
-            <li><a href="technical.html" class="active">التقنية</a></li>
-        </ul>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>الملاحظات التقنية</h1>
+        <p>التقنيات المستخدمة والتعديلات المطلوبة على الكود — دليل Tech Lead</p>
     </div>
-</nav>
 
-<!-- Page Header -->
-<div class="page-header">
-    <h1>الملاحظات التقنية</h1>
-    <p>التقنيات المستخدمة والتعديلات المطلوبة على الكود — دليل Tech Lead</p>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a> &larr; الملاحظات التقنية
+        </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128736;</span>
+                البنية التقنية الحالية
+            </h2>
+            <p class="section-desc">سوقك مبني على 6amMart من CodeCanyon. هذه هي التقنيات الأساسية:</p>
+
+            <div class="cards-grid cards-grid-3">
+                <div class="card" style="border-top: 4px solid #FF2D20;">
+                    <div class="card-icon" style="background:#FFEBEE; color:#FF2D20; font-weight:700;">L</div>
+                    <h3>Laravel (PHP)</h3>
+                    <p>الباك إند بالكامل — API، لوحات التحكم (Blade)، قاعدة البيانات (MySQL)، والمصادقة.</p>
+                    <ul>
+                        <li>REST API للتطبيقات</li>
+                        <li>Blade Templates للوحات التحكم</li>
+                        <li>Eloquent ORM لقاعدة البيانات</li>
+                        <li>Laravel Middleware للصلاحيات</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top: 4px solid #0175C2;">
+                    <div class="card-icon" style="background:#E3F2FD; color:#0175C2; font-weight:700;">F</div>
+                    <h3>Flutter (Dart)</h3>
+                    <p>تطبيقات الموبايل الثلاثة — العميل، التاجر، وسائق التوصيل. كلها Flutter.</p>
+                    <ul>
+                        <li>تطبيق العميل (Customer App)</li>
+                        <li>تطبيق التاجر (Store App)</li>
+                        <li>تطبيق التوصيل (Delivery App)</li>
+                        <li>GetX لإدارة الحالة</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top: 4px solid #00758F;">
+                    <div class="card-icon" style="background:#E0F7FA; color:#00758F; font-weight:700;">M</div>
+                    <h3>MySQL</h3>
+                    <p>قاعدة البيانات الرئيسية. تحتاج تعديلات جوهرية لدعم نظام الوكلاء.</p>
+                    <ul>
+                        <li>جداول جديدة للدول والوكلاء</li>
+                        <li>تعديل العلاقات الموجودة</li>
+                        <li>إضافة حقول العملة لكل دولة</li>
+                        <li>فهارس للأداء</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Changes -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128451;</span>
+                تعديلات قاعدة البيانات
+            </h2>
+            <p class="section-desc">هذه أهم التعديلات المطلوبة على مستوى قاعدة البيانات:</p>
+
+            <!-- New Tables -->
+            <h3 style="margin: 2rem 0 1rem; font-size: 1.2rem;">جداول جديدة مطلوبة:</h3>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3 style="display:flex; align-items:center; gap:8px;">
+                        <span class="tag tag-new">جديد</span>
+                        countries
+                    </h3>
+                    <p>جدول الدول — يحتوي على:</p>
+                    <ul>
+                        <li>اسم الدولة (عربي + إنجليزي)</li>
+                        <li>كود الدولة (ISO)</li>
+                        <li>العملة ورمزها</li>
+                        <li>نسبة الأدمن من إيرادات هذه الدولة</li>
+                        <li>الحالة (مفعّلة / معطّلة)</li>
+                        <li>بوابات الدفع المتاحة</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="display:flex; align-items:center; gap:8px;">
+                        <span class="tag tag-new">جديد</span>
+                        agents
+                    </h3>
+                    <p>جدول الوكلاء — يحتوي على:</p>
+                    <ul>
+                        <li>بيانات الوكيل (مرتبط بجدول users)</li>
+                        <li>الدولة المسؤول عنها (country_id)</li>
+                        <li>بيانات بوابة الدفع الخاصة به</li>
+                        <li>إعدادات التوصيل في دولته</li>
+                        <li>نسبته من الإيرادات</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="display:flex; align-items:center; gap:8px;">
+                        <span class="tag tag-new">جديد</span>
+                        zone_managers
+                    </h3>
+                    <p>جدول مديري المناطق — يحتوي على:</p>
+                    <ul>
+                        <li>بيانات المدير (مرتبط بجدول users)</li>
+                        <li>المنطقة المسؤول عنها (zone_id)</li>
+                        <li>نسبته من حصة الوكيل</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="display:flex; align-items:center; gap:8px;">
+                        <span class="tag tag-new">جديد</span>
+                        agent_payment_gateways
+                    </h3>
+                    <p>بوابات الدفع لكل وكيل:</p>
+                    <ul>
+                        <li>نوع البوابة (Fawry, PayMob, Stripe...)</li>
+                        <li>بيانات الربط (API keys, secrets)</li>
+                        <li>مرتبطة بالوكيل (agent_id)</li>
+                        <li>الحالة (مفعّلة / معطّلة)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="display:flex; align-items:center; gap:8px;">
+                        <span class="tag tag-new">جديد</span>
+                        monthly_invoices
+                    </h3>
+                    <p>الفواتير الشهرية التلقائية:</p>
+                    <ul>
+                        <li>الدولة والوكيل (country_id, agent_id)</li>
+                        <li>الشهر والسنة</li>
+                        <li>إجمالي الإيرادات</li>
+                        <li>نسبة ومبلغ الأدمن المطلوب</li>
+                        <li>الحالة (معلّقة / مدفوعة / متأخرة)</li>
+                        <li>تاريخ الدفع</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Modified Tables -->
+            <h3 style="margin: 2rem 0 1rem; font-size: 1.2rem;">جداول تحتاج تعديل:</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الجدول</th>
+                            <th>التعديل المطلوب</th>
+                            <th>السبب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>zones</strong></td>
+                            <td>إضافة country_id + zone_manager_id + commission_rate</td>
+                            <td>ربط الزون بالدولة ومدير المنطقة ونسبته</td>
+                        </tr>
+                        <tr>
+                            <td><strong>stores</strong></td>
+                            <td>إضافة country_id + حقول التخصيص (colors, description, contact_info)</td>
+                            <td>ربط المتجر بالدولة وتمكين التخصيص الكامل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>users</strong></td>
+                            <td>إضافة role (agent, zone_manager) + country_id</td>
+                            <td>دعم الأدوار الجديدة وربطها بالدول</td>
+                        </tr>
+                        <tr>
+                            <td><strong>orders</strong></td>
+                            <td>إضافة country_id + currency</td>
+                            <td>تتبع الطلبات حسب الدولة والعملة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>delivery_men</strong></td>
+                            <td>إضافة country_id + zone_id + approved_by (zone_manager) + is_store_driver + store_id</td>
+                            <td>ربط السائق بالمنطقة ومديرها، ودعم سائقي التاجر الخاصين</td>
+                        </tr>
+                        <tr>
+                            <td><strong>coupons</strong></td>
+                            <td>إضافة country_id + created_by_agent</td>
+                            <td>الكوبونات تُنشأ من الوكيل لدولته</td>
+                        </tr>
+                        <tr>
+                            <td><strong>subscription_packages</strong></td>
+                            <td>إضافة حقول الميزات (has_pos, has_chat, max_products, max_orders...)</td>
+                            <td>دعم الباقات المتعددة المستويات</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backend Changes -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#9881;</span>
+                تعديلات الباك إند (Laravel)
+            </h2>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>نظام الصلاحيات المتعدد المستويات</h4>
+                        <p>إنشاء Middleware جديد يفحص دور المستخدم (admin, agent, zone_manager, store) ويحدد البيانات التي يمكنه الوصول إليها. كل دور يرى فقط البيانات المرتبطة بنطاقه (دولته أو منطقته).</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>API Scoping حسب الدولة</h4>
+                        <p>كل API endpoint يجب أن يُفلتر حسب الدولة. العميل يرى متاجر دولته فقط. الوكيل يدير بيانات دولته فقط. هذا يتطلب Global Scope أو Middleware على مستوى الـ Query.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>لوحة الوكيل (جديدة)</h4>
+                        <p>بناء لوحة تحكم كاملة للوكيل بـ Laravel Blade. تشمل: إدارة المناطق، مديري المناطق، التوصيل، بوابات الدفع، الكوبونات، الدعم الفني، والتقارير المالية.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>لوحة مدير المنطقة (جديدة)</h4>
+                        <p>لوحة مبسطة لمدير المنطقة: إدارة التجار في منطقته، التقارير المالية الخاصة بمنطقته فقط.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>نظام بوابات الدفع المتعددة</h4>
+                        <p>تعديل Payment Gateway logic بحيث تُحمّل بيانات البوابة من جدول الوكيل وليس من إعدادات الأدمن. كل وكيل يربط بواباته الخاصة.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">6</div>
+                    <div class="flow-step-content">
+                        <h4>نظام العملات</h4>
+                        <p>إضافة دعم العملات المتعددة: عرض الأسعار بعملة الدولة، حساب الإيرادات والتقارير بالعملة المحلية.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">7</div>
+                    <div class="flow-step-content">
+                        <h4>نظام توزيع الأرباح</h4>
+                        <p>بناء Service لحساب توزيع الأرباح تلقائياً: حصة الأدمن، حصة الوكيل، حصة مدير المنطقة. مع تقارير شهرية لكل طرف.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">8</div>
+                    <div class="flow-step-content">
+                        <h4>تعديل لوحة الأدمن</h4>
+                        <p>إضافة إدارة الدول والوكلاء. إزالة صلاحيات التوصيل والدعم والكوبونات من الأدمن (تنتقل للوكيل).</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">9</div>
+                    <div class="flow-step-content">
+                        <h4>تعديل لوحة التاجر</h4>
+                        <p>إضافة خيارات تخصيص صفحة المتجر (ألوان، صور، وصف، بيانات تواصل). تطبيق قيود الباقات (حد المنتجات، حد الطلبات، الميزات المتاحة).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frontend/Mobile Changes -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128241;</span>
+                تعديلات الفرونت إند (Flutter)
+            </h2>
+
+            <div class="cards-grid">
+                <div class="card" style="border-top: 4px solid #00BCD4;">
+                    <h3>تطبيق العميل</h3>
+                    <ul>
+                        <li>إضافة شاشة اختيار/تحديد الدولة عند أول استخدام</li>
+                        <li>فلترة كل البيانات (متاجر، منتجات، عروض) حسب الدولة</li>
+                        <li>عرض الأسعار بعملة الدولة المحددة</li>
+                        <li>استخدام بوابة الدفع الخاصة بالدولة (بيانات الوكيل)</li>
+                        <li>توجيه الشات مع خدمة العملاء إلى الوكيل بدلاً من الأدمن</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top: 4px solid #9C27B0;">
+                    <h3>تطبيق التاجر</h3>
+                    <ul>
+                        <li>إضافة واجهة تخصيص صفحة المتجر</li>
+                        <li>تطبيق قيود الباقة (حد المنتجات، إخفاء ميزات غير متاحة)</li>
+                        <li>عرض العملة المحلية حسب الدولة</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top: 4px solid #FF5722;">
+                    <h3>تطبيق التوصيل</h3>
+                    <ul>
+                        <li>تعديل عملية التسجيل — طلب القبول يروح لمدير المنطقة مش الأدمن</li>
+                        <li>عرض العملة المحلية</li>
+                        <li>التوصيل محصور في نطاق المنطقة (الزون)</li>
+                        <li>دعم سائقي التاجر الخاصين (نفس التطبيق، تكلفة مختلفة)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Priority & Complexity -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128200;</span>
+                تقييم التعقيد والأولوية
+            </h2>
+            <p class="section-desc">ترتيب المهام حسب الأولوية والتعقيد — الأساسيات أولاً:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المهمة</th>
+                            <th>التعقيد</th>
+                            <th>الأولوية</th>
+                            <th>يعتمد على</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>تعديلات قاعدة البيانات (Migrations)</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>نظام الصلاحيات والأدوار</strong></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
+                            <td>المهمة 1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>نظام الدول والوكلاء (باك إند)</strong></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
+                            <td>المهمة 1, 2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>لوحة الوكيل</strong></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
+                            <td>المهمة 2, 3</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>نظام بوابات الدفع المتعددة</strong></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
+                            <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><strong>لوحة مدير المنطقة</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3, 4</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><strong>نظام العملات المتعددة</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><strong>تعديل لوحة الأدمن</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td><strong>نظام توزيع الأرباح</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3, 5</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td><strong>تعديل تطبيق العميل (Flutter)</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3, 5, 7</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td><strong>تعديل لوحة التاجر + تطبيق التاجر</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag">متوسطة</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td><strong>تعديل تطبيق التوصيل</strong></td>
+                            <td><span class="tag">منخفض</span></td>
+                            <td><span class="tag">متوسطة</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td><strong>باقات الاشتراك المتعددة</strong></td>
+                            <td><span class="tag">منخفض</span></td>
+                            <td><span class="tag">متوسطة</span></td>
+                            <td>المهمة 3</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td><strong>نظام الفواتير الشهرية التلقائية</strong></td>
+                            <td><span class="tag tag-modified">متوسط</span></td>
+                            <td><span class="tag tag-modified">عالية</span></td>
+                            <td>المهمة 3, 9</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td><strong>تخصيص صفحة التاجر</strong></td>
+                            <td><span class="tag">منخفض</span></td>
+                            <td><span class="tag">منخفضة</span></td>
+                            <td>المهمة 11</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>ملاحظة للـ Tech Lead:</strong> المهام 1-5 هي الأساس — بدونها لا يمكن المتابعة. ابدأ بها بالترتيب. المهام 6-10 تُبنى على الأساس. المهام 11-14 يمكن تنفيذها بالتوازي.
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Considerations -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128274;</span>
+                اعتبارات أمنية
+            </h2>
+
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>&#128272; عزل البيانات بين الدول</h3>
+                    <p>كل وكيل يجب أن يرى فقط بيانات دولته. لا يمكن لوكيل مصر الوصول لبيانات السعودية. هذا يتطلب فلترة صارمة على مستوى الـ Query وليس فقط الـ UI.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128273; حماية بيانات بوابات الدفع</h3>
+                    <p>بيانات بوابات الدفع (API keys, secrets) حساسة جداً. يجب تشفيرها في قاعدة البيانات وعدم عرضها في الـ API responses.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128737; التحقق من الصلاحيات</h3>
+                    <p>كل endpoint يجب أن يتحقق من: هل هذا المستخدم له الحق في هذا الإجراء؟ وهل البيانات المطلوبة تقع في نطاقه (دولته/منطقته)؟</p>
+                </div>
+                <div class="card">
+                    <h3>&#128176; حماية العمليات المالية</h3>
+                    <p>عمليات الدفع وتوزيع الأرباح يجب أن تكون atomic (معاملات قاعدة بيانات). أي خطأ يجب أن يُرجع كل شيء لحالته الأصلية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#127760;</span>
+                اللغات والتعريب
+            </h2>
+
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>المرحلة الأولى</h3>
+                    <ul>
+                        <li>العربية (RTL) — اللغة الأساسية</li>
+                        <li>الإنجليزية (LTR) — اللغة الثانوية</li>
+                    </ul>
+                    <p style="margin-top:1rem;">6amMart يدعم أصلاً تعدد اللغات عبر ملفات الترجمة. المطلوب: ترجمة كل النصوص الجديدة (الوكيل، مدير المنطقة، إلخ).</p>
+                </div>
+                <div class="card">
+                    <h3>المراحل اللاحقة</h3>
+                    <ul>
+                        <li>إضافة لغة كل دولة جديدة (تركي، أوردو، فرنسي...)</li>
+                        <li>الوكيل يحدد اللغات المتاحة في دولته</li>
+                    </ul>
+                    <p style="margin-top:1rem;">البنية موجودة — فقط إضافة ملفات ترجمة جديدة لكل لغة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>سوقك &copy; 2026 — دليل المشروع | <a href="../index.html">العودة للمشاريع</a></p>
+    </footer>
 </div>
-
-<!-- Breadcrumb -->
-<div class="container">
-    <div class="breadcrumb">
-        <a href="index.html">الرئيسية</a> &larr; الملاحظات التقنية
-    </div>
-</div>
-
-<!-- Tech Stack -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128736;</span>
-            البنية التقنية الحالية
-        </h2>
-        <p class="section-desc">سوقك مبني على 6amMart من CodeCanyon. هذه هي التقنيات الأساسية:</p>
-
-        <div class="cards-grid cards-grid-3">
-            <div class="card" style="border-top: 4px solid #FF2D20;">
-                <div class="card-icon" style="background:#FFEBEE; color:#FF2D20; font-weight:700;">L</div>
-                <h3>Laravel (PHP)</h3>
-                <p>الباك إند بالكامل — API، لوحات التحكم (Blade)، قاعدة البيانات (MySQL)، والمصادقة.</p>
-                <ul>
-                    <li>REST API للتطبيقات</li>
-                    <li>Blade Templates للوحات التحكم</li>
-                    <li>Eloquent ORM لقاعدة البيانات</li>
-                    <li>Laravel Middleware للصلاحيات</li>
-                </ul>
-            </div>
-            <div class="card" style="border-top: 4px solid #0175C2;">
-                <div class="card-icon" style="background:#E3F2FD; color:#0175C2; font-weight:700;">F</div>
-                <h3>Flutter (Dart)</h3>
-                <p>تطبيقات الموبايل الثلاثة — العميل، التاجر، وسائق التوصيل. كلها Flutter.</p>
-                <ul>
-                    <li>تطبيق العميل (Customer App)</li>
-                    <li>تطبيق التاجر (Store App)</li>
-                    <li>تطبيق التوصيل (Delivery App)</li>
-                    <li>GetX لإدارة الحالة</li>
-                </ul>
-            </div>
-            <div class="card" style="border-top: 4px solid #00758F;">
-                <div class="card-icon" style="background:#E0F7FA; color:#00758F; font-weight:700;">M</div>
-                <h3>MySQL</h3>
-                <p>قاعدة البيانات الرئيسية. تحتاج تعديلات جوهرية لدعم نظام الوكلاء.</p>
-                <ul>
-                    <li>جداول جديدة للدول والوكلاء</li>
-                    <li>تعديل العلاقات الموجودة</li>
-                    <li>إضافة حقول العملة لكل دولة</li>
-                    <li>فهارس للأداء</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Database Changes -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128451;</span>
-            تعديلات قاعدة البيانات
-        </h2>
-        <p class="section-desc">هذه أهم التعديلات المطلوبة على مستوى قاعدة البيانات:</p>
-
-        <!-- New Tables -->
-        <h3 style="margin: 2rem 0 1rem; font-size: 1.2rem;">جداول جديدة مطلوبة:</h3>
-        <div class="cards-grid cards-grid-2">
-            <div class="card">
-                <h3 style="display:flex; align-items:center; gap:8px;">
-                    <span class="tag tag-new">جديد</span>
-                    countries
-                </h3>
-                <p>جدول الدول — يحتوي على:</p>
-                <ul>
-                    <li>اسم الدولة (عربي + إنجليزي)</li>
-                    <li>كود الدولة (ISO)</li>
-                    <li>العملة ورمزها</li>
-                    <li>نسبة الأدمن من إيرادات هذه الدولة</li>
-                    <li>الحالة (مفعّلة / معطّلة)</li>
-                    <li>بوابات الدفع المتاحة</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3 style="display:flex; align-items:center; gap:8px;">
-                    <span class="tag tag-new">جديد</span>
-                    agents
-                </h3>
-                <p>جدول الوكلاء — يحتوي على:</p>
-                <ul>
-                    <li>بيانات الوكيل (مرتبط بجدول users)</li>
-                    <li>الدولة المسؤول عنها (country_id)</li>
-                    <li>بيانات بوابة الدفع الخاصة به</li>
-                    <li>إعدادات التوصيل في دولته</li>
-                    <li>نسبته من الإيرادات</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3 style="display:flex; align-items:center; gap:8px;">
-                    <span class="tag tag-new">جديد</span>
-                    zone_managers
-                </h3>
-                <p>جدول مديري المناطق — يحتوي على:</p>
-                <ul>
-                    <li>بيانات المدير (مرتبط بجدول users)</li>
-                    <li>المنطقة المسؤول عنها (zone_id)</li>
-                    <li>نسبته من حصة الوكيل</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3 style="display:flex; align-items:center; gap:8px;">
-                    <span class="tag tag-new">جديد</span>
-                    agent_payment_gateways
-                </h3>
-                <p>بوابات الدفع لكل وكيل:</p>
-                <ul>
-                    <li>نوع البوابة (Fawry, PayMob, Stripe...)</li>
-                    <li>بيانات الربط (API keys, secrets)</li>
-                    <li>مرتبطة بالوكيل (agent_id)</li>
-                    <li>الحالة (مفعّلة / معطّلة)</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3 style="display:flex; align-items:center; gap:8px;">
-                    <span class="tag tag-new">جديد</span>
-                    monthly_invoices
-                </h3>
-                <p>الفواتير الشهرية التلقائية:</p>
-                <ul>
-                    <li>الدولة والوكيل (country_id, agent_id)</li>
-                    <li>الشهر والسنة</li>
-                    <li>إجمالي الإيرادات</li>
-                    <li>نسبة ومبلغ الأدمن المطلوب</li>
-                    <li>الحالة (معلّقة / مدفوعة / متأخرة)</li>
-                    <li>تاريخ الدفع</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Modified Tables -->
-        <h3 style="margin: 2rem 0 1rem; font-size: 1.2rem;">جداول تحتاج تعديل:</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>الجدول</th>
-                        <th>التعديل المطلوب</th>
-                        <th>السبب</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>zones</strong></td>
-                        <td>إضافة country_id + zone_manager_id + commission_rate</td>
-                        <td>ربط الزون بالدولة ومدير المنطقة ونسبته</td>
-                    </tr>
-                    <tr>
-                        <td><strong>stores</strong></td>
-                        <td>إضافة country_id + حقول التخصيص (colors, description, contact_info)</td>
-                        <td>ربط المتجر بالدولة وتمكين التخصيص الكامل</td>
-                    </tr>
-                    <tr>
-                        <td><strong>users</strong></td>
-                        <td>إضافة role (agent, zone_manager) + country_id</td>
-                        <td>دعم الأدوار الجديدة وربطها بالدول</td>
-                    </tr>
-                    <tr>
-                        <td><strong>orders</strong></td>
-                        <td>إضافة country_id + currency</td>
-                        <td>تتبع الطلبات حسب الدولة والعملة</td>
-                    </tr>
-                    <tr>
-                        <td><strong>delivery_men</strong></td>
-                        <td>إضافة country_id + zone_id + approved_by (zone_manager) + is_store_driver + store_id</td>
-                        <td>ربط السائق بالمنطقة ومديرها، ودعم سائقي التاجر الخاصين</td>
-                    </tr>
-                    <tr>
-                        <td><strong>coupons</strong></td>
-                        <td>إضافة country_id + created_by_agent</td>
-                        <td>الكوبونات تُنشأ من الوكيل لدولته</td>
-                    </tr>
-                    <tr>
-                        <td><strong>subscription_packages</strong></td>
-                        <td>إضافة حقول الميزات (has_pos, has_chat, max_products, max_orders...)</td>
-                        <td>دعم الباقات المتعددة المستويات</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Backend Changes -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#9881;</span>
-            تعديلات الباك إند (Laravel)
-        </h2>
-
-        <div class="flow-steps">
-            <div class="flow-step">
-                <div class="flow-step-num">1</div>
-                <div class="flow-step-content">
-                    <h4>نظام الصلاحيات المتعدد المستويات</h4>
-                    <p>إنشاء Middleware جديد يفحص دور المستخدم (admin, agent, zone_manager, store) ويحدد البيانات التي يمكنه الوصول إليها. كل دور يرى فقط البيانات المرتبطة بنطاقه (دولته أو منطقته).</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">2</div>
-                <div class="flow-step-content">
-                    <h4>API Scoping حسب الدولة</h4>
-                    <p>كل API endpoint يجب أن يُفلتر حسب الدولة. العميل يرى متاجر دولته فقط. الوكيل يدير بيانات دولته فقط. هذا يتطلب Global Scope أو Middleware على مستوى الـ Query.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">3</div>
-                <div class="flow-step-content">
-                    <h4>لوحة الوكيل (جديدة)</h4>
-                    <p>بناء لوحة تحكم كاملة للوكيل بـ Laravel Blade. تشمل: إدارة المناطق، مديري المناطق، التوصيل، بوابات الدفع، الكوبونات، الدعم الفني، والتقارير المالية.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">4</div>
-                <div class="flow-step-content">
-                    <h4>لوحة مدير المنطقة (جديدة)</h4>
-                    <p>لوحة مبسطة لمدير المنطقة: إدارة التجار في منطقته، التقارير المالية الخاصة بمنطقته فقط.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">5</div>
-                <div class="flow-step-content">
-                    <h4>نظام بوابات الدفع المتعددة</h4>
-                    <p>تعديل Payment Gateway logic بحيث تُحمّل بيانات البوابة من جدول الوكيل وليس من إعدادات الأدمن. كل وكيل يربط بواباته الخاصة.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">6</div>
-                <div class="flow-step-content">
-                    <h4>نظام العملات</h4>
-                    <p>إضافة دعم العملات المتعددة: عرض الأسعار بعملة الدولة، حساب الإيرادات والتقارير بالعملة المحلية.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">7</div>
-                <div class="flow-step-content">
-                    <h4>نظام توزيع الأرباح</h4>
-                    <p>بناء Service لحساب توزيع الأرباح تلقائياً: حصة الأدمن، حصة الوكيل، حصة مدير المنطقة. مع تقارير شهرية لكل طرف.</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">8</div>
-                <div class="flow-step-content">
-                    <h4>تعديل لوحة الأدمن</h4>
-                    <p>إضافة إدارة الدول والوكلاء. إزالة صلاحيات التوصيل والدعم والكوبونات من الأدمن (تنتقل للوكيل).</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">9</div>
-                <div class="flow-step-content">
-                    <h4>تعديل لوحة التاجر</h4>
-                    <p>إضافة خيارات تخصيص صفحة المتجر (ألوان، صور، وصف، بيانات تواصل). تطبيق قيود الباقات (حد المنتجات، حد الطلبات، الميزات المتاحة).</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Frontend/Mobile Changes -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128241;</span>
-            تعديلات الفرونت إند (Flutter)
-        </h2>
-
-        <div class="cards-grid">
-            <div class="card" style="border-top: 4px solid #00BCD4;">
-                <h3>تطبيق العميل</h3>
-                <ul>
-                    <li>إضافة شاشة اختيار/تحديد الدولة عند أول استخدام</li>
-                    <li>فلترة كل البيانات (متاجر، منتجات، عروض) حسب الدولة</li>
-                    <li>عرض الأسعار بعملة الدولة المحددة</li>
-                    <li>استخدام بوابة الدفع الخاصة بالدولة (بيانات الوكيل)</li>
-                    <li>توجيه الشات مع خدمة العملاء إلى الوكيل بدلاً من الأدمن</li>
-                </ul>
-            </div>
-            <div class="card" style="border-top: 4px solid #9C27B0;">
-                <h3>تطبيق التاجر</h3>
-                <ul>
-                    <li>إضافة واجهة تخصيص صفحة المتجر</li>
-                    <li>تطبيق قيود الباقة (حد المنتجات، إخفاء ميزات غير متاحة)</li>
-                    <li>عرض العملة المحلية حسب الدولة</li>
-                </ul>
-            </div>
-            <div class="card" style="border-top: 4px solid #FF5722;">
-                <h3>تطبيق التوصيل</h3>
-                <ul>
-                    <li>تعديل عملية التسجيل — طلب القبول يروح لمدير المنطقة مش الأدمن</li>
-                    <li>عرض العملة المحلية</li>
-                    <li>التوصيل محصور في نطاق المنطقة (الزون)</li>
-                    <li>دعم سائقي التاجر الخاصين (نفس التطبيق، تكلفة مختلفة)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Priority & Complexity -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128200;</span>
-            تقييم التعقيد والأولوية
-        </h2>
-        <p class="section-desc">ترتيب المهام حسب الأولوية والتعقيد — الأساسيات أولاً:</p>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>المهمة</th>
-                        <th>التعقيد</th>
-                        <th>الأولوية</th>
-                        <th>يعتمد على</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><strong>تعديلات قاعدة البيانات (Migrations)</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
-                        <td>—</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><strong>نظام الصلاحيات والأدوار</strong></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
-                        <td>المهمة 1</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><strong>نظام الدول والوكلاء (باك إند)</strong></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
-                        <td>المهمة 1, 2</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><strong>لوحة الوكيل</strong></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
-                        <td>المهمة 2, 3</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><strong>نظام بوابات الدفع المتعددة</strong></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">عالي</span></td>
-                        <td><span class="tag" style="background:#FFCDD2; color:#C62828;">حرجة</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><strong>لوحة مدير المنطقة</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3, 4</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><strong>نظام العملات المتعددة</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><strong>تعديل لوحة الأدمن</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td><strong>نظام توزيع الأرباح</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3, 5</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td><strong>تعديل تطبيق العميل (Flutter)</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3, 5, 7</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td><strong>تعديل لوحة التاجر + تطبيق التاجر</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag">متوسطة</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td><strong>تعديل تطبيق التوصيل</strong></td>
-                        <td><span class="tag">منخفض</span></td>
-                        <td><span class="tag">متوسطة</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td><strong>باقات الاشتراك المتعددة</strong></td>
-                        <td><span class="tag">منخفض</span></td>
-                        <td><span class="tag">متوسطة</span></td>
-                        <td>المهمة 3</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td><strong>نظام الفواتير الشهرية التلقائية</strong></td>
-                        <td><span class="tag tag-modified">متوسط</span></td>
-                        <td><span class="tag tag-modified">عالية</span></td>
-                        <td>المهمة 3, 9</td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td><strong>تخصيص صفحة التاجر</strong></td>
-                        <td><span class="tag">منخفض</span></td>
-                        <td><span class="tag">منخفضة</span></td>
-                        <td>المهمة 11</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="info-box" style="margin-top:1.5rem;">
-            <strong>ملاحظة للـ Tech Lead:</strong> المهام 1-5 هي الأساس — بدونها لا يمكن المتابعة. ابدأ بها بالترتيب. المهام 6-10 تُبنى على الأساس. المهام 11-14 يمكن تنفيذها بالتوازي.
-        </div>
-    </div>
-</section>
-
-<!-- Security Considerations -->
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#128274;</span>
-            اعتبارات أمنية
-        </h2>
-
-        <div class="cards-grid cards-grid-2">
-            <div class="card">
-                <h3>&#128272; عزل البيانات بين الدول</h3>
-                <p>كل وكيل يجب أن يرى فقط بيانات دولته. لا يمكن لوكيل مصر الوصول لبيانات السعودية. هذا يتطلب فلترة صارمة على مستوى الـ Query وليس فقط الـ UI.</p>
-            </div>
-            <div class="card">
-                <h3>&#128273; حماية بيانات بوابات الدفع</h3>
-                <p>بيانات بوابات الدفع (API keys, secrets) حساسة جداً. يجب تشفيرها في قاعدة البيانات وعدم عرضها في الـ API responses.</p>
-            </div>
-            <div class="card">
-                <h3>&#128737; التحقق من الصلاحيات</h3>
-                <p>كل endpoint يجب أن يتحقق من: هل هذا المستخدم له الحق في هذا الإجراء؟ وهل البيانات المطلوبة تقع في نطاقه (دولته/منطقته)؟</p>
-            </div>
-            <div class="card">
-                <h3>&#128176; حماية العمليات المالية</h3>
-                <p>عمليات الدفع وتوزيع الأرباح يجب أن تكون atomic (معاملات قاعدة بيانات). أي خطأ يجب أن يُرجع كل شيء لحالته الأصلية.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Languages -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="icon">&#127760;</span>
-            اللغات والتعريب
-        </h2>
-
-        <div class="cards-grid cards-grid-2">
-            <div class="card">
-                <h3>المرحلة الأولى</h3>
-                <ul>
-                    <li>العربية (RTL) — اللغة الأساسية</li>
-                    <li>الإنجليزية (LTR) — اللغة الثانوية</li>
-                </ul>
-                <p style="margin-top:1rem;">6amMart يدعم أصلاً تعدد اللغات عبر ملفات الترجمة. المطلوب: ترجمة كل النصوص الجديدة (الوكيل، مدير المنطقة، إلخ).</p>
-            </div>
-            <div class="card">
-                <h3>المراحل اللاحقة</h3>
-                <ul>
-                    <li>إضافة لغة كل دولة جديدة (تركي، أوردو، فرنسي...)</li>
-                    <li>الوكيل يحدد اللغات المتاحة في دولته</li>
-                </ul>
-                <p style="margin-top:1rem;">البنية موجودة — فقط إضافة ملفات ترجمة جديدة لكل لغة.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>سوقك &copy; 2026 — دليل المشروع الداخلي | <a href="index.html">الرئيسية</a></p>
-</footer>
-
 <script src="../shared/main.js"></script>
 </body>
 </html>

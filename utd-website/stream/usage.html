@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream — الاستهلاك</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="../index.html" class="sidebar-logo"><div class="logo-icon">U</div> UTD Software Solutions</a>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المنصة الرئيسية <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../index.html">نظرة عامة</a>
+                <a href="../platform/wallet.html">المحفظة الأم</a>
+                <a href="../platform/billing.html">الفوترة الموحدة</a>
+                <a href="../platform/team.html">إدارة الفريق</a>
+                <a href="../platform/activate.html">تفعيل الخدمات</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">UTD Stream <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="index.html">نظرة عامة</a>
+                <a href="services.html">الخدمات</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="usage.html" class="active">الاستهلاك</a>
+                <a href="wallet.html">محفظة Stream</a>
+                <a href="packages.html">الباقات</a>
+                <a href="invoices.html">الفواتير</a>
+                <span class="sidebar-sublabel">— التحليلات —</span>
+                <a href="analytics/index.html">نظرة عامة</a>
+                <a href="analytics/quality.html">جودة المكالمات والبث</a>
+                <a href="analytics/rooms.html">الغرف والجلسات</a>
+                <a href="analytics/operations.html">لوحة العمليات</a>
+                <a href="analytics/realtime.html">المراقبة اللحظية</a>
+                <a href="analytics/alerts.html">التنبيهات</a>
+                <a href="analytics/analysis.html">التحليل الجغرافي والتقني</a>
+                <span class="sidebar-sublabel">— أخرى —</span>
+                <a href="docs.html">التوثيق</a>
+                <a href="support.html">الدعم</a>
+                <a href="journey.html">رحلة العميل</a>
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="landing.html">اللاندنج بيج</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD OTP — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Games — قريباً</a>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">UTD Dev <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="../dev/index.html">نظرة عامة</a>
+                <a href="../dev/product.html">منتج ابن تطبيقك</a>
+                <a href="../dev/marketplace.html">المتجر</a>
+                <a href="../dev/developers.html">للمطورين</a>
+                <a href="../dev/pricing.html">الأسعار والباقات</a>
+                <a href="../dev/dashboard.html">لوحة التحكم</a>
+                <a href="../dev/wallet.html">محفظة Dev</a>
+                <a href="../dev/support.html">الدعم</a>
+                <a href="../dev/journey.html">رحلة العميل</a>
+            </div>
+        </div>
+        <a href="#" class="sidebar-link coming-soon">UTD Cloud — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Realtime — قريباً</a>
+        <a href="#" class="sidebar-link coming-soon">UTD Pay — قريباً</a>
+        <div class="sidebar-divider"></div>
+        <a href="../../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>الاستهلاك</h1>
+        <p>جدول يومي مفصل باستهلاك كل خدمة — يُحدَّث كل يوم الساعة 4:00 فجراً بتوقيت القاهرة</p>
+    </div>
+
+    <!-- الاستهلاك اليومي -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📊</span> الاستهلاك اليومي</h2>
+            <p class="section-desc">هذه الصفحة تعرض للعميل استهلاكه اليومي لكل خدمة من خدمات UTD Stream. البيانات تتحدث كل يوم الساعة 4:00 فجراً بتوقيت القاهرة.</p>
+
+            <div class="warning-box">
+                <strong>مهم:</strong> البيانات تُبعث يومياً الساعة 4:00 فجراً بتوقيت القاهرة لكل مشروع على حدة. المطور لازم يبني النظام عشان يستقبل البيانات في هذا الموعد.
+            </div>
+
+            <div class="info-box">
+                <strong>ملاحظة:</strong> كل مشروع له بيانات استهلاك منفصلة. العميل يختار المشروع من dropdown في أعلى الصفحة ويشوف استهلاكه.
+            </div>
+        </div>
+    </div>
+
+    <!-- شكل صفحة الاستهلاك -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📋</span> شكل صفحة الاستهلاك</h2>
+            <p class="section-desc">الصفحة تظهر على شكل جدول (spreadsheet). كل صف = يوم واحد. الأعمدة تعرض كل خدمة مع أعمدة فرعية لأنواع وجودات مختلفة.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التاريخ</th>
+                            <th>غرف صوتية (دقائق المتحدثين)</th>
+                            <th>غرف صوتية (دقائق المستمعين)</th>
+                            <th>بث مباشر (Host)</th>
+                            <th>بث مباشر (Co-Host)</th>
+                            <th>بث مباشر (Audience صوت)</th>
+                            <th>بث مباشر (Audience فيديو HD)</th>
+                            <th>بث مباشر (Audience فيديو FHD)</th>
+                            <th>مكالمات صوت</th>
+                            <th>مكالمات فيديو HD</th>
+                            <th>مكالمات فيديو FHD</th>
+                            <th>مكالمات فيديو 4K</th>
+                            <th>دردشة MAU</th>
+                            <th>الإجمالي ($)</th>
+                            <th>من الباقة ($)</th>
+                            <th>من المحفظة ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026-05-01</td>
+                            <td>120</td>
+                            <td>340</td>
+                            <td>45</td>
+                            <td>30</td>
+                            <td>200</td>
+                            <td>150</td>
+                            <td>80</td>
+                            <td>500</td>
+                            <td>200</td>
+                            <td>100</td>
+                            <td>20</td>
+                            <td>4,500</td>
+                            <td>$12.40</td>
+                            <td>$12.40</td>
+                            <td>$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>2026-05-02</td>
+                            <td>95</td>
+                            <td>280</td>
+                            <td>60</td>
+                            <td>25</td>
+                            <td>310</td>
+                            <td>180</td>
+                            <td>90</td>
+                            <td>420</td>
+                            <td>170</td>
+                            <td>85</td>
+                            <td>15</td>
+                            <td>4,500</td>
+                            <td>$14.20</td>
+                            <td>$8.50</td>
+                            <td>$5.70</td>
+                        </tr>
+                        <tr>
+                            <td>2026-05-03</td>
+                            <td>110</td>
+                            <td>300</td>
+                            <td>50</td>
+                            <td>35</td>
+                            <td>250</td>
+                            <td>160</td>
+                            <td>70</td>
+                            <td>480</td>
+                            <td>190</td>
+                            <td>95</td>
+                            <td>10</td>
+                            <td>4,500</td>
+                            <td>$11.80</td>
+                            <td>$0.00</td>
+                            <td>$11.80</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <strong>آخر 3 أعمدة (حرجة):</strong>
+                <ul>
+                    <li><strong>الإجمالي ($)</strong> — التكلفة الإجمالية لليوم</li>
+                    <li><strong>من الباقة ($)</strong> — المبلغ المغطى من الباقة المشتراة</li>
+                    <li><strong>من المحفظة ($)</strong> — المبلغ المخصوم من رصيد المحفظة</li>
+                </ul>
+                <p style="margin-top: 0.75rem;">إذا نفدت الباقة في منتصف اليوم، سيظهر في نفس اليوم مبلغ في "من الباقة" ومبلغ في "من المحفظة" — لأن جزء من الاستهلاك غطّته الباقة والجزء الآخر خُصم من المحفظة.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- آلية الـ Webhook والخصم المالي -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128176;</span> آلية استلام البيانات والخصم المالي</h2>
+            <p class="section-desc">هذا القسم يوضح بالتفصيل كيف بيانات الاستهلاك تتحول لخصم مالي. الفهم الصحيح لهذه الآلية ضروري للمطور.</p>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>الساعة 4:00 فجراً بتوقيت القاهرة — Webhook يُبعث</h4>
+                        <p>النظام يبعث Webhook لكل مشروع على حدة. الـ Webhook فيه بيانات استهلاك اليوم اللي فات بالكامل (كل الأعمدة اللي في الجدول أعلاه).</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>البيانات تتسجل في النظام</h4>
+                        <p>النظام يستقبل الـ Webhook ← يسجل البيانات في صف جديد في جدول الاستهلاك (اللي العميل يشوفه في هذه الصفحة).</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>النظام يحسب التكلفة تلقائياً</h4>
+                        <p>بناءً على الأسعار اللي حددها الأدمن في لوحة التحكم × كمية الاستهلاك لكل خدمة = إجمالي تكلفة اليوم.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>الخصم من الباقة أولاً</h4>
+                        <p>لو العميل عنده باقة نشطة ← الدقائق تتخصم من رصيد الباقة أولاً. لو الباقة تكفي ← كل المبلغ يظهر في عمود "من الباقة" وعمود "من المحفظة" يكون $0.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>لو الباقة ما تكفيش أو خلصت</h4>
+                        <p>الباقي يتخصم من محفظة Stream تلقائياً. لو الباقة خلصت في نص اليوم ← في نفس الصف هيظهر مبلغ في "من الباقة" ومبلغ في "من المحفظة" — لأن جزء اتغطى من الباقة والباقي من المحفظة.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">6</div>
+                    <div class="flow-step-content">
+                        <h4>البيانات تظهر للعميل</h4>
+                        <p>العميل يشوف صف جديد في جدول الاستهلاك بكل التفاصيل — الدقائق لكل خدمة + التكلفة + من أين اتخصم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box info-box" style="margin-top:1.5rem;">
+                <strong>ملاحظة مهمة:</strong> الـ Webhook بتاع الساعة 4 فجراً هو فقط لغرض الخصم المالي وتسجيل الاستهلاك. لوحة التحليلات (Analytics) نظام مختلف تماماً — بياناتها لحظية (real-time) ومش مرتبطة بالـ Webhook.
+            </div>
+        </div>
+    </div>
+
+    <!-- الفلاتر والتصدير -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔍</span> الفلاتر والتصدير</h2>
+            <p class="section-desc">أدوات الفلترة والتصدير المتاحة للعميل في أعلى الصفحة.</p>
+
+            <div class="cards-grid-2">
+                <div class="card">
+                    <div class="card-icon">📂</div>
+                    <h3>الفلاتر</h3>
+                    <ul>
+                        <li><strong>المشروع</strong> — dropdown لاختيار المشروع المطلوب</li>
+                        <li><strong>الفترة</strong> — اليوم / آخر 7 أيام / آخر 30 يوم / شهر محدد</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📥</div>
+                    <h3>التصدير</h3>
+                    <ul>
+                        <li><strong>CSV</strong> — بيانات خام تفصيلية جاهزة للمعالجة</li>
+                        <li><strong>PDF</strong> — تقرير مرتب وجاهز للطباعة أو المشاركة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../../shared/main.js"></script>
+</body>
+</html>
