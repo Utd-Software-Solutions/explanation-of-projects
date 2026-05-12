@@ -39,7 +39,18 @@
                 <a href="../stream/wallet.html">محفظة Stream</a>
                 <a href="../stream/packages.html">الباقات</a>
                 <a href="../stream/invoices.html">الفواتير</a>
-                <a href="../stream/analytics.html">لوحة التحليلات</a>
+                <div class="sidebar-subsection">
+                    <button class="sidebar-subsection-title">لوحة التحليلات <span class="arrow">&#9654;</span></button>
+                    <div class="sidebar-sub-items">
+                        <a href="../stream/analytics/index.html">نظرة عامة</a>
+                        <a href="../stream/analytics/quality.html">جودة المكالمات والبث</a>
+                        <a href="../stream/analytics/rooms.html">الغرف والجلسات</a>
+                        <a href="../stream/analytics/operations.html">لوحة العمليات</a>
+                        <a href="../stream/analytics/realtime.html">المراقبة اللحظية</a>
+                        <a href="../stream/analytics/alerts.html">التنبيهات</a>
+                        <a href="../stream/analytics/analysis.html">التحليل الجغرافي والتقني</a>
+                    </div>
+                </div>
                 <a href="../stream/docs.html">التوثيق</a>
                 <a href="../stream/support.html">الدعم</a>
                 <a href="../stream/journey.html">رحلة العميل</a>
@@ -81,7 +92,7 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title"><span class="icon">&#128104;&#8205;&#128187;</span> دور المطور في المنصة</h2>
-            <p class="section-desc">المطور هو أي شخص أو شركة تريد رفع منتجات (باكيجات / بلاجنز / أحداث) على متجر "ابن تطبيقك" وبيعها للعملاء. المنصة توفر له كل الأدوات اللي يحتاجها.</p>
+            <p class="section-desc">المطور هو أي شخص أو شركة تريد رفع منتجات (باكيجات / بلاجنز / أحداث / عناصر رقمية) على متجر "ابن تطبيقك" وبيعها للعملاء. المنصة توفر له كل الأدوات اللي يحتاجها. مفيش فرق بين "مطور" و"مصمم" — كلهم تحت مسمى "مطور" والنظام يدعم كل أنواع المنتجات.</p>
 
             <div class="cards-grid cards-grid-2">
                 <div class="card">
@@ -90,6 +101,7 @@
                         <li>رفع باكيجات جديدة تعمل مع البيس بروجكت</li>
                         <li>رفع بلاجنز تعمل داخل باكيجات موجودة</li>
                         <li>رفع أحداث موسمية وتجارب خاصة</li>
+                        <li>رفع عناصر رقمية (هدايا، دخلات، إطارات، بابل)</li>
                         <li>تحديد السعر لكل منتج (مجاني أو مدفوع)</li>
                         <li>تحديد سياسة الدعم ومدته لكل منتج</li>
                         <li>كتابة التوثيق وشرح خطوات الربط</li>
@@ -382,8 +394,8 @@
                         </tr>
                         <tr>
                             <td><strong>البروفايل</strong></td>
-                            <td>صفحة المطور العامة اللي يشوفها العملاء</td>
-                            <td>تعديل المعلومات والصورة والوصف</td>
+                            <td>صفحة المطور العامة — المطور يبنيها بالكامل عبر HTML (زي صفحة المنتج). النظام يعرض تلقائياً أقسام ثابتة: الباقات المتاحة، المنتجات، التقييمات</td>
+                            <td>رفع HTML كامل (بنرات، تقسيم صفحات، تصميم حر) + الأقسام الثابتة تظهر تلقائياً</td>
                         </tr>
                     </tbody>
                 </table>

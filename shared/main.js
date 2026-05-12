@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Sidebar subsection accordion
+    document.querySelectorAll('.sidebar-subsection-title').forEach(function (title) {
+        title.addEventListener('click', function () {
+            this.parentElement.classList.toggle('open');
+        });
+    });
+
     // Sidebar mobile toggle
     var sidebarToggle = document.querySelector('.sidebar-toggle-btn');
     var sidebar = document.querySelector('.sidebar');
