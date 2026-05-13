@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>أداة الصوت — UTD</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --chat-bg: #e5ddd5;
+            --header-bg: #075e54;
+            --header-dark: #064e46;
+            --sent-bubble: #dcf8c6;
+            --system-bubble: #fff;
+            --input-bg: #f0f0f0;
+            --green: #25d366;
+            --green-dark: #128c7e;
+            --text: #303030;
+            --text-light: #667781;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            background: var(--chat-bg);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--header-bg);
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--header-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .header-info { flex: 1; }
+
+        .header-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .header-subtitle {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            margin-top: 1px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .lang-select {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            direction: ltr;
+        }
+
+        .lang-select option { color: #333; background: white; }
+
+        .btn-clear {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .btn-clear:hover { background: rgba(255,255,255,0.15); }
+
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: var(--chat-bg);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9b99a' fill-opacity='0.07'%3E%3Ccircle cx='10' cy='10' r='1.5'/%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3Ccircle cx='50' cy='50' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            word-wrap: break-word;
+            animation: slideIn 0.2s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-sent {
+            background: var(--sent-bubble);
+            align-self: flex-end;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 2px;
+        }
+
+        .message-system {
+            background: var(--system-bubble);
+            align-self: center;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            padding: 6px 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+        }
+
+        .message-text {
+            color: var(--text);
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: plaintext;
+        }
+
+        .message-meta {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: flex-end;
+            margin-top: 4px;
+        }
+
+        .message-time {
+            font-size: 0.68rem;
+            color: var(--text-light);
+        }
+
+        .message-copied {
+            font-size: 0.68rem;
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .input-area {
+            background: var(--input-bg);
+            padding: 8px 10px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: flex-end;
+            padding: 4px 12px;
+            min-height: 44px;
+            border: 1px solid #ddd;
+        }
+
+        .input-text {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-height: 120px;
+            overflow-y: auto;
+            padding: 8px 0;
+            resize: none;
+            font-family: inherit;
+            direction: rtl;
+            unicode-bidi: plaintext;
+        }
+
+        .btn-mic, .btn-send {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .btn-mic {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-mic:hover { background: var(--green-dark); }
+
+        .btn-mic.recording {
+            background: var(--danger);
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+        }
+
+        .btn-send {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-send:hover { background: var(--green-dark); }
+        .btn-send:disabled { background: #ccc; cursor: default; }
+
+        .recording-indicator {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: #fef2f2;
+            border-top: 1px solid #fecaca;
+            font-size: 0.82rem;
+            color: var(--danger);
+            flex-shrink: 0;
+        }
+
+        .recording-indicator.active { display: flex; }
+
+        .recording-indicator.reconnecting {
+            background: #fffbeb;
+            border-top-color: #fde68a;
+            color: #b45309;
+        }
+
+        .recording-indicator.reconnecting .rec-dot {
+            background: #f59e0b;
+        }
+
+        .rec-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .interim-text {
+            color: #999;
+            font-style: italic;
+        }
+
+        .empty-state {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            gap: 12px;
+            padding: 2rem;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            padding: 6px;
+            border-radius: 50%;
+            display: flex;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover { background: rgba(255,255,255,0.15); }
+
+        .not-supported {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: white;
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .not-supported.show { display: flex; }
+
+        .not-supported h2 { color: var(--danger); font-size: 1.3rem; }
+        .not-supported p { color: var(--text-light); line-height: 1.7; }
+
+        @media (min-width: 600px) {
+            body {
+                max-width: 500px;
+                margin: 0 auto;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="not-supported" id="notSupported">
+    <h2>&#9888;&#65039; المتصفح غير مدعوم</h2>
+    <p>المتصفح ده مش بيدعم تحويل الصوت لنص.<br>استخدم <strong>Google Chrome</strong> أو <strong>Microsoft Edge</strong> للتجربة الكاملة.</p>
+</div>
+
+<header class="header" style="position: relative;">
+    <a href="../index.html" class="back-link" title="رجوع">&#8592;</a>
+    <div class="header-avatar">&#127908;</div>
+    <div class="header-info">
+        <div class="header-title">أداة الصوت</div>
+        <div class="header-subtitle" id="statusText">اضغط الميكروفون وابدأ اتكلم</div>
+    </div>
+    <div class="header-actions">
+        <select class="lang-select" id="langSelect">
+            <option value="ar-EG">مصري</option>
+            <option value="ar-SA">سعودي</option>
+            <option value="ar">عربي فصحى</option>
+            <option value="en-US">English</option>
+            <option value="fr-FR">Français</option>
+            <option value="tr-TR">Türkçe</option>
+            <option value="de-DE">Deutsch</option>
+            <option value="es-ES">Español</option>
+        </select>
+        <button class="btn-clear" id="btnClear" title="مسح المحادثة">&#128465;</button>
+    </div>
+</header>
+
+<div class="recording-indicator" id="recordingBar">
+    <span class="rec-dot"></span>
+    <span>جاري التسجيل... اتكلم براحتك</span>
+</div>
+
+<div class="chat-area" id="chatArea">
+    <div class="empty-state" id="emptyState">
+        <div class="empty-state-icon">&#127908;</div>
+        <div class="empty-state-text">
+            اضغط على الميكروفون وابدأ اتكلم<br>
+            هيتحول كلامك لنص تلقائياً<br>
+            ولما تبعت — هيتنسخ أوتوماتيك
+        </div>
+    </div>
+</div>
+
+<div class="input-area">
+    <button class="btn-mic" id="btnMic" title="ابدأ تسجيل">&#127908;</button>
+    <div class="input-wrapper">
+        <textarea class="input-text" id="inputText" rows="1" placeholder="اتكلم أو اكتب هنا..."></textarea>
+    </div>
+    <button class="btn-send" id="btnSend" title="إرسال ونسخ" disabled>&#10148;</button>
+</div>
+
+<script>
+(function() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        document.getElementById('notSupported').classList.add('show');
+        return;
+    }
+
+    const chatArea = document.getElementById('chatArea');
+    const emptyState = document.getElementById('emptyState');
+    const inputText = document.getElementById('inputText');
+    const btnMic = document.getElementById('btnMic');
+    const btnSend = document.getElementById('btnSend');
+    const btnClear = document.getElementById('btnClear');
+    const langSelect = document.getElementById('langSelect');
+    const statusText = document.getElementById('statusText');
+    const recordingBar = document.getElementById('recordingBar');
+    const recordingBarText = recordingBar.querySelector('span:last-child');
+
+    let recognition = null;
+    let isRecording = false;
+    let prefixText = '';
+    let micPermissionGranted = false;
+    let reconnectAttempts = 0;
+    const MAX_RECONNECT = 10;
+    let lastResultTime = 0;
+    let silenceTimer = null;
+
+    var audioCtx = null;
+    function playBeep(type) {
+        try {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            var osc = audioCtx.createOscillator();
+            var gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'disconnect') {
+                osc.frequency.value = 400;
+                gain.gain.value = 0.3;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+                setTimeout(function() {
+                    var osc2 = audioCtx.createOscillator();
+                    var gain2 = audioCtx.createGain();
+                    osc2.connect(gain2);
+                    gain2.connect(audioCtx.destination);
+                    osc2.frequency.value = 300;
+                    gain2.gain.value = 0.3;
+                    osc2.start();
+                    osc2.stop(audioCtx.currentTime + 0.2);
+                }, 180);
+            } else if (type === 'reconnect') {
+                osc.frequency.value = 500;
+                gain.gain.value = 0.2;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.1);
+                setTimeout(function() {
+                    var osc2 = audioCtx.createOscillator();
+                    var gain2 = audioCtx.createGain();
+                    osc2.connect(gain2);
+                    gain2.connect(audioCtx.destination);
+                    osc2.frequency.value = 700;
+                    gain2.gain.value = 0.2;
+                    osc2.start();
+                    osc2.stop(audioCtx.currentTime + 0.1);
+                }, 130);
+            } else if (type === 'failed') {
+                osc.frequency.value = 300;
+                gain.gain.value = 0.35;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.4);
+            }
+        } catch(e) {}
+    }
+
+    function showReconnecting() {
+        recordingBar.classList.add('reconnecting');
+        recordingBarText.textContent = 'انقطع الصوت — جاري إعادة الاتصال...';
+        statusText.textContent = 'جاري إعادة الاتصال...';
+    }
+
+    function showListening() {
+        recordingBar.classList.remove('reconnecting');
+        recordingBarText.textContent = 'جاري التسجيل... اتكلم براحتك';
+        statusText.textContent = 'بيسمعك...';
+    }
+
+    function buildRecognition() {
+        var r = new SpeechRecognition();
+        r.continuous = true;
+        r.interimResults = true;
+        r.lang = langSelect.value;
+
+        r.onstart = function() {
+            if (reconnectAttempts > 0) {
+                playBeep('reconnect');
+                reconnectAttempts = 0;
+            }
+            showListening();
+            lastResultTime = Date.now();
+        };
+
+        r.onresult = function(e) {
+            lastResultTime = Date.now();
+            var sessionFinal = '';
+            var interim = '';
+            for (var i = 0; i < e.results.length; i++) {
+                if (e.results[i].isFinal) {
+                    sessionFinal += e.results[i][0].transcript;
+                } else {
+                    interim += e.results[i][0].transcript;
+                }
+            }
+
+            var display = prefixText;
+            if (display && (sessionFinal || interim)) display += ' ';
+            display += sessionFinal;
+            if (interim) {
+                if (sessionFinal) display += ' ';
+                display += interim;
+            }
+
+            inputText.value = display;
+            autoResize();
+            inputText.scrollTop = inputText.scrollHeight;
+            updateSendBtn();
+        };
+
+        r.onend = function() {
+            if (!isRecording) return;
+
+            prefixText = inputText.value.trim();
+            reconnectAttempts++;
+
+            if (reconnectAttempts > MAX_RECONNECT) {
+                playBeep('failed');
+                statusText.textContent = 'الاتصال انقطع — اضغط الميكروفون تاني';
+                stopRecording();
+                return;
+            }
+
+            if (reconnectAttempts > 1) {
+                playBeep('disconnect');
+                showReconnecting();
+            }
+
+            var delay = Math.min(reconnectAttempts * 300, 2000);
+            setTimeout(function() {
+                if (!isRecording) return;
+                recognition = null;
+                recognition = buildRecognition();
+                try { recognition.start(); } catch(e) {
+                    playBeep('failed');
+                    stopRecording();
+                }
+            }, delay);
+        };
+
+        r.onerror = function(e) {
+            if (e.error === 'not-allowed') {
+                statusText.textContent = 'اسمح بالميكروفون من المتصفح';
+                stopRecording();
+                return;
+            }
+            if (e.error === 'network') {
+                playBeep('disconnect');
+                showReconnecting();
+                return;
+            }
+            if (e.error === 'no-speech') {
+                return;
+            }
+            if (e.error !== 'aborted') {
+                playBeep('disconnect');
+                showReconnecting();
+            }
+        };
+
+        return r;
+    }
+
+    async function requestMicPermission() {
+        if (micPermissionGranted) return true;
+        try {
+            var stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            stream.getTracks().forEach(function(t) { t.stop(); });
+            micPermissionGranted = true;
+            return true;
+        } catch(e) {
+            statusText.textContent = 'اسمح بالميكروفون من المتصفح';
+            return false;
+        }
+    }
+
+    async function startRecording() {
+        var allowed = await requestMicPermission();
+        if (!allowed) return;
+
+        prefixText = inputText.value.trim();
+        reconnectAttempts = 0;
+
+        if (recognition) {
+            try { recognition.stop(); } catch(e) {}
+            recognition = null;
+        }
+
+        recognition = buildRecognition();
+
+        isRecording = true;
+        btnMic.classList.add('recording');
+        btnMic.innerHTML = '&#9724;';
+        recordingBar.classList.add('active');
+        showListening();
+        try { recognition.start(); } catch(e) {}
+    }
+
+    function stopRecording() {
+        isRecording = false;
+        reconnectAttempts = 0;
+        btnMic.classList.remove('recording');
+        btnMic.innerHTML = '&#127908;';
+        recordingBar.classList.remove('active', 'reconnecting');
+        recordingBarText.textContent = 'جاري التسجيل... اتكلم براحتك';
+        statusText.textContent = 'اضغط الميكروفون وابدأ اتكلم';
+        if (recognition) {
+            try { recognition.stop(); } catch(e) {}
+            recognition = null;
+        }
+        prefixText = inputText.value.trim();
+    }
+
+    btnMic.addEventListener('click', function() {
+        if (isRecording) {
+            stopRecording();
+        } else {
+            startRecording();
+        }
+    });
+
+    async function sendMessage() {
+        var text = inputText.value.trim();
+        if (!text) return;
+
+        if (isRecording) stopRecording();
+
+        emptyState.style.display = 'none';
+        prefixText = '';
+
+        var now = new Date();
+        var time = now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+        var msg = document.createElement('div');
+        msg.className = 'message message-sent';
+
+        var msgText = document.createElement('div');
+        msgText.className = 'message-text';
+        msgText.textContent = text;
+
+        var meta = document.createElement('div');
+        meta.className = 'message-meta';
+
+        var timeEl = document.createElement('span');
+        timeEl.className = 'message-time';
+        timeEl.textContent = time;
+
+        meta.appendChild(timeEl);
+        msg.appendChild(msgText);
+        msg.appendChild(meta);
+        chatArea.appendChild(msg);
+
+        inputText.value = '';
+        autoResize();
+        updateSendBtn();
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        try {
+            await navigator.clipboard.writeText(text);
+            var copied = document.createElement('span');
+            copied.className = 'message-copied';
+            copied.textContent = '✓ تم النسخ';
+            meta.insertBefore(copied, timeEl);
+            setTimeout(function() { copied.remove(); }, 2500);
+        } catch(e) {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+    }
+
+    btnSend.addEventListener('click', sendMessage);
+
+    inputText.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    function autoResize() {
+        inputText.style.height = 'auto';
+        inputText.style.height = Math.min(inputText.scrollHeight, 120) + 'px';
+        inputText.scrollTop = inputText.scrollHeight;
+    }
+
+    function updateSendBtn() {
+        btnSend.disabled = !inputText.value.trim();
+    }
+
+    inputText.addEventListener('input', function() {
+        autoResize();
+        updateSendBtn();
+    });
+
+    langSelect.addEventListener('change', function() {
+        if (isRecording) {
+            stopRecording();
+            startRecording();
+        }
+    });
+
+    btnClear.addEventListener('click', function() {
+        chatArea.innerHTML = '';
+        chatArea.appendChild(emptyState);
+        emptyState.style.display = '';
+        inputText.value = '';
+        prefixText = '';
+        autoResize();
+        updateSendBtn();
+    });
+})();
+</script>
+</body>
+</html>
