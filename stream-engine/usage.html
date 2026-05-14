@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — تتبع الاستخدام</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="auth.html">التوثيق والأمان</a><a href="api.html">واجهات API</a><a href="sdks.html">SDKs والتكامل</a><a href="webhooks.html">الأحداث (Webhooks)</a><a href="websocket.html">بروتوكول WebSocket</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html" class="active">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usecases.html">حالات الاستخدام</a><a href="comparison.html">المقارنة والتميز</a></div></div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>تتبع الاستخدام</h1>
+        <p>كيف يُحسب الاستخدام — بالدقيقة، حسب الجودة الفعلية، مُجمّع يومياً</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9201;</span> مبدأ الحساب</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="المبدأ الأساسي">
+                    <h3>الحساب بالدقيقة (Participant-Minutes)</h3>
+                    <p>كل شيء يُحسب بالدقيقة لكل مشارك. إذا مشارك بقى في غرفة 15 دقيقة = 15 دقيقة صوت. إذا غرفة فيها 5 مشاركين لمدة 10 دقائق = 50 دقيقة مشارك. هذا هو الأساس الذي يُبنى عليه التسعير.</p>
+                </div>
+                <div class="card card-highlight" data-badge="ملاحظة مهمة">
+                    <h3>الجودة الفعلية، مش المُعدّة</h3>
+                    <p>إعدادات الجودة في المشروع (مثل "حد أقصى HD") هي <strong>توصية</strong> وليست فرض. الحساب يكون على <strong>الجودة الفعلية</strong> التي يُرسلها المستخدم. المطور حر يحترم التوصية أو يتجاوزها — لكنه سيُحاسب على الفعلي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#127916;</span> تصنيف جودة الفيديو</h2>
+            <p class="section-desc">عند نشر فيديو، السيرفر يقرأ أبعاد الفيديو الفعلية (width × height) ويُصنّفها تلقائياً حسب عدد البكسلات.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>المستوى</th><th>الرمز</th><th>أقصى دقة</th><th>أقصى بكسلات</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Standard Definition</strong></td><td>SD</td><td>640×640</td><td>409,920</td></tr>
+                        <tr><td><strong>High Definition</strong></td><td>HD</td><td>1280×720</td><td>921,600</td></tr>
+                        <tr><td><strong>Full HD</strong></td><td>FHD</td><td>1920×1080</td><td>2,073,600</td></tr>
+                        <tr><td><strong>2K</strong></td><td>2K</td><td>2560×1440</td><td>3,686,400</td></tr>
+                        <tr><td><strong>2K+ (يشمل 4K)</strong></td><td>2K+</td><td>أي شيء أعلى</td><td>&gt; 3,686,400</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>التأثير على التكلفة:</strong> جودة الفيديو تؤثر مباشرة على التسعير — HD أغلى من SD، وFHD أغلى من HD. المطور يبني تسعيره لعملائه بناءً على هذه البيانات.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128202;</span> مقاييس كل خدمة</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الخدمة</th><th>المقاييس المتتبعة</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>الغرف الصوتية</strong></td><td>دقائق الصوت (audio_minutes)، عدد الجلسات، ذروة الغرف المتزامنة، ذروة المشاركين المتزامنين</td></tr>
+                        <tr><td><strong>البث المباشر</strong></td><td>دقائق البث (streaming_minutes)، دقائق الفيديو حسب الجودة (SD / HD / FHD / 2K / 2K+)</td></tr>
+                        <tr><td><strong>المكالمات</strong></td><td>عدد المكالمات، دقائق صوت المكالمات (call_audio_minutes)، دقائق فيديو المكالمات (call_video_minutes)، المكالمات الفائتة (missed)، المرفوضة (rejected)، ذروة المكالمات المتزامنة</td></tr>
+                        <tr><td><strong>الدردشة</strong></td><td>عدد الرسائل المرسلة (messages_sent)، ذروة اتصالات WebSocket المتزامنة (peak_ws_connections)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128197;</span> التجميع اليومي</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>متى يُحسب</h3>
+                    <p>كل يوم الساعة <strong>4:00 فجراً بتوقيت القاهرة</strong> — يتم تجميع كل بيانات الاستخدام لليوم السابق لكل مشروع. النتيجة: سجل يومي واحد يحتوي كل المقاييس.</p>
+                </div>
+                <div class="card">
+                    <h3>من يستفيد</h3>
+                    <p>البيانات تُرسل عبر <strong>Daily Usage Summary</strong> (webhook يومي) لسيرفر المطور + متاحة عبر <strong>Admin API</strong>. خدمة UTD Stream تستخدمها لحساب الفواتير.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128176;</span> العلاقة بالتسعير</h2>
+            <div class="info-box">
+                <strong>Engine لا يملك نظام فوترة.</strong> دوره: يتتبع الاستخدام بدقة ← يُجمّع يومياً ← يرسل البيانات. خدمة UTD Stream (الداشبورد) هي التي تحوّل هذه البيانات لفواتير — المحفظة، الخصم اليومي، الفواتير كلها هناك. المطور يمكنه أيضاً استخدام نفس البيانات لبناء نظام فوترته الخاص لعملائه.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

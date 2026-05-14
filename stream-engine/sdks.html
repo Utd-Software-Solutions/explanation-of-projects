@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — SDKs والتكامل</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html" class="active">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usage.html">تتبع الاستخدام</a><a href="infrastructure.html">البنية التحتية</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usecases.html">حالات الاستخدام</a><a href="comparison.html">المقارنة والتميز</a></div></div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>أدوات التطوير والتكامل</h1>
+        <p>الـ SDKs المتاحة وكيف يبدأ المطور — SDK-ين يعملان معاً</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128230;</span> الـ SDKs المطلوبة</h2>
+            <p class="section-desc">المطور يحتاج SDK-ين يعملان معاً — واحد للميديا (صوت وفيديو) وواحد للاتصال الفوري (دردشة وحضور وsignaling).</p>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="دردشة + حضور">
+                    <h3>UTD ZIM SDK (utd_zim)</h3>
+                    <p>مكتبة Flutter (Dart) رسمية — مبنية بواسطة UTD. التسمية تتبع نمط ZEGOCLOUD (zego_zim → utd_zim). تتصل بـ WebSocket Server. توفر: Presence (تتبع حضور)، Signaling (إشعارات المكالمات)، Messaging (رسائل فورية)، Conversations (إدارة المجموعات). الفئة الرئيسية: <strong>UtdZim</strong>.</p>
+                </div>
+                <div class="card card-highlight" data-badge="صوت + فيديو">
+                    <h3>LiveKit Client SDK</h3>
+                    <p>من مشروع LiveKit المفتوح المصدر. تتصل بـ LiveKit Media Server عبر WebRTC. مسؤولة عن نقل الصوت والفيديو بين المستخدمين. متاحة لـ: Flutter, Web, Android, iOS, React Native.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128260;</span> كيف يعملان معاً</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>utd_zim (UTD ZIM SDK)</h3>
+                    <p>→ WebSocket → <strong>دردشة + حضور + إشعارات مكالمات</strong></p>
+                </div>
+                <div class="card">
+                    <h3>livekit_client (LiveKit SDK)</h3>
+                    <p>→ WebRTC → <strong>صوت + فيديو</strong></p>
+                </div>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>المطور يستخدم كلا الـ SDKs معاً</strong> — ZIM للـ signaling والدردشة، LiveKit للميديا. مثل ما ZEGOCLOUD عندهم ZIM SDK + Express SDK.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9881;</span> ما يقدمه UTD ZIM SDK</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الخدمة</th><th>ما يفعله</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Presence</strong></td><td>استعلام حالة المستخدمين (متصل/غير متصل)، الاشتراك في تحديثات الحضور لحظياً، إلغاء الاشتراك</td></tr>
+                        <tr><td><strong>Signaling</strong></td><td>إرسال دعوة مكالمة، استقبال الدعوة، قبول/رفض/مشغول/إنهاء — كل lifecycle المكالمة</td></tr>
+                        <tr><td><strong>Messaging</strong></td><td>إرسال رسائل (نص/صورة/ملف/صوت/فيديو/مخصص)، استرجاع رسالة، تحميل سجل الرسائل</td></tr>
+                        <tr><td><strong>Conversations</strong></td><td>إنشاء مجموعات، إضافة/إزالة أعضاء، تحديث معلومات المجموعة، كتم، حذف، مغادرة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128640;</span> خطوات البدء</h2>
+            <div class="cards-grid">
+                <div class="card"><div class="card-icon">1</div><h3>إنشاء مشروع</h3><p>من لوحة تحكم UTD Stream — والحصول على App ID + App Secret.</p></div>
+                <div class="card"><div class="card-icon">2</div><h3>تثبيت الـ SDKs</h3><p>في مشروع Flutter: تثبيت utd_zim + livekit_client.</p></div>
+                <div class="card"><div class="card-icon">3</div><h3>طلب Tokens من السيرفر</h3><p>في سيرفر المطور: استخدام App ID + Secret لطلب Tokens من Engine API.</p></div>
+                <div class="card"><div class="card-icon">4</div><h3>تهيئة الـ SDKs</h3><p>في التطبيق: تهيئة UtdZim بـ Signal Token + تهيئة LiveKit بـ Media Token.</p></div>
+                <div class="card"><div class="card-icon">5</div><h3>البدء بالبناء</h3><p>البدء ببناء الميزات: غرف صوتية، بث مباشر، مكالمات، دردشة.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128230;</span> SDKs المتاحة حالياً</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>SDK</th><th>المنصة</th><th>الحالة</th></tr></thead>
+                    <tbody>
+                        <tr><td>utd_zim</td><td>Flutter (Dart)</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>livekit_client</td><td>Flutter (Dart)</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>LiveKit Web SDK</td><td>Web (JavaScript/TypeScript)</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>LiveKit Android SDK</td><td>Android (Kotlin/Java)</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>LiveKit iOS SDK</td><td>iOS (Swift)</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>LiveKit React Native SDK</td><td>React Native</td><td><strong>متاح</strong></td></tr>
+                        <tr><td>UTD ZIM Web SDK</td><td>Web</td><td>قريباً</td></tr>
+                        <tr><td>UTD ZIM Native SDKs</td><td>Android/iOS</td><td>قريباً</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>Flutter هي الأولوية الأولى</strong> — كل العملاء حالياً يستخدمون Flutter. SDKs أخرى لاحقاً.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

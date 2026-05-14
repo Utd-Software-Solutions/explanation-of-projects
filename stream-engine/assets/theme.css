@@ -1,0 +1,8 @@
+:root {
+    --primary: #6C5CE7;
+    --primary-dark: #5A4BD1;
+    --primary-light: #F0EEFF;
+    --primary-lighter: #F5F3FF;
+    --sidebar-bg: #1A1033;
+    --shadow-hover: 0 8px 30px rgba(108, 92, 231, 0.15);
+}

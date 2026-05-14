@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — نظرة عامة</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link active">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Section 1: تعريف -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9889;</span> UTD Stream Engine</h2>
+            <p class="section-desc">البنية التحتية السحابية (CPaaS) التي تشغّل خدمة UTD Stream. منصة اتصالات سحابية تقدم خدمات الصوت والفيديو والدردشة عبر APIs جاهزة للمطورين — بدلاً من بناء بنية تحتية معقدة من الصفر.</p>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">خدمات مستقلة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">&lt; 300ms</span>
+                    <span class="stat-label">تأخير</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Server-side</span>
+                    <span class="stat-label">Enforcement</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">جودات فيديو</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: المشكلة والحل -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128161;</span> المشكلة والحل</h2>
+            <p class="section-desc">لماذا يحتاج المطور إلى Stream Engine بدلاً من بناء كل شيء بنفسه؟</p>
+            <div class="cards-grid-2">
+                <div class="card" style="border-right: 4px solid #e74c3c;">
+                    <div class="card-icon" style="background: #FFEBEE; color: #e74c3c;">&#10060;</div>
+                    <h3>المشكلة</h3>
+                    <p>المطور الذي يريد إضافة مكالمات فيديو أو دردشة صوتية أو رسائل فورية لتطبيقه يحتاج بنية تحتية معقدة:</p>
+                    <ul>
+                        <li>سيرفرات ميديا متخصصة</li>
+                        <li>بروتوكولات WebRTC وإعدادات TURN/STUN</li>
+                        <li>نظام Signaling كامل</li>
+                        <li>تتبع استخدام وفوترة</li>
+                        <li>أمان وعزل بين المستخدمين</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #e74c3c; font-weight: 600;">بناء كل ذلك من الصفر يستغرق أشهراً ويكلف ملايين.</p>
+                </div>
+                <div class="card" style="border-right: 4px solid var(--primary);">
+                    <div class="card-icon">&#9989;</div>
+                    <h3>الحل — Stream Engine</h3>
+                    <p>بدلاً من بناء كل ذلك، المطور يستخدم APIs من Stream Engine ويحصل على كل شيء جاهز:</p>
+                    <ul>
+                        <li>غرف صوتية جاهزة بأدوار وصلاحيات</li>
+                        <li>بث مباشر تفاعلي بتأخير أقل من 300ms</li>
+                        <li>مكالمات صوتية ومرئية بنظام signaling مدمج</li>
+                        <li>دردشة فورية بـ 7 أنواع رسائل</li>
+                        <li>تتبع استخدام دقيق بالدقيقة</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: var(--primary); font-weight: 600;">يبدأ البناء في ساعات بدلاً من أشهر.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: الخدمات الأربع -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128295;</span> الخدمات الأربع</h2>
+            <p class="section-desc">كل خدمة مستقلة تماماً — لها إعداداتها وصلاحياتها وتتبع استخدامها الخاص.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">&#127897;</div>
+                    <h3>غرف الدردشة الصوتية</h3>
+                    <p>صوت فقط — بدون فيديو. أدوار مختلفة (host، guest، audience). الخدمة الأكثر شيوعاً في تطبيقات منطقة MENA.</p>
+                    <ul>
+                        <li>صوت فقط — بدون فيديو أبداً</li>
+                        <li>عدد غير محدود من المشاركين</li>
+                        <li>أدوار وصلاحيات مفروضة من السيرفر</li>
+                        <li>مناسبة لتطبيقات مثل Clubhouse والبودكاست المباشر</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128250;</div>
+                    <h3>البث المباشر</h3>
+                    <p>صوت + فيديو + مشاركة شاشة. بث تفاعلي بتأخير أقل من 300ms مع دعم Co-hosting.</p>
+                    <ul>
+                        <li>صوت وفيديو ومشاركة شاشة</li>
+                        <li>بث تفاعلي وليس بث أحادي الاتجاه</li>
+                        <li>تأخير أقل من 300ms</li>
+                        <li>دعم Co-hosting — أكثر من مضيف في نفس الوقت</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128222;</div>
+                    <h3>المكالمات الصوتية والمرئية</h3>
+                    <p>مكالمات 1-to-1 — صوت أو فيديو. نظام Signaling جاهز (رنين، قبول، رفض، مشغول).</p>
+                    <ul>
+                        <li>مكالمات بين شخصين فقط</li>
+                        <li>صوت فقط أو صوت + فيديو</li>
+                        <li>نظام Signaling مدمج وجاهز</li>
+                        <li>مناسبة لتطبيقات المراسلة والاستشارات</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128172;</div>
+                    <h3>الدردشة الفورية</h3>
+                    <p>محادثات فردية ومجموعات — 7 أنواع رسائل مختلفة عبر WebSocket.</p>
+                    <ul>
+                        <li>محادثات فردية ومجموعات</li>
+                        <li>7 أنواع رسائل (نص، صورة، صوت، فيديو، ملف، موقع، رد)</li>
+                        <li>إشعارات فورية عبر WebSocket</li>
+                        <li>حالات الرسائل (مُرسلة، مُستلمة، مقروءة)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: العلاقة مع UTD Stream -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128279;</span> العلاقة مع UTD Stream</h2>
+            <p class="section-desc">UTD Stream و UTD Stream Engine وجهان لعملة واحدة — أحدهما تجاري والآخر تقني.</p>
+            <div class="info-box">
+                <strong>UTD Stream = الواجهة التجارية</strong><br>
+                الموقع، لوحة التحكم، التسعير، المحفظة، الباقات، الفواتير، الدعم. هذا ما يتعامل معه العميل (صاحب التطبيق) يومياً — يسجل، يدفع، يراقب استهلاكه، يدير مشاريعه.
+            </div>
+            <div class="info-box">
+                <strong>UTD Stream Engine = الواجهة التقنية</strong><br>
+                APIs، Tokens، غرف، مكالمات، دردشة، Webhooks، WebSocket. هذا ما يتعامل معه مطور العميل — يبني التطبيق، يدمج الخدمات، يستقبل الأحداث.
+            </div>
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <strong>باختصار:</strong> المطور يسجل ويدفع عبر UTD Stream (الموقع والداشبورد)، ويبني تطبيقه عبر UTD Stream Engine APIs (الكود والتكامل). المنصتان تعملان معاً كنظام واحد متكامل.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: مخطط التدفق -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128640;</span> مخطط التدفق</h2>
+            <p class="section-desc">كيف يتدفق الاتصال من سيرفر المطور إلى المستخدم النهائي — خطوة بخطوة.</p>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>سيرفر المطور &#8592; Stream Engine API</h4>
+                        <p>سيرفر المطور يرسل طلب إلى Stream Engine API مع <strong>App ID + App Secret</strong> لإنشاء غرفة أو بدء مكالمة أو فتح محادثة. هذا الطلب يتم من السيرفر فقط — لا من تطبيق المستخدم مباشرة.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>Stream Engine API &#8592; توليد Tokens</h4>
+                        <p>Stream Engine يولّد <strong>Tokens ذكية</strong> لكل مستخدم. كل Token يحمل: الخدمة المسموحة، الدور (host/guest/audience)، الجودة القصوى للفيديو، ومدة الصلاحية. المطور يرسل هذه الـ Tokens لتطبيق المستخدم.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>تطبيق المستخدم &#8592; Media Token &#8594; LiveKit Server</h4>
+                        <p>لخدمات الصوت والفيديو (غرف، بث، مكالمات): تطبيق المستخدم يستخدم <strong>Media Token</strong> للاتصال بـ LiveKit Server مباشرة. LiveKit يتولى نقل الصوت والفيديو بين المشاركين في الوقت الحقيقي عبر WebRTC.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>تطبيق المستخدم &#8592; Signal Token &#8594; WebSocket Server</h4>
+                        <p>لخدمات الدردشة والحضور وإشعارات المكالمات: تطبيق المستخدم يستخدم <strong>Signal Token</strong> للاتصال بـ WebSocket Server. هذا الاتصال المستمر يُستخدم لإرسال واستقبال الرسائل الفورية، إشعارات الرنين والقبول والرفض، وتحديثات الحضور.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>الأحداث &#8594; سيرفر المطور (Webhooks)</h4>
+                        <p>كل ما يحدث (مشارك دخل غرفة، مكالمة فائتة، رسالة أُرسلت) — Stream Engine يُبلّغ سيرفر المطور فوراً عبر <strong>Webhooks</strong> موقّعة رقمياً. المطور يستخدم هذه الأحداث لتحديث قاعدة بياناته وتطبيقه.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

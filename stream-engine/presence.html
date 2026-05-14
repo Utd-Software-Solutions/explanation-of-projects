@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — نظام الحضور</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html" class="active">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>نظام الحضور</h1>
+        <p>تتبع حالة المستخدمين (متصل/غير متصل) في الوقت الحقيقي</p>
+    </div>
+
+    <!-- ما هو نظام الحضور -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128994;</span>
+                ما هو نظام الحضور
+            </h2>
+            <p class="section-desc">نظام يتتبع حالة المستخدمين (متصل/غير متصل) في الوقت الحقيقي عبر WebSocket. يعمل مستقلا عن باقي الخدمات — يمكن استخدامه وحده بدون الغرف الصوتية أو البث المباشر أو الدردشة.</p>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">حالات (متصل / غير متصل)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100</div>
+                    <div class="stat-label">حد الاستعلام الواحد</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">عمليات (Query / Subscribe / Unsubscribe)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- كيف يعمل -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#9881;</span>
+                كيف يعمل
+            </h2>
+            <p class="section-desc">3 عمليات أساسية — استعلام لمرة واحدة، اشتراك مستمر، وإلغاء الاشتراك:</p>
+
+            <div class="cards-grid">
+                <div class="card card-highlight">
+                    <div class="card-icon">&#128269;</div>
+                    <h3>استعلام مرة واحدة (Query)</h3>
+                    <p>المطور يرسل <code>presence.query</code> بقائمة هويات مستخدمين (حتى 100 مستخدم في الطلب الواحد) — ويحصل فورا على حالة كل واحد منهم.</p>
+                    <ul>
+                        <li>الحالة: <strong>online</strong> أو <strong>offline</strong></li>
+                        <li>آخر ظهور: تاريخ ووقت آخر مرة كان فيها المستخدم متصلا</li>
+                        <li>مناسب لتحميل حالة قائمة جهات الاتصال عند فتح التطبيق</li>
+                        <li>استعلام واحد — لا يستمر في المتابعة بعد الرد</li>
+                    </ul>
+                </div>
+                <div class="card card-highlight">
+                    <div class="card-icon">&#128276;</div>
+                    <h3>اشتراك مستمر (Subscribe)</h3>
+                    <p>المطور يرسل <code>presence.subscribe</code> بقائمة مستخدمين — ويحصل على إشعار فوري كلما أحد من القائمة دخل أو خرج.</p>
+                    <ul>
+                        <li>إشعار <strong>userOnline</strong> عند اتصال المستخدم</li>
+                        <li>إشعار <strong>userOffline</strong> عند انقطاع المستخدم</li>
+                        <li>الإشعارات مستمرة حتى إلغاء الاشتراك أو انقطاع الاتصال</li>
+                        <li>مناسب لعرض مؤشر "متصل الآن" بجانب اسم المستخدم</li>
+                    </ul>
+                </div>
+                <div class="card card-highlight">
+                    <div class="card-icon">&#128683;</div>
+                    <h3>إلغاء الاشتراك (Unsubscribe)</h3>
+                    <p>المطور يرسل <code>presence.unsubscribe</code> لإيقاف متابعة مستخدمين محددين — يتوقف عن استقبال إشعارات تغيّر حالتهم.</p>
+                    <ul>
+                        <li>يمكن إلغاء الاشتراك لمستخدمين محددين أو الكل</li>
+                        <li>يُنظّف الموارد على السيرفر — مهم للأداء</li>
+                        <li>الإلغاء يحدث تلقائيا عند انقطاع اتصال الـ WebSocket</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج الـ Watchers -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128065;</span>
+                نموذج الـ Watchers
+            </h2>
+            <p class="section-desc">آلية المتابعة الداخلية — كيف يعرف النظام من يجب إشعاره عند تغيّر حالة مستخدم:</p>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-number">1</div>
+                    <div class="flow-step-content">
+                        <h4>الاشتراك</h4>
+                        <p>لما المستخدم A يشترك في حضور المستخدم B — المستخدم A يصبح "watcher" (مراقب) للمستخدم B. النظام يسجّل هذه العلاقة داخليا.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-number">2</div>
+                    <div class="flow-step-content">
+                        <h4>الاتصال</h4>
+                        <p>لما المستخدم B يتصل بالـ WebSocket — النظام يبحث عن كل الـ watchers المشتركين في حضوره، ويرسل لهم إشعار <strong>userOnline</strong> فوريا.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-number">3</div>
+                    <div class="flow-step-content">
+                        <h4>الانقطاع</h4>
+                        <p>لما المستخدم B ينقطع عن الـ WebSocket — كل الـ watchers يحصلون على إشعار <strong>userOffline</strong> مع تاريخ ووقت الانقطاع.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-number">4</div>
+                    <div class="flow-step-content">
+                        <h4>التنظيف التلقائي</h4>
+                        <p>الاشتراكات تُنظّف تلقائيا عند انقطاع اتصال الـ watcher. لا حاجة لإلغاء الاشتراك يدويا — إذا المستخدم A انقطع، كل اشتراكاته تُزال تلقائيا من الذاكرة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <strong>مثال عملي:</strong> تطبيق دردشة يعرض قائمة جهات الاتصال. عند فتح التطبيق: يرسل presence.query لكل الجهات ليعرف من متصل. ثم يرسل presence.subscribe لنفس القائمة ليحصل على تحديثات فورية. النتيجة: المستخدم يرى نقطة خضراء بجانب كل جهة اتصال متصلة — وتتحدث في الوقت الحقيقي.
+            </div>
+        </div>
+    </section>
+
+    <!-- الفرق عن الخدمات الأخرى -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128279;</span>
+                الفرق عن الخدمات الأخرى
+            </h2>
+
+            <div class="info-box">
+                <strong>نظام الحضور يعمل عبر UTD WebSocket — لا علاقة له بـ LiveKit.</strong> يمكن استخدامه بشكل مستقل تماما — حتى لو المطور لا يستخدم الغرف الصوتية أو البث المباشر أو المكالمات. كل ما يحتاجه هو اتصال WebSocket بسيرفر UTD Signal Server.
+            </div>
+
+            <div class="cards-grid cards-grid-2" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <h3>ما يحتاجه نظام الحضور</h3>
+                    <ul>
+                        <li>اتصال WebSocket بالـ Signal Server</li>
+                        <li>Signal Token صالح (من سيرفر المطور)</li>
+                        <li>هويات المستخدمين المراد تتبعهم</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ما لا يحتاجه</h3>
+                    <ul>
+                        <li>لا يحتاج LiveKit أو أي سيرفر ميديا</li>
+                        <li>لا يحتاج غرف صوتية أو فيديو</li>
+                        <li>لا يحتاج خدمة الدردشة</li>
+                        <li>لا يحتاج Media Token</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حالات الاستخدام -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#127919;</span>
+                حالات الاستخدام
+            </h2>
+            <p class="section-desc">أمثلة على تطبيقات يمكنها الاستفادة من نظام الحضور:</p>
+
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">&#128172;</div>
+                    <h3>مؤشر "متصل الآن" في الدردشة</h3>
+                    <p>نقطة خضراء بجانب اسم المستخدم تتحدث في الوقت الحقيقي — يعرف المرسل إذا الطرف الآخر متاح للرد.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128222;</div>
+                    <h3>معرفة من متاح للمكالمة</h3>
+                    <p>قبل بدء مكالمة صوتية أو فيديو — التطبيق يعرف إذا الشخص متصل وجاهز للرد، أو غير متصل فلا داعي للمحاولة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128188;</div>
+                    <h3>حالة الموظفين في تطبيق عمل</h3>
+                    <p>لوحة تعرض حالة كل موظف — متصل، غير متصل، آخر ظهور. مفيدة لفرق العمل الموزعة عن بُعد.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128202;</div>
+                    <h3>تتبع نشاط المستخدمين</h3>
+                    <p>معرفة عدد المستخدمين المتصلين حاليا — مفيد للمنصات التي تحتاج إحصائيات عن النشاط اللحظي.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127891;</div>
+                    <h3>إشعارات الحضور للمعلمين</h3>
+                    <p>في تطبيق تعليمي — المعلم يعرف أي طلاب متصلون الآن وجاهزون للدرس، ومن لم يحضر بعد.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127899;</div>
+                    <h3>مراقبة فريق الدعم</h3>
+                    <p>مدير خدمة العملاء يرى أي أعضاء فريق الدعم متصلون الآن — لتوزيع المهام على المتاحين فقط.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

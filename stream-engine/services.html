@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — الخدمات</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html" class="active">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>الخدمات</h1>
+        <p>نظرة عامة على الخدمات الخمس المتاحة في UTD Stream Engine — كل خدمة مستقلة بقواعدها وإعداداتها</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9889;</span> الخدمات الخمس</h2>
+            <p class="section-desc">كل خدمة مستقلة — المطور يفعّل اللي يحتاجه فقط. القيود تُفرض من السيرفر (Server-side Enforcement) — لا يعتمد على سلوك التطبيق.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">&#127911;</div>
+                    <h3>غرف الدردشة الصوتية</h3>
+                    <p>غرف صوتية فقط — الفيديو محظور على مستوى السيرفر. أدوار مختلفة: مضيف، متحدث، مستمع، زائر. عدد مشاركين غير محدود. شائعة جداً في تطبيقات المنطقة العربية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128225;</div>
+                    <h3>البث المباشر</h3>
+                    <p>بث تفاعلي بتأخير أقل من 300ms — صوت + فيديو + مشاركة شاشة. يدعم co-hosting (أكثر من مقدم). 5 مستويات جودة فيديو. مناسب للبث الحي والمؤتمرات.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128222;</div>
+                    <h3>المكالمات</h3>
+                    <p>مكالمات بين شخصين (1-to-1) — صوتية أو مرئية. نظام signaling جاهز بالكامل: رنين، قبول، رفض، مشغول، إنهاء. المطور لا يحتاج بناء نظام إشعارات بنفسه.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128172;</div>
+                    <h3>الدردشة الفورية</h3>
+                    <p>نظام رسائل فوري عبر WebSocket — مستقل تماماً عن LiveKit. محادثات فردية ومجموعات. 7 أنواع رسائل. إدارة مجموعات كاملة بأدوار مختلفة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128994;</div>
+                    <h3>نظام الحضور</h3>
+                    <p>تتبع حالة المستخدمين (متصل/غير متصل) في الوقت الحقيقي. اشتراك مستمر في تحديثات الحضور. يعمل عبر WebSocket — مستقل عن باقي الخدمات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128202;</span> جدول المقارنة</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الخدمة</th>
+                            <th>نوع الميديا</th>
+                            <th>عدد المشاركين</th>
+                            <th>التقنية</th>
+                            <th>حالات الاستخدام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>غرف صوتية</strong></td>
+                            <td>صوت فقط</td>
+                            <td>غير محدود</td>
+                            <td>LiveKit</td>
+                            <td>Clubhouse، بودكاست حي</td>
+                        </tr>
+                        <tr>
+                            <td><strong>بث مباشر</strong></td>
+                            <td>صوت + فيديو + شاشة</td>
+                            <td>غير محدود</td>
+                            <td>LiveKit</td>
+                            <td>بث تفاعلي، مؤتمرات</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مكالمات</strong></td>
+                            <td>صوت أو فيديو</td>
+                            <td>شخصين فقط</td>
+                            <td>LiveKit + UTD Signaling</td>
+                            <td>مراسلة، استشارات</td>
+                        </tr>
+                        <tr>
+                            <td><strong>دردشة</strong></td>
+                            <td>نص / صور / ملفات</td>
+                            <td>فردية أو مجموعات</td>
+                            <td>UTD WebSocket</td>
+                            <td>رسائل فورية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>حضور</strong></td>
+                            <td>لا ميديا</td>
+                            <td>غير محدود</td>
+                            <td>UTD WebSocket</td>
+                            <td>تتبع متصل/غير متصل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128101;</span> الأدوار الأربعة</h2>
+            <p class="section-desc">كل خدمة تستخدم نفس نظام الأدوار — الصلاحيات تختلف حسب الخدمة لكن المبدأ واحد.</p>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>Host — المتحكم والمدير</h3>
+                    <p>يملك كل الصلاحيات. ينشر صوت وفيديو (حسب الخدمة). يدير الغرفة: كتم، طرد، ترقية. مسؤول عن إدارة الجلسة بالكامل.</p>
+                </div>
+                <div class="card">
+                    <h3>Guest — المتحدث</h3>
+                    <p>ينشر صوت وفيديو (حسب الخدمة). لا يملك صلاحيات إدارية. مناسب للضيوف والمتحدثين المدعوين.</p>
+                </div>
+                <div class="card">
+                    <h3>Audience — المستمع</h3>
+                    <p>يستقبل الصوت والفيديو فقط. لا ينشر أي شيء. يمكنه التفاعل عبر الدردشة النصية إذا كانت مفعّلة.</p>
+                </div>
+                <div class="card">
+                    <h3>Visitor — الزائر</h3>
+                    <p>يستقبل الصوت والفيديو فقط. بدون أي تفاعل — لا دردشة، لا إعجابات، لا أي شيء. مناسب للمشاهدة الصامتة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128274;</span> Server-side Enforcement</h2>
+            <div class="info-box">
+                <strong>القيود تُفرض من السيرفر وليس من التطبيق.</strong> Token لخدمة "rooms" لا يسمح بنشر فيديو أبداً — حتى لو حاول المطور تفعيله في التطبيق، السيرفر يرفض. هذا يعني أمان حقيقي لا يعتمد على سلوك التطبيق. على عكس بعض المنافسين الذين يعتمدون على client-side hints — حيث التطبيق "يُطلب منه" الالتزام لكن السيرفر لا يمنعه.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9881;</span> إعدادات المشروع</h2>
+            <p class="section-desc">كل مشروع يملك إعدادات مستقلة تتحكم فيها — يمكن تفعيل أو تعطيل كل خدمة بشكل منفصل.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>الإعداد</th><th>الوصف</th><th>الافتراضي</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>rooms_enabled</td><td>تفعيل الغرف الصوتية</td><td>false</td></tr>
+                        <tr><td>streaming_enabled</td><td>تفعيل البث المباشر</td><td>false</td></tr>
+                        <tr><td>calls_enabled</td><td>تفعيل المكالمات الصوتية</td><td>false</td></tr>
+                        <tr><td>calls_video_enabled</td><td>تفعيل مكالمات الفيديو (يحتاج calls_enabled)</td><td>false</td></tr>
+                        <tr><td>messaging_enabled</td><td>تفعيل الدردشة الفورية</td><td>false</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

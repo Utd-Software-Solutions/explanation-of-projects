@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — الغرف الصوتية</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html" class="active">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>غرف الدردشة الصوتية</h1>
+        <p>غرف صوتية تفاعلية بأدوار مختلفة — من أكثر الخدمات شعبية في تطبيقات المنطقة العربية</p>
+    </div>
+
+    <!-- ما هي الغرف الصوتية -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🎙️</span> ما هي الغرف الصوتية</h2>
+            <p class="section-desc">غرف صوتية تفاعلية مصممة للتواصل الصوتي المباشر بين المشاركين — بدون أي عنصر مرئي.</p>
+            <div class="cards-grid-2">
+                <div class="card">
+                    <div class="card-icon">🔊</div>
+                    <h3>صوت فقط — بدون فيديو</h3>
+                    <p>الغرف الصوتية تدعم الصوت حصرياً. الفيديو محظور على مستوى السيرفر — حتى لو حاول المطور تفعيله من طرفه، النظام لن يسمح بذلك. هذا يضمن تجربة موحدة وآمنة لجميع المستخدمين.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>عدد مشاركين غير محدود</h3>
+                    <p>لا يوجد حد أقصى ثابت لعدد المشاركين في الغرفة الواحدة — صاحب المشروع يحدد العدد المناسب حسب حاجة تطبيقه. المشاركون إما يتحدثون أو يستمعون، حسب الدور المسند إليهم.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <strong>لماذا صوت فقط؟</strong> الغرف الصوتية مصممة خصيصاً لنمط التواصل الشائع في المنطقة العربية — غرف مثل Clubhouse والمجالس الصوتية. منع الفيديو ليس قيداً تقنياً، بل قرار معماري يحمي خصوصية المستخدمين ويقلل استهلاك الموارد.
+            </div>
+        </div>
+    </section>
+
+    <!-- الأدوار -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🎭</span> الأدوار</h2>
+            <p class="section-desc">كل مشارك في الغرفة يحمل دوراً واحداً يحدد صلاحياته بالكامل. الدور يُحدد عند إنشاء الـ Token ولا يمكن للمستخدم تغييره بنفسه.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الدور</th>
+                            <th>الاسم</th>
+                            <th>الصلاحيات</th>
+                            <th>التفاصيل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>host</code></td>
+                            <td><strong>المتحكم والمدير</strong></td>
+                            <td>نشر صوت + إدارة كاملة</td>
+                            <td>ينشر صوته في الغرفة، ويملك صلاحيات الإدارة: كتم المشاركين، طرد أي شخص من الغرفة، ترقية مستمع إلى متحدث. هو المسؤول الأول عن إدارة الغرفة.</td>
+                        </tr>
+                        <tr>
+                            <td><code>guest</code></td>
+                            <td><strong>المتحدث</strong></td>
+                            <td>نشر صوت فقط</td>
+                            <td>يستطيع نشر صوته والتحدث في الغرفة، لكن لا يملك أي صلاحيات إدارية — لا يستطيع كتم أحد أو طرده أو ترقيته.</td>
+                        </tr>
+                        <tr>
+                            <td><code>audience</code></td>
+                            <td><strong>المستمع</strong></td>
+                            <td>استماع فقط</td>
+                            <td>يسمع كل ما يحدث في الغرفة لكن لا يستطيع نشر أي صوت. يمكنه التفاعل بطرق أخرى (مثل الدردشة النصية أو الإعجابات) إذا أتاحها المطور.</td>
+                        </tr>
+                        <tr>
+                            <td><code>visitor</code></td>
+                            <td><strong>الزائر</strong></td>
+                            <td>استماع فقط — بدون أي تفاعل</td>
+                            <td>يسمع فقط — بدون أي نوع من التفاعل: لا دردشة، لا إعجابات، لا أي شيء. مصمم للمتابعة الصامتة فقط.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="warning-box">
+                <strong>ملاحظة:</strong> الدور يُحدد في الـ Token عند إنشائه من سيرفر المطور. المستخدم لا يختار دوره بنفسه — السيرفر هو من يقرر ذلك بناءً على منطق التطبيق.
+            </div>
+        </div>
+    </section>
+
+    <!-- كيف تعمل -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">⚙️</span> كيف تعمل</h2>
+            <p class="section-desc">دورة حياة الغرفة الصوتية من لحظة الإنشاء حتى تتبع الاستخدام — في 5 خطوات واضحة.</p>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>طلب Token من Engine</h4>
+                        <p>سيرفر المطور يرسل طلب HTTP إلى UTD Stream Engine لإنشاء Token. في الطلب يحدد: اسم الغرفة، اسم المستخدم، نوع الخدمة (<code>rooms</code>)، والدور المطلوب (host / guest / audience / visitor).</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>المستخدم يحصل على Token</h4>
+                        <p>سيرفر المطور يعيد الـ Token إلى تطبيق المستخدم. هذا الـ Token يحتوي على كل المعلومات اللازمة: الغرفة المستهدفة، الدور، والصلاحيات — مشفر ومؤقت.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>الاتصال بـ LiveKit عبر Token</h4>
+                        <p>تطبيق المستخدم يستخدم LiveKit SDK للاتصال بسيرفر الوسائط مباشرة باستخدام الـ Token. الاتصال يتم عبر WebRTC — تأخير منخفض جداً وجودة عالية.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>التحدث أو الاستماع حسب الدور</h4>
+                        <p>بمجرد الاتصال، المستخدم يبدأ حسب دوره: الـ host و guest يتحدثون، الـ audience و visitor يستمعون. كل شيء يحدث في الوقت الحقيقي بدون تأخير ملحوظ.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>تتبع الاستخدام بالدقيقة</h4>
+                        <p>Engine يتتبع كل مشارك بالدقيقة — من لحظة دخوله الغرفة حتى خروجه. الملخص يُجمع يومياً ويُرسل كتقرير استخدام مفصل.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- إعدادات قابلة للتخصيص -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔧</span> إعدادات قابلة للتخصيص</h2>
+            <p class="section-desc">كل مشروع يمكنه تخصيص سلوك الغرف الصوتية حسب احتياجاته — بدون الحاجة لتعديل الكود.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الإعداد</th>
+                            <th>الوصف</th>
+                            <th>القيمة الافتراضية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>max_participants_per_room</code></td>
+                            <td>أقصى عدد مشاركين مسموح بهم في الغرفة الواحدة. عند الوصول للحد الأقصى، أي محاولة انضمام جديدة تُرفض تلقائياً.</td>
+                            <td>يحدده صاحب المشروع</td>
+                        </tr>
+                        <tr>
+                            <td><code>empty_room_timeout</code></td>
+                            <td>المدة التي تبقى فيها الغرفة مفتوحة بعد خروج آخر مشارك. إذا لم ينضم أحد خلال هذه المدة، تُغلق الغرفة تلقائياً لتوفير الموارد.</td>
+                            <td>5 دقائق</td>
+                        </tr>
+                        <tr>
+                            <td><code>max_concurrent_rooms</code></td>
+                            <td>أقصى عدد غرف نشطة يمكن أن تعمل في نفس الوقت لنفس المشروع. يمنع الاستهلاك غير المتوقع للموارد.</td>
+                            <td>يحدده صاحب المشروع</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <strong>مرونة كاملة:</strong> هذه الإعدادات تُدار من لوحة التحكم أو عبر API. التغييرات تسري فوراً على الغرف الجديدة — الغرف النشطة حالياً لا تتأثر حتى تُغلق وتُفتح من جديد.
+            </div>
+        </div>
+    </section>
+
+    <!-- تتبع الاستخدام -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📊</span> تتبع الاستخدام</h2>
+            <p class="section-desc">نظام تتبع دقيق يحسب استهلاك كل مشارك بالدقيقة — لفوترة عادلة وشفافة.</p>
+            <div class="info-box">
+                <strong>وحدة القياس: <code>audio_minutes</code> (دقائق صوتية)</strong><br><br>
+                كل مشارك في الغرفة يُحسب بشكل مستقل بالدقيقة — من لحظة دخوله حتى خروجه. إذا كان في الغرفة 10 مشاركين لمدة 30 دقيقة، الاستهلاك الإجمالي = 300 دقيقة صوتية.<br><br>
+                الملخص يُرسل يومياً ويتضمن: إجمالي الدقائق الصوتية، عدد الغرف النشطة، متوسط مدة الجلسة، وذروة المشاركين المتزامنين.
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">بالدقيقة</span>
+                    <span class="stat-label">دقة الحساب</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">لكل مشارك</span>
+                    <span class="stat-label">حساب مستقل</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">يومياً</span>
+                    <span class="stat-label">تقارير الاستخدام</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حالات الاستخدام -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">💡</span> حالات الاستخدام</h2>
+            <p class="section-desc">الغرف الصوتية تناسب مجموعة واسعة من التطبيقات — من التواصل الاجتماعي إلى التعليم والإعلام.</p>
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">🎧</div>
+                    <h3>غرف صوتية على نمط Clubhouse</h3>
+                    <p>غرف نقاش صوتية مفتوحة يدخلها المستخدمون للاستماع أو المشاركة — النموذج الأكثر شعبية في تطبيقات التواصل الاجتماعي العربية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎤</div>
+                    <h3>بودكاست حي</h3>
+                    <p>بث بودكاست مباشر مع جمهور يستمع في الوقت الحقيقي — المقدم يتحدث والجمهور يتابع مع إمكانية فتح المجال للأسئلة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>غرف تعليمية صوتية</h3>
+                    <p>فصول دراسية صوتية حيث المعلم يشرح والطلاب يستمعون — مع إمكانية ترقية طالب للحديث عند الحاجة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>مساحات نقاش</h3>
+                    <p>مساحات حوار مفتوحة حول مواضيع محددة — مثل مجالس افتراضية يجتمع فيها المهتمون بموضوع معين.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📻</div>
+                    <h3>راديو تفاعلي</h3>
+                    <p>بث إذاعي حي مع تفاعل المستمعين — المقدم يبث والجمهور يستمع مع إمكانية استقبال مكالمات المستمعين.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏘️</div>
+                    <h3>إذاعة مجتمعية</h3>
+                    <p>قنوات صوتية للمجتمعات والمجموعات — إعلانات، اجتماعات، وتواصل مباشر بين أعضاء المجتمع الواحد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

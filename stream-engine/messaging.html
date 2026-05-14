@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — الدردشة الفورية</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html" class="active">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>الدردشة الفورية</h1>
+        <p>نظام رسائل فوري متكامل عبر WebSocket — مستقل تماما عن LiveKit</p>
+    </div>
+
+    <!-- ما هي الدردشة الفورية -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128172;</span>
+                ما هي الدردشة الفورية
+            </h2>
+            <p class="section-desc">نظام مراسلة فورية مبني بالكامل بواسطة UTD — يعمل عبر WebSocket ومستقل تماما عن LiveKit. يدعم محادثات فردية (1-to-1) ومجموعات، مع 7 أنواع مختلفة من الرسائل. هذا النظام ليس جزءا من LiveKit ولا يعتمد عليه — بنيناه من الصفر ليعمل كخدمة مستقلة ضمن Stream Engine.</p>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">أنواع رسائل</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">أنواع محادثات</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200</div>
+                    <div class="stat-label">عضو كحد أقصى للمجموعة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">أدوار في المجموعة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- أنواع الرسائل -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128221;</span>
+                أنواع الرسائل
+            </h2>
+            <p class="section-desc">النظام يدعم 7 أنواع مختلفة من الرسائل — من النص البسيط إلى المحتوى المخصص:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>النوع</th>
+                            <th>الوصف</th>
+                            <th>الاستخدام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>نص</strong></td>
+                            <td>رسالة نصية عادية</td>
+                            <td>التواصل اليومي بين المستخدمين</td>
+                        </tr>
+                        <tr>
+                            <td><strong>صورة</strong></td>
+                            <td>إرسال صور</td>
+                            <td>مشاركة لقطات شاشة، صور منتجات، صور شخصية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ملف</strong></td>
+                            <td>إرسال ملفات متنوعة</td>
+                            <td>مستندات، ملفات PDF، جداول بيانات</td>
+                        </tr>
+                        <tr>
+                            <td><strong>صوت</strong></td>
+                            <td>رسائل صوتية</td>
+                            <td>تسجيلات صوتية قصيرة بدل الكتابة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>فيديو</strong></td>
+                            <td>رسائل فيديو</td>
+                            <td>مقاطع فيديو قصيرة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مخصص</strong></td>
+                            <td>محتوى مخصص يحدده المطور (JSON)</td>
+                            <td>بطاقات منتجات، مواقع جغرافية، عناصر تفاعلية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>نظام</strong></td>
+                            <td>رسائل من النظام تلقائيا</td>
+                            <td>انضمام عضو، مغادرة عضو، تحديث اسم المجموعة</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <strong>النوع المخصص (Custom):</strong> يتيح للمطور إرسال أي محتوى بصيغة JSON — مما يسمح ببناء تجارب غنية مثل بطاقات المنتجات القابلة للشراء، أو مشاركة المواقع على الخريطة، أو استطلاعات الرأي، أو أي عنصر تفاعلي يحتاجه التطبيق.
+            </div>
+        </div>
+    </section>
+
+    <!-- أنواع المحادثات -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128483;</span>
+                أنواع المحادثات
+            </h2>
+            <p class="section-desc">نوعان من المحادثات — فردية تلقائية ومجموعات يدوية:</p>
+
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight">
+                    <div class="card-icon">&#128101;</div>
+                    <h3>محادثة فردية (Peer)</h3>
+                    <p>تُنشأ تلقائيا عند أول رسالة بين شخصين. لا حاجة لإنشائها يدويا عبر API — النظام يتعامل مع هذا تلقائيا.</p>
+                    <ul>
+                        <li>عضوان فقط — لا يمكن إضافة أعضاء آخرين</li>
+                        <li>لا أدوار — كلا الطرفين متساويان في الصلاحيات</li>
+                        <li>تُنشأ مرة واحدة بين كل شخصين — لا يمكن إنشاء محادثة فردية ثانية بين نفس الشخصين</li>
+                        <li>لا يمكن حذفها من قبل أي طرف — يمكن فقط حذفها من جهة المستخدم (مثل أرشفتها)</li>
+                    </ul>
+                </div>
+                <div class="card card-highlight">
+                    <div class="card-icon">&#128101;</div>
+                    <h3>محادثة جماعية (Group)</h3>
+                    <p>تُنشأ يدويا عبر API. المالك يحدد الأعضاء الأوائل، ويمكن إضافة وإزالة أعضاء لاحقا حسب الأدوار.</p>
+                    <ul>
+                        <li>من 2 إلى max_group_members عضو (الافتراضي 200)</li>
+                        <li>3 أدوار: owner (المالك) / admin (المشرف) / member (العضو)</li>
+                        <li>المالك يتحكم بالكامل — إضافة/إزالة أعضاء، ترقية الأدوار، تعديل المجموعة</li>
+                        <li>يمكن تعديل اسم المجموعة وصورتها ووصفها</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- أدوار المجموعة -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#128100;</span>
+                أدوار المجموعة
+            </h2>
+            <p class="section-desc">3 أدوار بصلاحيات متدرجة — من التحكم الكامل إلى الإرسال فقط:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الدور</th>
+                            <th>الصلاحية</th>
+                            <th>التفاصيل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>owner (المالك)</strong></td>
+                            <td>كل شيء</td>
+                            <td>إضافة/إزالة أعضاء، تعديل المجموعة، حذفها، ترقية أعضاء لمشرفين، تخفيض مشرفين لأعضاء، نقل الملكية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>admin (المشرف)</strong></td>
+                            <td>إدارة محدودة</td>
+                            <td>إضافة/إزالة أعضاء عاديين فقط (لا يستطيع إزالة مشرف آخر أو المالك)، تعديل اسم المجموعة وصورتها</td>
+                        </tr>
+                        <tr>
+                            <td><strong>member (العضو)</strong></td>
+                            <td>إرسال رسائل فقط</td>
+                            <td>إرسال واستقبال الرسائل، مغادرة المجموعة — لا صلاحيات إدارية</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <strong>نقل الملكية تلقائي:</strong> إذا المالك غادر المجموعة، الملكية تنتقل تلقائيا لأول admin موجود. إذا لا يوجد admin — تنتقل لأول عضو. إذا لا يوجد أعضاء — المجموعة تُحذف تلقائيا. هذا يضمن أن لا مجموعة تبقى بدون مالك أبدا.
+            </div>
+        </div>
+    </section>
+
+    <!-- ميزات إضافية -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#9889;</span>
+                ميزات إضافية
+            </h2>
+            <p class="section-desc">مجموعة من الميزات المتقدمة التي تجعل نظام الدردشة متكاملا وجاهزا للإنتاج:</p>
+
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">&#128065;</div>
+                    <h3>مؤشر القراءة</h3>
+                    <p>معرفة من قرأ الرسالة ومتى. يُحدّث تلقائيا عند فتح المحادثة — المرسل يرى حالة "مقروءة" مع الوقت.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128263;</div>
+                    <h3>كتم المحادثات</h3>
+                    <p>إيقاف الإشعارات لمحادثة معينة. المستخدم يستمر في استقبال الرسائل لكن بدون إشعارات مزعجة — مفيد للمجموعات النشطة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#8617;</div>
+                    <h3>استرجاع الرسائل</h3>
+                    <p>المرسل يمكنه استرجاع رسالته خلال <strong>دقيقتين فقط</strong> من الإرسال. بعد الاسترجاع: المحتوى والـ metadata يُمسحان، الرسالة تتحول لحالة "recalled"، كل المشاركين يحصلون على إشعار messageRecalled فوري.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128465;</div>
+                    <h3>حذف المحادثات</h3>
+                    <p>حذف محادثة من جهة المستخدم فقط — مثل الأرشفة. المحادثة تختفي من قائمته لكنها تبقى موجودة عند الطرف الآخر. يمكن أن تظهر مجددا إذا وصلت رسالة جديدة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128218;</div>
+                    <h3>سجل الرسائل</h3>
+                    <p>REST APIs لتحميل البيانات التاريخية — مفيدة لتحميل الرسائل السابقة عند فتح المحادثة:</p>
+                    <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <li><code>GET /conversations</code></li>
+                        <li><code>GET /conversations/{id}/messages</code></li>
+                        <li><code>GET /conversations/{id}/members</code></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128200;</div>
+                    <h3>تتبع الاستخدام</h3>
+                    <p>كل نشاط الدردشة يُسجّل تلقائيا في نظام تتبع الاستخدام. المقاييس المتتبعة:</p>
+                    <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <li><strong>messages_sent:</strong> عدد الرسائل المرسلة</li>
+                        <li><strong>peak_ws_connections:</strong> أعلى عدد اتصالات WebSocket متزامنة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حالات الاستخدام -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="icon">&#127919;</span>
+                حالات الاستخدام
+            </h2>
+            <p class="section-desc">أمثلة على تطبيقات يمكنها الاستفادة من نظام الدردشة الفورية:</p>
+
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">&#128241;</div>
+                    <h3>دردشة داخل التطبيق</h3>
+                    <p>إضافة ميزة المراسلة الفورية لأي تطبيق موجود — تطبيق توصيل، متجر إلكتروني، منصة تعليمية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128188;</div>
+                    <h3>مجموعات عمل</h3>
+                    <p>فرق العمل تتواصل في مجموعات مخصصة — لكل مشروع مجموعة، مع أدوار وصلاحيات واضحة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127899;</div>
+                    <h3>دعم عملاء نصي</h3>
+                    <p>محادثات فردية بين العميل وفريق الدعم — مع سجل كامل للمحادثات ومؤشرات القراءة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128227;</div>
+                    <h3>رسائل جماعية</h3>
+                    <p>إرسال تحديثات ورسائل لمجموعات كبيرة — إعلانات، تنبيهات، أخبار المنصة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128276;</div>
+                    <h3>إشعارات نظام</h3>
+                    <p>رسائل نظام تلقائية — تأكيد طلبات، تحديثات حالة، تنبيهات أمان — باستخدام نوع الرسالة "نظام".</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127760;</div>
+                    <h3>تواصل مجتمعي</h3>
+                    <p>مجموعات مجتمعية مفتوحة — منتديات حوار، مجموعات اهتمام، قنوات نقاش عامة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

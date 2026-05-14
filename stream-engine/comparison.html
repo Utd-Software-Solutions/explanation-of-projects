@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — المقارنة والتميز</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="auth.html">التوثيق والأمان</a><a href="api.html">واجهات API</a><a href="sdks.html">SDKs والتكامل</a><a href="webhooks.html">الأحداث (Webhooks)</a><a href="websocket.html">بروتوكول WebSocket</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usage.html">تتبع الاستخدام</a><a href="infrastructure.html">البنية التحتية</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html" class="active">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>لماذا UTD Stream Engine</h1>
+        <p>كيف يختلف عن المنافسين ولماذا يختاره المطور</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128200;</span> جدول المقارنة</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الميزة</th><th>UTD Stream Engine</th><th>LiveKit Cloud</th><th>ZEGOCLOUD</th><th>Agora</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>غرف صوتية</strong></td><td>متاح</td><td>متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>بث مباشر تفاعلي</strong></td><td>متاح</td><td>متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>مكالمات 1-to-1</strong></td><td>متاح مع Signaling جاهز</td><td>غير متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>دردشة فورية</strong></td><td>متاح</td><td>غير متاح</td><td>متاح (ZIM SDK)</td><td>متاح</td></tr>
+                        <tr><td><strong>تتبع حضور</strong></td><td>متاح</td><td>غير متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>Server-side Enforcement</strong></td><td>نعم — القيود تُفرض من السيرفر</td><td>لا</td><td>Client-side hints</td><td>جزئي</td></tr>
+                        <tr><td><strong>نظام Call Signaling</strong></td><td>جاهز — رنين، قبول، رفض، مشغول</td><td>غير موجود — ابنِه بنفسك</td><td>متاح (ZIM)</td><td>متاح</td></tr>
+                        <tr><td><strong>سيرفرات الشرق الأوسط</strong></td><td>نعم — الدوحة</td><td>غير متاح</td><td>محدود</td><td>محدود</td></tr>
+                        <tr><td><strong>التسعير</strong></td><td>تنافسي — أقل من LiveKit Cloud</td><td>مرتفع</td><td>متوسط</td><td>مرتفع</td></tr>
+                        <tr><td><strong>تسجيل سحابي</strong></td><td>قريباً</td><td>متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>UIKits جاهزة</strong></td><td>قريباً</td><td>متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>CDN Streaming</strong></td><td>قريباً</td><td>متاح</td><td>متاح</td><td>متاح</td></tr>
+                        <tr><td><strong>Open Source</strong></td><td>لا — لكن مبني على LiveKit (مفتوح)</td><td>نعم</td><td>لا</td><td>لا</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#11088;</span> ميزات UTD الفريدة</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="أمان">
+                    <h3>Server-side Enforcement</h3>
+                    <p>القيود تُفرض من السيرفر عبر Token — ليس من التطبيق. غرفة صوتية لا تسمح بفيديو أبداً مهما حاول المطور من جهة العميل. ZEGOCLOUD تعتمد على client-side hints التي يمكن تجاوزها.</p>
+                </div>
+                <div class="card card-highlight" data-badge="تنافسي">
+                    <h3>نظام مكالمات جاهز</h3>
+                    <p>Call Signaling كامل — رنين، قبول، رفض، مشغول، إنهاء. LiveKit لا يملك أي نظام مكالمات — المطور يحتاج بناء كل هذا من الصفر. مع UTD، يحصل عليه جاهزاً.</p>
+                </div>
+                <div class="card card-highlight" data-badge="تكلفة">
+                    <h3>تسعير تنافسي</h3>
+                    <p>تكلفة أقل من LiveKit Cloud — مع تقديم خدمات أكثر (دردشة، حضور، مكالمات). المطور يحصل على منصة كاملة بسعر أقل من محرك ميديا وحده.</p>
+                </div>
+                <div class="card card-highlight" data-badge="المنطقة">
+                    <h3>سيرفرات الشرق الأوسط</h3>
+                    <p>سيرفر رئيسي في الدوحة — أقل تأخير ممكن للمنطقة العربية. أغلب المنافسين لا يوفرون سيرفرات في المنطقة أو يوفرونها بشكل محدود.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128269;</span> بشفافية — ما ينقصنا حالياً</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الميزة</th><th>الحالة</th><th>ملاحظة</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>التسجيل السحابي (Cloud Recording)</strong></td><td>قريباً</td><td>تسجيل الغرف والمكالمات وتخزينها سحابياً</td></tr>
+                        <tr><td><strong>UIKits جاهزة</strong></td><td>قريباً</td><td>مكونات واجهة جاهزة للاستخدام (Pre-built UI)</td></tr>
+                        <tr><td><strong>CDN Streaming</strong></td><td>مخطط</td><td>بث تقليدي لأعداد ضخمة (ملايين مشاهدين)</td></tr>
+                        <tr><td><strong>SIP والهاتف</strong></td><td>مؤجل</td><td>ربط خطوط هاتف تقليدية (SIP trunking)</td></tr>
+                        <tr><td><strong>Ingress</strong></td><td>مؤجل</td><td>استقبال بث من مصادر خارجية (RTMP, OBS)</td></tr>
+                        <tr><td><strong>شهادات أمان (SOC2, HIPAA)</strong></td><td>غير متوفرة</td><td>لا شهادات رسمية حالياً</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128640;</span> خارطة الطريق</h2>
+            <div class="cards-grid">
+                <div class="card card-highlight" data-badge="المرحلة القادمة">
+                    <h3>AI Agents</h3>
+                    <p>وكلاء ذكية — تفريغ نصي للصوت (Transcription)، ترجمة فورية، وأدوات AI أخرى داخل الغرف والمكالمات.</p>
+                </div>
+                <div class="card card-highlight" data-badge="مؤجل">
+                    <h3>التسجيل السحابي</h3>
+                    <p>تسجيل الغرف والمكالمات تلقائياً وتخزينها سحابياً — مع إمكانية التحميل والمشاركة.</p>
+                </div>
+                <div class="card card-highlight" data-badge="مؤجل">
+                    <h3>SIP والهاتف</h3>
+                    <p>ربط خطوط هاتف تقليدية (SIP Trunking) — الاتصال من وإلى أرقام هاتف عادية عبر المنصة.</p>
+                </div>
+                <div class="card card-highlight" data-badge="مؤجل">
+                    <h3>Ingress</h3>
+                    <p>استقبال بث من مصادر خارجية مثل RTMP وOBS — لدعم منشئي المحتوى الذين يستخدمون أدوات بث احترافية.</p>
+                </div>
+                <div class="card card-highlight" data-badge="مخطط">
+                    <h3>مناطق جغرافية إضافية</h3>
+                    <p>أوروبا، أمريكا الشمالية، شرق آسيا — حسب طلب العملاء ونمو المنصة.</p>
+                </div>
+                <div class="card card-highlight" data-badge="مخطط">
+                    <h3>CDN Streaming</h3>
+                    <p>بث تقليدي لأعداد ضخمة (ملايين مشاهدين) عبر شبكة توزيع محتوى — للفعاليات الكبيرة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-box">
+                <strong>القيمة المضافة بجملة واحدة:</strong> UTD Stream Engine يحوّل LiveKit من محرك ميديا منخفض المستوى إلى منصة اتصالات جاهزة للإنتاج — المطور يبدأ ببناء تطبيقه فوراً بدلاً من قضاء أشهر في بناء البنية التحتية.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

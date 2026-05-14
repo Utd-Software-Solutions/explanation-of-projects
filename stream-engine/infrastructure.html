@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — البنية التحتية</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="auth.html">التوثيق والأمان</a><a href="api.html">واجهات API</a><a href="sdks.html">SDKs والتكامل</a><a href="webhooks.html">الأحداث (Webhooks)</a><a href="websocket.html">بروتوكول WebSocket</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html" class="active">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usecases.html">حالات الاستخدام</a><a href="comparison.html">المقارنة والتميز</a></div></div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>البنية التحتية والأداء</h1>
+        <p>السيرفرات، المناطق الجغرافية، الحماية، والتوسع</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9729;</span> المنصة السحابية</h2>
+            <div class="stats-bar">
+                <div class="stat-item"><div class="stat-number">GCP</div><div class="stat-label">Google Cloud Platform</div></div>
+                <div class="stat-item"><div class="stat-number">منطقتان</div><div class="stat-label">الدوحة + مومباي</div></div>
+                <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">Uptime المستهدف</div></div>
+                <div class="stat-item"><div class="stat-number">Multi-tenant</div><div class="stat-label">سيرفر واحد، عزل كامل</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#127758;</span> المناطق الجغرافية</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="رئيسي">
+                    <h3>الشرق الأوسط — الدوحة</h3>
+                    <p>السيرفر الرئيسي — يشغّل <strong>Engine API</strong> + <strong>WebSocket Server</strong> + <strong>LiveKit Media Server</strong>. يخدم المنطقة العربية والشرق الأوسط وأفريقيا.</p>
+                </div>
+                <div class="card card-highlight" data-badge="relay">
+                    <h3>الهند — مومباي</h3>
+                    <p>سيرفر Relay — يشغّل <strong>LiveKit relay فقط</strong> لتقليل التأخير للمستخدمين في جنوب آسيا. لا يشغّل Engine API — كل الطلبات تمر عبر الدوحة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128268;</span> الدومينات والعناوين</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الغرض</th><th>العنوان</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>API الرئيسي</strong></td><td>https://engine.udt-stream.com</td></tr>
+                        <tr><td><strong>WebSocket</strong></td><td>wss://engine.udt-stream.com/ws</td></tr>
+                        <tr><td><strong>LiveKit — الشرق الأوسط</strong></td><td>wss://engine.udt-stream.com:8443</td></tr>
+                        <tr><td><strong>LiveKit — الهند</strong></td><td>wss://relay-in.udt-stream.com:8443</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>ملاحظة:</strong> الدومين هو <strong>udt-stream.com</strong> (UDT وليس UTD في الدومين) — لأسباب تتعلق بتوفر النطاق.
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128260;</span> كيف يعمل التوجيه</h2>
+            <div class="cards-grid">
+                <div class="card"><div class="card-icon">1</div><h3>المطور يختار المنطقة</h3><p>عند إنشاء المشروع، يحدد المنطقة الجغرافية الأقرب لمستخدميه.</p></div>
+                <div class="card"><div class="card-icon">2</div><h3>Engine يولّد التوكن</h3><p>التوكن يحمل عنوان سيرفر الميديا المناسب للمنطقة المختارة.</p></div>
+                <div class="card"><div class="card-icon">3</div><h3>التطبيق يتصل تلقائياً</h3><p>تطبيق المستخدم يقرأ عنوان السيرفر من التوكن ويتصل بالسيرفر الأقرب مباشرة.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128737;</span> الحماية — Cloudflare</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>DNS + SSL</h3>
+                    <p>Cloudflare أمام كل السيرفرات — يوفر <strong>DNS سريع</strong> + <strong>شهادات SSL/TLS تلقائية</strong> + حماية ضد هجمات DDoS.</p>
+                </div>
+                <div class="card">
+                    <h3>عزل العملاء</h3>
+                    <p>بنية <strong>Multi-tenant</strong> — سيرفر واحد يخدم جميع العملاء مع عزل كامل بينهم. كل مشروع معزول على مستوى API والبيانات والغرف والإعدادات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128640;</span> خطط التوسع</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>المنطقة</th><th>الحالة</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>الشرق الأوسط (الدوحة)</strong></td><td>متاح — سيرفر رئيسي</td></tr>
+                        <tr><td><strong>الهند (مومباي)</strong></td><td>متاح — سيرفر relay</td></tr>
+                        <tr><td><strong>أوروبا</strong></td><td>مخطط — حسب الطلب</td></tr>
+                        <tr><td><strong>أمريكا الشمالية</strong></td><td>مخطط — حسب الطلب</td></tr>
+                        <tr><td><strong>شرق آسيا</strong></td><td>مخطط — حسب الطلب</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>البنية مصممة للتوسع:</strong> إضافة منطقة جديدة تتطلب نشر سيرفر LiveKit relay إضافي فقط — Engine API يبقى مركزياً. المطور يختار المنطقة عند إنشاء المشروع.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

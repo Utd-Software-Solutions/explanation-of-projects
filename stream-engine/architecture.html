@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — البنية والمكونات</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link active">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>البنية والمكونات</h1>
+        <p>المكونات الرئيسية في Stream Engine وكيف تعمل معاً لتقديم منصة اتصالات متكاملة</p>
+    </div>
+
+    <!-- Section 1: المكونات السبع -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128736;</span> المكونات السبع</h2>
+            <p class="section-desc">كل مكوّن له دور محدد ويعمل بشكل مستقل — لكنها جميعاً تتكامل معاً لتشكيل النظام الكامل.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">&#127760;</div>
+                    <h3>طبقة الـ API</h3>
+                    <p>نقطة الدخول لكل شيء — REST APIs يستخدمها سيرفر المطور للتحكم في كل الخدمات.</p>
+                    <ul>
+                        <li>APIs مخصصة للمطورين (Client API) — إنشاء غرف، توليد Tokens، إدارة مكالمات</li>
+                        <li>APIs للإدارة الداخلية (Admin API) — مراقبة، إحصائيات، تعديل إعدادات</li>
+                        <li>توثيق موحد بـ App ID + App Secret</li>
+                        <li>Rate limiting وحماية ضد الاستخدام المفرط</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127909;</div>
+                    <h3>محرك الميديا — LiveKit</h3>
+                    <p>القلب النابض — مسؤول عن نقل الصوت والفيديو بين المستخدمين في الوقت الحقيقي.</p>
+                    <ul>
+                        <li>مبني على LiveKit — مشروع مفتوح المصدر رائد في مجال WebRTC</li>
+                        <li>يدعم SFU (Selective Forwarding Unit) لأداء عالي</li>
+                        <li>منتشر في أكثر من منطقة جغرافية لتقليل التأخير</li>
+                        <li>يدعم 5 جودات فيديو: SD, HD, FHD, 2K, 2K+</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128203;</div>
+                    <h3>نظام الخدمات الخمس</h3>
+                    <p>خمس خدمات مستقلة تماماً — كل واحدة بقواعدها وإعداداتها الخاصة.</p>
+                    <ul>
+                        <li>غرف صوتية — صوت فقط، أدوار، بدون فيديو أبداً</li>
+                        <li>بث مباشر — صوت + فيديو + شاشة، تفاعلي</li>
+                        <li>مكالمات — 1-to-1، صوت أو فيديو، signaling مدمج</li>
+                        <li>دردشة فورية — نص وملفات، فردية ومجموعات</li>
+                        <li>نظام حضور — تتبع متصل/غير متصل</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128274;</div>
+                    <h3>نظام التوثيق والأمان</h3>
+                    <p>طبقة أمان شاملة تحمي كل مشروع وكل مستخدم.</p>
+                    <ul>
+                        <li>App ID + App Secret لكل مشروع</li>
+                        <li>Tokens محدودة الصلاحية والوقت لكل مستخدم</li>
+                        <li>عزل كامل بين المشاريع (Tenant Isolation)</li>
+                        <li>Token يحمل الخدمة والدور والجودة القصوى</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#9889;</div>
+                    <h3>نظام الاتصال الفوري — WebSocket</h3>
+                    <p>اتصال مستمر بين تطبيق المستخدم والسيرفر — لكل ما هو غير ميديا.</p>
+                    <ul>
+                        <li>الدردشة الفورية — إرسال واستقبال الرسائل لحظياً</li>
+                        <li>إشعارات المكالمات — رنين، قبول، رفض، مشغول، إلغاء</li>
+                        <li>تتبع الحضور — من متصل ومن غير متصل</li>
+                        <li>اتصال مستمر وإعادة اتصال تلقائية</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128200;</div>
+                    <h3>نظام تتبع الاستخدام</h3>
+                    <p>يسجل كل دقيقة صوت وفيديو لكل مشروع — بدقة عالية.</p>
+                    <ul>
+                        <li>تتبع بالدقيقة لكل مشارك في كل غرفة</li>
+                        <li>تفصيل جودة الفيديو الفعلية (SD, HD, FHD, 2K, 2K+)</li>
+                        <li>فصل الاستهلاك حسب الخدمة (غرف، بث، مكالمات)</li>
+                        <li>ملخص يومي تلقائي يُرسل لسيرفر المطور</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128276;</div>
+                    <h3>نظام الأحداث — Webhooks</h3>
+                    <p>يُبلّغ سيرفر المطور فوراً عند حدوث أي شيء في النظام.</p>
+                    <ul>
+                        <li>أحداث فورية: مشارك دخل، غرفة انتهت، مكالمة فائتة</li>
+                        <li>موقّع رقمياً للأمان (HMAC-SHA256)</li>
+                        <li>إعادة المحاولة تلقائياً عند فشل التسليم</li>
+                        <li>سجل كامل لكل الأحداث المُرسلة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: الرسم المعماري -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128506;</span> الرسم المعماري</h2>
+            <p class="section-desc">نظرة شاملة على طبقات النظام وكيف تتصل المكونات ببعضها.</p>
+            <div style="background: #1a1a2e; border-radius: 16px; padding: 2rem; color: #fff; overflow-x: auto;">
+                <!-- Title -->
+                <div style="text-align: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 1.5rem; color: #a29bfe;">UTD Stream Engine</div>
+                <!-- Layer 1: Entry Points -->
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <div style="background: #6C5CE7; padding: 0.8rem 1.5rem; border-radius: 10px; text-align: center; flex: 1; min-width: 150px; max-width: 220px;">
+                        <div style="font-weight: 700; font-size: 0.95rem;">REST API</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">نقطة دخول المطور</div>
+                    </div>
+                    <div style="background: #6C5CE7; padding: 0.8rem 1.5rem; border-radius: 10px; text-align: center; flex: 1; min-width: 150px; max-width: 220px;">
+                        <div style="font-weight: 700; font-size: 0.95rem;">WebSocket</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">اتصال فوري مستمر</div>
+                    </div>
+                    <div style="background: #6C5CE7; padding: 0.8rem 1.5rem; border-radius: 10px; text-align: center; flex: 1; min-width: 150px; max-width: 220px;">
+                        <div style="font-weight: 700; font-size: 0.95rem;">Webhook Dispatcher</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">إرسال الأحداث</div>
+                    </div>
+                </div>
+                <!-- Arrow -->
+                <div style="text-align: center; color: #a29bfe; font-size: 1.5rem; margin: 0.5rem 0;">&#8595; &#8595; &#8595;</div>
+                <!-- Layer 2: Service Layer -->
+                <div style="border: 2px solid #a29bfe; border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem;">
+                    <div style="text-align: center; font-weight: 700; font-size: 0.9rem; color: #a29bfe; margin-bottom: 0.8rem;">طبقة الخدمات (Service Layer)</div>
+                    <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
+                        <div style="background: #2d2d5e; padding: 0.7rem 1.2rem; border-radius: 8px; text-align: center; min-width: 100px;">
+                            <div style="font-weight: 600; font-size: 0.85rem;">Rooms</div>
+                            <div style="font-size: 0.7rem; color: #a29bfe;">غرف صوتية</div>
+                        </div>
+                        <div style="background: #2d2d5e; padding: 0.7rem 1.2rem; border-radius: 8px; text-align: center; min-width: 100px;">
+                            <div style="font-weight: 600; font-size: 0.85rem;">Streaming</div>
+                            <div style="font-size: 0.7rem; color: #a29bfe;">بث مباشر</div>
+                        </div>
+                        <div style="background: #2d2d5e; padding: 0.7rem 1.2rem; border-radius: 8px; text-align: center; min-width: 100px;">
+                            <div style="font-weight: 600; font-size: 0.85rem;">Calls</div>
+                            <div style="font-size: 0.7rem; color: #a29bfe;">مكالمات</div>
+                        </div>
+                        <div style="background: #2d2d5e; padding: 0.7rem 1.2rem; border-radius: 8px; text-align: center; min-width: 100px;">
+                            <div style="font-weight: 600; font-size: 0.85rem;">Chat</div>
+                            <div style="font-size: 0.7rem; color: #a29bfe;">دردشة فورية</div>
+                        </div>
+                        <div style="background: #2d2d5e; padding: 0.7rem 1.2rem; border-radius: 8px; text-align: center; min-width: 100px;">
+                            <div style="font-weight: 600; font-size: 0.85rem;">Presence</div>
+                            <div style="font-size: 0.7rem; color: #a29bfe;">حضور</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Arrow -->
+                <div style="text-align: center; color: #a29bfe; font-size: 1.5rem; margin: 0.5rem 0;">&#8595;</div>
+                <!-- Layer 3: Supporting Systems -->
+                <div style="background: #2d2d5e; border-radius: 10px; padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                    <div style="font-weight: 700; font-size: 0.9rem;">التوثيق والأمان &nbsp;|&nbsp; تتبع الاستخدام &nbsp;|&nbsp; نظام الحضور</div>
+                    <div style="font-size: 0.75rem; color: #a29bfe; margin-top: 4px;">App ID + Secret + Tokens + Usage Tracking + Presence</div>
+                </div>
+                <!-- Arrow -->
+                <div style="text-align: center; color: #a29bfe; font-size: 1.5rem; margin: 0.5rem 0;">&#8595;</div>
+                <!-- Layer 4: Media Engine -->
+                <div style="background: linear-gradient(135deg, #5A4BD1, #6C5CE7); border-radius: 10px; padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                    <div style="font-weight: 700; font-size: 1rem;">محرك الميديا LiveKit (WebRTC)</div>
+                    <div style="font-size: 0.8rem; opacity: 0.85; margin-top: 4px;">نقل الصوت والفيديو في الوقت الحقيقي — SFU — مناطق جغرافية متعددة</div>
+                </div>
+                <!-- Arrow -->
+                <div style="text-align: center; color: #a29bfe; font-size: 1.5rem; margin: 0.5rem 0;">&#8595;</div>
+                <!-- Layer 5: Database -->
+                <div style="background: #2d2d5e; border: 1px solid #a29bfe; border-radius: 10px; padding: 0.8rem; text-align: center;">
+                    <div style="font-weight: 700; font-size: 0.9rem;">قاعدة البيانات MySQL</div>
+                    <div style="font-size: 0.75rem; color: #a29bfe; margin-top: 4px;">تخزين المشاريع، المستخدمين، سجلات الاستخدام، الرسائل، الأحداث</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: ما يقدمه LiveKit وما يضيفه UTD -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9878;</span> ما يقدمه LiveKit وما يضيفه UTD</h2>
+            <p class="section-desc">LiveKit مشروع مفتوح المصدر قوي — لكنه مجرد محرك ميديا. UTD Stream Engine يبني فوقه نظاماً متكاملاً.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الجانب</th>
+                            <th>LiveKit يقدم</th>
+                            <th>UTD يضيف فوقه</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>الخدمات</strong></td>
+                            <td>غرف بدون تصنيف — كلها نفس النوع</td>
+                            <td>5 خدمات منفصلة بقواعد مختلفة لكل واحدة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>النشر</strong></td>
+                            <td>أي مشارك ينشر أي شيء (صوت، فيديو، شاشة)</td>
+                            <td>تحكم Server-side — الـ Token يحدد ما يُسمح به</td>
+                        </tr>
+                        <tr>
+                            <td><strong>المكالمات</strong></td>
+                            <td>لا يوجد نظام مكالمات</td>
+                            <td>نظام مكالمات كامل مع Signaling (رنين، قبول، رفض)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الدردشة</strong></td>
+                            <td>لا يوجد نظام دردشة</td>
+                            <td>نظام رسائل فوري متكامل — 7 أنواع رسائل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الحضور</strong></td>
+                            <td>لا يوجد نظام حضور</td>
+                            <td>تتبع حضور دقيق — متصل/غير متصل/آخر ظهور</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الاستخدام</strong></td>
+                            <td>لا يوجد تتبع استخدام</td>
+                            <td>تتبع دقيق بالدقيقة حسب جودة الفيديو الفعلية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>العزل</strong></td>
+                            <td>لا يوجد عزل بين العملاء</td>
+                            <td>عزل كامل بين المشاريع (Tenant Isolation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الأحداث</strong></td>
+                            <td>لا يوجد نظام أحداث للمطور</td>
+                            <td>نظام Webhooks موقّع رقمياً (HMAC-SHA256)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الأدوار</strong></td>
+                            <td>لا يوجد نظام أدوار</td>
+                            <td>4 أدوار بصلاحيات مختلفة (host, guest, audience, visitor)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الـ Token</strong></td>
+                            <td>Token بسيط — يسمح بالدخول فقط</td>
+                            <td>Token ذكي يحمل الخدمة والدور والجودة القصوى</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Server-side vs Client-side -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128737;</span> الفرق بين Server-side و Client-side Enforcement</h2>
+            <p class="section-desc">لماذا يعتبر فرض القيود من السيرفر أهم قرار أمني في تصميم Stream Engine.</p>
+            <div class="info-box">
+                <strong>Server-side Enforcement — القيود تُفرض من السيرفر لا من التطبيق.</strong><br><br>
+                في معظم المنصات، القيود تعتمد على تطبيق العميل — إذا عدّل المطور الكود أو استخدم أدوات تصحيح، يمكنه تجاوز القيود. في Stream Engine، الأمر مختلف تماماً:<br><br>
+                <strong>مثال عملي:</strong> Token لخدمة "rooms" لا يسمح بنشر فيديو أبداً — حتى لو حاول المطور تفعيله من تطبيقه. السيرفر (LiveKit + UTD Layer) يرفض الطلب لأن الـ Token لا يحمل صلاحية الفيديو. نفس الشيء مع الأدوار: مستخدم بدور "audience" لا يمكنه نشر أي شيء مهما فعل في تطبيقه.<br><br>
+                <strong>النتيجة:</strong> أمان حقيقي لا يعتمد على سلوك التطبيق — يعتمد على السيرفر فقط.
+            </div>
+            <div class="cards-grid-2" style="margin-top: 2rem;">
+                <div class="card" style="border-right: 4px solid #e74c3c;">
+                    <div class="card-icon" style="background: #FFEBEE; color: #e74c3c;">&#10060;</div>
+                    <h3>Client-side (غير آمن)</h3>
+                    <p>التطبيق يقرر ما يُسمح به. المطور يمكنه تجاوز القيود بتعديل الكود. أي ثغرة في التطبيق = ثغرة في النظام.</p>
+                </div>
+                <div class="card" style="border-right: 4px solid var(--primary);">
+                    <div class="card-icon">&#9989;</div>
+                    <h3>Server-side (آمن)</h3>
+                    <p>السيرفر يقرر ما يُسمح به بناءً على الـ Token. لا يمكن تجاوزه من التطبيق. حتى لو اختُرق التطبيق، السيرفر يحمي النظام.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

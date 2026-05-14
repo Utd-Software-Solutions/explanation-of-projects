@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — البث المباشر</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html" class="active">البث المباشر</a>
+                <a href="calls.html">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>البث المباشر</h1>
+        <p>بث تفاعلي بتأخير أقل من 300ms — صوت + فيديو + مشاركة شاشة</p>
+    </div>
+
+    <!-- ما هو البث المباشر -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📡</span> ما هو البث المباشر</h2>
+            <p class="section-desc">بث تفاعلي حقيقي (Interactive Live Streaming) — وليس بثاً تقليدياً مثل YouTube Live أو Twitch.</p>
+            <div class="cards-grid-2">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>تأخير أقل من 300ms</h3>
+                    <p>البث عبر UTD Stream Engine تفاعلي حقيقي — التأخير أقل من 300 مللي ثانية. هذا يعني أن المشاهد يرى ما يحدث في الوقت الحقيقي تقريباً، على عكس البث التقليدي الذي يتأخر 5-30 ثانية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Co-hosting — أكثر من مقدم</h3>
+                    <p>يدعم وجود أكثر من مقدم في نفس البث في الوقت ذاته. المقدم الرئيسي يبث، ويمكنه دعوة مقدمين مشاركين (co-hosts) للانضمام إلى البث — كل واحد يبث صوته وفيديو الخاص به.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <strong>الفرق الجوهري عن البث التقليدي:</strong> البث التقليدي (مثل RTMP) يمر عبر سيرفرات تحويل تسبب تأخير 5-30 ثانية. البث عبر Engine يستخدم WebRTC مباشرة — تأخير أقل من 300ms مع جودة عالية. هذا يجعله مناسباً للتفاعل المباشر مع الجمهور.
+            </div>
+        </div>
+    </section>
+
+    <!-- جودات الفيديو -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🎬</span> جودات الفيديو</h2>
+            <p class="section-desc">النظام يصنف جودة الفيديو تلقائياً حسب الأبعاد الفعلية التي يرسلها المستخدم — وليس حسب ما يدعيه التطبيق.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الجودة</th>
+                            <th>أقصى دقة</th>
+                            <th>أقصى بكسلات</th>
+                            <th>الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SD</strong></td>
+                            <td>640 × 640</td>
+                            <td>409,920</td>
+                            <td>جودة قياسية — مناسبة للاتصالات العادية وتوفير الباندويث</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HD</strong></td>
+                            <td>1280 × 720</td>
+                            <td>921,600</td>
+                            <td>جودة عالية — الخيار الأكثر استخداماً والتوازن الأفضل بين الجودة والأداء</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FHD</strong></td>
+                            <td>1920 × 1080</td>
+                            <td>2,073,600</td>
+                            <td>جودة عالية كاملة — مناسبة للعروض التقديمية ومشاركة الشاشة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2K</strong></td>
+                            <td>2560 × 1440</td>
+                            <td>3,686,400</td>
+                            <td>جودة فائقة — للبث الاحترافي والفعاليات الكبرى</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2K+</strong></td>
+                            <td>أعلى من 2K</td>
+                            <td>أكثر من 3,686,400</td>
+                            <td>أي جودة تتجاوز 2K — للاستخدامات المتخصصة جداً</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <strong>الحساب على الجودة الفعلية دائماً:</strong> الجودة تُحدد تلقائياً حسب أبعاد الفيديو الفعلية التي يرسلها المستخدم — الحساب دائماً على الجودة الفعلية، مش الموعودة. إذا ضبط المطور الإعداد على HD لكن المستخدم أرسل FHD، يُحسب FHD.
+            </div>
+        </div>
+    </section>
+
+    <!-- الأدوار -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🎭</span> الأدوار</h2>
+            <p class="section-desc">أربعة أدوار تغطي كل سيناريوهات البث المباشر — من المقدم الرئيسي إلى الزائر الصامت.</p>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="المقدم الرئيسي">
+                    <div class="card-icon">🎥</div>
+                    <h3>host — البث المباشر</h3>
+                    <p>المقدم الرئيسي للبث. يملك صلاحية نشر الصوت والفيديو ومشاركة الشاشة. يتحكم بالغرفة بالكامل — يستطيع كتم المشاركين، طرد أي شخص، ودعوة مقدمين مشاركين.</p>
+                    <ul>
+                        <li>نشر صوت + فيديو + شاشة</li>
+                        <li>إدارة كاملة للغرفة</li>
+                        <li>دعوة وإدارة co-hosts</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎙️</div>
+                    <h3>guest — co-host</h3>
+                    <p>مقدم مشارك ينضم للبث بدعوة من الـ host. يستطيع نشر صوته وفيديو الخاص به، لكن لا يملك صلاحيات إدارية على الغرفة.</p>
+                    <ul>
+                        <li>نشر صوت + فيديو</li>
+                        <li>لا صلاحيات إدارية</li>
+                        <li>مناسب للحوارات والمقابلات</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>audience — المشاهد</h3>
+                    <p>يشاهد البث ويستقبل الصوت والفيديو فقط — لا يستطيع نشر أي شيء. يمكنه التفاعل بطرق أخرى مثل التعليقات والإعجابات إذا أتاحها المطور.</p>
+                    <ul>
+                        <li>استقبال صوت + فيديو فقط</li>
+                        <li>تفاعل نصي ممكن (حسب التطبيق)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👤</div>
+                    <h3>visitor — زائر</h3>
+                    <p>يستقبل البث فقط بدون أي نوع من التفاعل — لا تعليقات، لا إعجابات، لا أي شيء. مصمم للمشاهدة الصامتة فقط.</p>
+                    <ul>
+                        <li>استقبال فقط</li>
+                        <li>بدون أي تفاعل</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- إعدادات -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔧</span> إعدادات</h2>
+            <p class="section-desc">إعدادات قابلة للتخصيص لكل مشروع — تتحكم بجودة الفيديو وسلوك الغرف.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الإعداد</th>
+                            <th>الوصف</th>
+                            <th>القيمة الافتراضية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>max_streaming_quality</code></td>
+                            <td>أقصى جودة فيديو مسموح بها للبث. <strong>تنبيه مهم:</strong> هذه توصية وليست فرض — النظام يُبلغ المطور عند التجاوز، لكن الحساب دائماً على الجودة الفعلية التي يرسلها المستخدم.</td>
+                            <td>HD</td>
+                        </tr>
+                        <tr>
+                            <td><code>max_concurrent_rooms</code></td>
+                            <td>أقصى عدد بثوث مباشرة نشطة في نفس الوقت لنفس المشروع. يمنع الاستهلاك غير المحسوب للموارد.</td>
+                            <td>يحدده صاحب المشروع</td>
+                        </tr>
+                        <tr>
+                            <td><code>empty_room_timeout</code></td>
+                            <td>المدة التي تبقى فيها غرفة البث مفتوحة بعد خروج آخر مشارك. تُغلق تلقائياً بعد انتهاء المدة.</td>
+                            <td>5 دقائق</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="warning-box">
+                <strong>تنبيه حول الجودة:</strong> إعداد <code>max_streaming_quality</code> هو توصية للمطور وليس حداً صارماً. إذا أرسل المستخدم فيديو بجودة أعلى من المحدد، البث يستمر بالجودة الفعلية والحساب يكون على الفعلي. المطور يتحمل مسؤولية ضبط الجودة من طرف التطبيق.
+            </div>
+        </div>
+    </section>
+
+    <!-- تتبع الاستخدام -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📊</span> تتبع الاستخدام</h2>
+            <p class="section-desc">تتبع مفصل لكل نوع من أنواع الاستهلاك — الصوت والفيديو مفصولان، والفيديو مصنف حسب الجودة الفعلية.</p>
+            <div class="info-box">
+                <strong>وحدات القياس:</strong><br><br>
+                <strong><code>streaming_minutes</code></strong> — دقائق البث الإجمالية (صوت + فيديو). كل مشارك يُحسب بشكل مستقل بالدقيقة — المقدم والمشاهدون جميعهم يُحسبون.<br><br>
+                <strong><code>video_minutes</code></strong> — دقائق الفيديو مفصلة حسب الجودة الفعلية:<br>
+                &nbsp;&nbsp;• <code>video_minutes_sd</code> — دقائق بجودة SD<br>
+                &nbsp;&nbsp;• <code>video_minutes_hd</code> — دقائق بجودة HD<br>
+                &nbsp;&nbsp;• <code>video_minutes_fhd</code> — دقائق بجودة FHD<br>
+                &nbsp;&nbsp;• <code>video_minutes_2k</code> — دقائق بجودة 2K<br>
+                &nbsp;&nbsp;• <code>video_minutes_2k_plus</code> — دقائق بجودة 2K+<br><br>
+                الجودة تُحدد لحظياً حسب أبعاد الفيديو الفعلية — إذا تغيرت الجودة أثناء البث، كل فترة تُحسب بجودتها الفعلية.
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">بالدقيقة</span>
+                    <span class="stat-label">دقة الحساب</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">حسب الجودة</span>
+                    <span class="stat-label">تصنيف الفيديو</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">الكل يُحسب</span>
+                    <span class="stat-label">مقدم + مشاهدون</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">يومياً</span>
+                    <span class="stat-label">إرسال الملخص</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حالات الاستخدام -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">💡</span> حالات الاستخدام</h2>
+            <p class="section-desc">البث المباشر التفاعلي يفتح أبواباً واسعة لحالات استخدام متنوعة — من الترفيه إلى التجارة.</p>
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">📺</div>
+                    <h3>بث مباشر تفاعلي</h3>
+                    <p>بث حي مع تفاعل فوري من الجمهور — تعليقات وردود فعل في الوقت الحقيقي. مناسب لمنصات التواصل الاجتماعي والتطبيقات الترفيهية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎤</div>
+                    <h3>مؤتمرات فيديو</h3>
+                    <p>مؤتمرات واجتماعات بالفيديو مع عدد كبير من المشاهدين — المتحدثون يعرضون والجمهور يتابع ويتفاعل. مثالي للفعاليات المؤسسية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3>دروس مرئية</h3>
+                    <p>فصول تعليمية بالفيديو — المعلم يشرح ويشارك شاشته والطلاب يتابعون مباشرة. مع إمكانية فتح المجال للأسئلة عبر co-hosting.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎉</div>
+                    <h3>فعاليات حية</h3>
+                    <p>بث مباشر لفعاليات ومناسبات — حفلات، ندوات، مهرجانات — مع جمهور يتابع من أي مكان في الوقت الحقيقي.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛍️</div>
+                    <h3>تجارة مباشرة (Live Commerce)</h3>
+                    <p>عرض وبيع المنتجات مباشرة — البائع يعرض المنتج بالفيديو والمشاهدون يشترون فوراً. نموذج التجارة الأسرع نمواً عالمياً.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🖥️</div>
+                    <h3>عروض منتجات</h3>
+                    <p>عروض توضيحية للمنتجات والخدمات — المقدم يشارك شاشته ويشرح المنتج مباشرة مع تفاعل فوري من العملاء المحتملين.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

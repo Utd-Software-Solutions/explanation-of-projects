@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — الأحداث (Webhooks)</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html" class="active">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usage.html">تتبع الاستخدام</a><a href="infrastructure.html">البنية التحتية</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usecases.html">حالات الاستخدام</a><a href="comparison.html">المقارنة والتميز</a></div></div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>الأحداث والإشعارات</h1>
+        <p>ما الأحداث التي يرسلها Engine وكيف يستقبلها المطور — فورية ويومية</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9889;</span> نوعان من الأحداث</h2>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="فوري">
+                    <h3>أحداث فورية (Real-time Webhooks)</h3>
+                    <p>تُرسل لحظياً لـ callback URL الخاص بالمشروع عند حدوث أي شيء — مشارك دخل، غرفة انتهت، مكالمة فائتة، وغيرها. كل حدث مُوقّع رقمياً (HMAC-SHA256) ويُرسل بشكل غير متزامن بدون تأثير على أداء الخدمة.</p>
+                </div>
+                <div class="card card-highlight" data-badge="يومي">
+                    <h3>ملخص الاستخدام اليومي (Daily Summary)</h3>
+                    <p>يُرسل مرة واحدة يومياً (الساعة 4:00 فجراً بتوقيت القاهرة) — يحتوي تفصيل استخدام اليوم السابق مقسم حسب الخدمة. لو المشروع ليس لديه استهلاك في يوم ما، لا يُرسل شيء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128268;</span> الأحداث الفورية</h2>
+            <p class="section-desc">كل حدث يحصل في المنصة يُرسل فوراً لسيرفر المطور عبر HTTP POST.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الحدث</th><th>الوصف</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>room_started</strong></td><td>غرفة جديدة بدأت</td></tr>
+                        <tr><td><strong>room_finished</strong></td><td>غرفة انتهت</td></tr>
+                        <tr><td><strong>participant_joined</strong></td><td>مشارك دخل غرفة</td></tr>
+                        <tr><td><strong>participant_left</strong></td><td>مشارك غادر غرفة</td></tr>
+                        <tr><td><strong>track_published</strong></td><td>مشارك بدأ نشر صوت أو فيديو</td></tr>
+                        <tr><td><strong>track_unpublished</strong></td><td>مشارك أوقف النشر</td></tr>
+                        <tr><td><strong>أحداث المكالمات</strong></td><td>نفس الأحداث أعلاه لغرف المكالمات (إنشاء، رنين، قبول، رفض، إنهاء)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128260;</span> كيف يعمل تدفق الأحداث</h2>
+            <div class="cards-grid">
+                <div class="card"><div class="card-icon">1</div><h3>حدث يحصل</h3><p>مشارك دخل، غرفة انتهت، مكالمة فائتة — أي شيء يحصل في المنصة.</p></div>
+                <div class="card"><div class="card-icon">2</div><h3>Engine يعالج الحدث</h3><p>يحدّث قاعدة البيانات ويحسب الاستخدام الخاص بهذا الحدث.</p></div>
+                <div class="card"><div class="card-icon">3</div><h3>Engine يرسل للمطور</h3><p>يرسل HTTP POST لـ callback_url المُعدّ في إعدادات المشروع — مُوقّع بـ HMAC-SHA256.</p></div>
+                <div class="card"><div class="card-icon">4</div><h3>المطور يستقبل ويتحقق</h3><p>سيرفر المطور يتحقق من التوقيع الرقمي ثم يعالج الحدث حسب منطق تطبيقه.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128272;</span> التحقق من صحة الأحداث (HMAC)</h2>
+            <p class="section-desc">كل حدث مُوقّع رقمياً بـ HMAC-SHA256 باستخدام App Secret الخاص بالمشروع — حتى يتأكد المطور أن الحدث فعلاً من UTD وليس من طرف خارجي.</p>
+            <div class="cards-grid cards-grid-2">
+                <div class="card">
+                    <h3>كيف يعمل التوقيع</h3>
+                    <p>Engine يأخذ محتوى الحدث (body) ويحسب HMAC-SHA256 باستخدام App Secret ← يُرفق النتيجة في Header خاص مع الطلب.</p>
+                </div>
+                <div class="card">
+                    <h3>كيف يتحقق المطور</h3>
+                    <p>سيرفر المطور يأخذ نفس الـ body ويحسب HMAC-SHA256 بنفس الـ Secret ← يقارن النتيجة مع القيمة في Header. لو تطابقت، الحدث أصلي.</p>
+                </div>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>المقارنة آمنة:</strong> يُستخدم timing-safe comparison لمقارنة التوقيعات — حماية ضد timing attacks.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128260;</span> نظام إعادة المحاولة (Retry)</h2>
+            <p class="section-desc">إذا فشل إرسال الحدث لسيرفر المطور، Engine يعيد المحاولة تلقائياً.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>المحاولة</th><th>التأخير</th><th>ملاحظة</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>المحاولة 1</strong></td><td>فوري</td><td>أول محاولة</td></tr>
+                        <tr><td><strong>المحاولة 2</strong></td><td>بعد 2 ثانية</td><td>—</td></tr>
+                        <tr><td><strong>المحاولة 3</strong></td><td>بعد 4 ثوانٍ</td><td>—</td></tr>
+                        <tr><td><strong>المحاولة 4</strong></td><td>بعد 8 ثوانٍ</td><td>المحاولة الأخيرة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cards-grid cards-grid-2" style="margin-top:1.5rem;">
+                <div class="card">
+                    <h3>قواعد إعادة المحاولة</h3>
+                    <p>كل محاولة لها timeout 5 ثوانٍ. كل حدث يحمل header <strong>X-UTD-Stream-Attempt</strong> (رقم المحاولة). حد أقصى 100 حدث معلق في نفس الوقت.</p>
+                </div>
+                <div class="card">
+                    <h3>متى يتوقف</h3>
+                    <p>إذا كان الرد <strong>4xx</strong> (خطأ من جهة العميل) — يتوقف فوراً بدون إعادة محاولة. إذا فشلت كل المحاولات — يُتجاهل الحدث بصمت ولا يمنع عمل الخدمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128202;</span> الملخص اليومي (Daily Usage Summary)</h2>
+            <p class="section-desc">تقرير شامل يُرسل تلقائياً كل يوم الساعة 4:00 فجراً بتوقيت القاهرة — يحتوي كل بيانات استخدام اليوم السابق.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الخدمة</th><th>ما يحتويه الملخص</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>الغرف الصوتية (Rooms)</strong></td><td>دقائق صوت، عدد الجلسات، ذروة الغرف والمشاركين المتزامنين</td></tr>
+                        <tr><td><strong>البث المباشر (Streaming)</strong></td><td>دقائق بث، دقائق فيديو مفصلة حسب الجودة (SD / HD / FHD / 2K / 2K+)</td></tr>
+                        <tr><td><strong>المكالمات (Calls)</strong></td><td>عدد المكالمات، دقائق صوت/فيديو المكالمات، الفائتة، المرفوضة، ذروة المكالمات المتزامنة</td></tr>
+                        <tr><td><strong>الدردشة (Messaging)</strong></td><td>عدد الرسائل المرسلة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box" style="margin-top:1.5rem;">
+                <strong>هذا هو مصدر بيانات الفوترة:</strong> Engine يرسل بيانات الاستخدام، وخدمة UTD Stream (الداشبورد) تستقبلها وتحوّلها لفواتير. المطور يمكنه استخدام نفس البيانات لبناء نظام فوترته الخاص لعملائه.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

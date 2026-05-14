@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — واجهات API</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="services.html">نظرة عامة</a><a href="rooms.html">الغرف الصوتية</a><a href="streaming.html">البث المباشر</a><a href="calls.html">المكالمات</a><a href="messaging.html">الدردشة الفورية</a><a href="presence.html">نظام الحضور</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html" class="active">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usage.html">تتبع الاستخدام</a><a href="infrastructure.html">البنية التحتية</a></div></div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section"><button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button><div class="sidebar-subitems"><a href="usecases.html">حالات الاستخدام</a><a href="comparison.html">المقارنة والتميز</a></div></div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <div class="page-header">
+        <h1>واجهات API</h1>
+        <p>نظرة عامة على كل الـ APIs المتاحة — ماذا يفعل كل endpoint</p>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128268;</span> Client API — للمطورين</h2>
+            <p class="section-desc">يستدعيها سيرفر المطور (Backend-to-Backend) — لأن المفتاح السري يجب أن يبقى في السيرفر. المصادقة: App ID + App Secret في Headers لكل طلب.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>المجال</th><th>ما يمكن فعله</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>التوكنات (Tokens)</strong></td><td>توليد access token لدخول مستخدم لغرفة — مع تحديد الخدمة (rooms أو streaming) والدور (host, guest, audience, visitor)</td></tr>
+                        <tr><td><strong>الغرف (Rooms)</strong></td><td>عرض الغرف النشطة، تفاصيل غرفة مع قائمة المشاركين، إغلاق غرفة قسرياً، طرد مشارك</td></tr>
+                        <tr><td><strong>المكالمات (Calls)</strong></td><td>إنشاء مكالمة صوت أو فيديو، تأكيد الرنين، قبول، رفض، "مشغول"، إنهاء المكالمة، عرض حالة مكالمة، قائمة المكالمات</td></tr>
+                        <tr><td><strong>معلومات المشروع</strong></td><td>عرض إعدادات وحالة المشروع الحالي</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#9889;</span> WebSocket API — للاتصال الفوري</h2>
+            <p class="section-desc">يتصل بها تطبيق المستخدم عبر UTD ZIM SDK أو مباشرة. المصادقة: Signal Token عند الاتصال.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>المجال</th><th>ما يمكن فعله</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>الدردشة (Messaging)</strong></td><td>إرسال رسائل، استرجاع رسائل، تحميل رسالة كمقروءة، إنشاء مجموعات، إضافة/إزالة أعضاء، تحديث مجموعة، كتم/حذف محادثة</td></tr>
+                        <tr><td><strong>الحضور (Presence)</strong></td><td>استعلام حالة مستخدمين، اشتراك/إلغاء اشتراك في تحديثات الحضور</td></tr>
+                        <tr><td><strong>المكالمات (Signaling)</strong></td><td>إرسال دعوة مكالمة، رنين، قبول، رفض، مشغول، إنهاء — كل lifecycle المكالمة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128218;</span> REST APIs للسجل — البيانات التاريخية</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>الطلب</th><th>الوصف</th></tr></thead>
+                    <tbody>
+                        <tr><td>GET /conversations</td><td>قائمة محادثات المستخدم (مع pagination)</td></tr>
+                        <tr><td>GET /conversations/{id}/messages</td><td>سجل الرسائل (مع pagination)</td></tr>
+                        <tr><td>GET /conversations/{id}/members</td><td>قائمة أعضاء المحادثة</td></tr>
+                        <tr><td>DELETE /messages/{id}</td><td>حذف رسالة من السيرفر</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">&#128295;</span> Admin API — للاستخدام الداخلي</h2>
+            <div class="info-box warning-box">
+                <strong>تنبيه:</strong> هذه APIs للاستخدام الداخلي من قبل فريق UTD فقط — ليست للمطورين. المصادقة: مفاتيح إدارية خاصة (ليست نفس مفاتيح المشروع).
+            </div>
+            <div class="table-wrapper" style="margin-top:1.5rem;">
+                <table>
+                    <thead><tr><th>المجال</th><th>ما يمكن فعله</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>العملاء</strong></td><td>إنشاء، عرض، تعديل، تعليق/تفعيل عميل</td></tr>
+                        <tr><td><strong>المشاريع</strong></td><td>إنشاء، عرض، تعديل إعدادات (الخدمات المفعلة، الجودة القصوى، عدد الغرف، timeouts)، تعليق/تفعيل، تجديد المفاتيح</td></tr>
+                        <tr><td><strong>لوحة المعلومات</strong></td><td>إحصائيات عامة عن المنصة (غرف نشطة، مكالمات، مشاركين)</td></tr>
+                        <tr><td><strong>الاستخدام</strong></td><td>تقارير استخدام مفصلة لكل مشروع (دقائق صوت، فيديو حسب الجودة، مكالمات، رسائل)</td></tr>
+                        <tr><td><strong>المراقبة</strong></td><td>عرض الغرف والمكالمات النشطة حالياً، إغلاق غرفة أو مكالمة</td></tr>
+                        <tr><td><strong>الحظر</strong></td><td>قائمة المستخدمين المحظورين، إزالة حظر</td></tr>
+                        <tr><td><strong>السجلات</strong></td><td>سجلات كل طلبات API (الـ endpoint، وقت الاستجابة، حالة الرد)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>

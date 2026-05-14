@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Stream Engine — المكالمات</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="has-sidebar" style="padding-top:0">
+<button class="sidebar-toggle-btn">&#9776;</button>
+<aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon">S</div> UTD Stream Engine</a>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">نظرة عامة</a>
+        <a href="architecture.html" class="sidebar-link">البنية والمكونات</a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">الخدمات</div>
+        <div class="sidebar-section open active">
+            <button class="sidebar-section-title">الخدمات <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="services.html">نظرة عامة</a>
+                <a href="rooms.html">الغرف الصوتية</a>
+                <a href="streaming.html">البث المباشر</a>
+                <a href="calls.html" class="active">المكالمات</a>
+                <a href="messaging.html">الدردشة الفورية</a>
+                <a href="presence.html">نظام الحضور</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التكامل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التكامل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="auth.html">التوثيق والأمان</a>
+                <a href="api.html">واجهات API</a>
+                <a href="sdks.html">SDKs والتكامل</a>
+                <a href="webhooks.html">الأحداث (Webhooks)</a>
+                <a href="websocket.html">بروتوكول WebSocket</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">التشغيل</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">التشغيل <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usage.html">تتبع الاستخدام</a>
+                <a href="infrastructure.html">البنية التحتية</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">المزيد</div>
+        <div class="sidebar-section">
+            <button class="sidebar-section-title">المزيد <span class="arrow">&#9654;</span></button>
+            <div class="sidebar-subitems">
+                <a href="usecases.html">حالات الاستخدام</a>
+                <a href="comparison.html">المقارنة والتميز</a>
+            </div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <a href="../index.html" class="sidebar-link">&#8592; العودة للمشاريع</a>
+    </nav>
+</aside>
+<div class="sidebar-overlay"></div>
+<div class="sidebar-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>المكالمات الصوتية والمرئية</h1>
+        <p>مكالمات بين شخصين مع نظام signaling جاهز — لا تحتاج بناء نظام رنين بنفسك</p>
+    </div>
+
+    <!-- ما هي المكالمات -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📞</span> ما هي المكالمات</h2>
+            <p class="section-desc">مكالمات بين شخصين فقط (1-to-1) — صوتية أو مرئية — مع نظام signaling جاهز بالكامل.</p>
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">👤</div>
+                    <h3>مكالمات 1-to-1</h3>
+                    <p>مكالمات بين شخصين فقط — صوتية أو مرئية. مصممة للتواصل المباشر بين مستخدمين اثنين، وليس للمجموعات أو الغرف.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔔</div>
+                    <h3>نظام Signaling جاهز</h3>
+                    <p>المطور لا يحتاج بناء نظام إشعارات وقبول/رفض بنفسه — كل شيء مبني ومجهز: الرنين، القبول، الرفض، المشغول، الإنهاء، والمكالمات الفائتة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3>طريقتان لبدء المكالمة</h3>
+                    <p>يمكن بدء المكالمة بطريقتين: عبر HTTP API (من سيرفر المطور) أو عبر WebSocket (من تطبيق المستخدم مباشرة). كلا الطريقتين تمران بنفس دورة الحياة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- دورة حياة المكالمة -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔄</span> دورة حياة المكالمة</h2>
+            <p class="section-desc">كل مكالمة تمر بمراحل محددة — من لحظة البدء حتى الانتهاء أو الرفض أو الفوات.</p>
+
+            <!-- Lifecycle Diagram -->
+            <div class="diagram">
+                <div class="diagram-node admin">
+                    <h4>Caller يبدأ المكالمة</h4>
+                    <span>المتصل يرسل طلب مكالمة</span>
+                </div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">initiating</div>
+                <div class="diagram-node">
+                    <h4>Callee يتلقى الإشعار</h4>
+                    <span>المتلقي يرى إشعار المكالمة</span>
+                </div>
+                <div class="diagram-arrow"></div>
+                <div class="diagram-arrow-label">ringing</div>
+                <div class="diagram-row">
+                    <div class="diagram-node agent" style="border-color: #27ae60;">
+                        <h4>يقبل</h4>
+                        <span style="color: #27ae60; font-weight: 600;">active → ended</span>
+                    </div>
+                    <div class="diagram-node agent" style="border-color: #e74c3c;">
+                        <h4>يرفض</h4>
+                        <span style="color: #e74c3c; font-weight: 600;">rejected</span>
+                    </div>
+                    <div class="diagram-node agent" style="border-color: #f39c12;">
+                        <h4>مشغول</h4>
+                        <span style="color: #f39c12; font-weight: 600;">busy</span>
+                    </div>
+                    <div class="diagram-node agent" style="border-color: #95a5a6;">
+                        <h4>لا يرد</h4>
+                        <span style="color: #95a5a6; font-weight: 600;">missed (timeout)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>المسار الكامل:</strong> كل مكالمة تبدأ بـ <code>initiating</code> ثم <code>ringing</code>. بعدها تنتهي بأحد 4 مسارات: القبول (وتصبح <code>active</code> ثم <code>ended</code>)، الرفض (<code>rejected</code>)، المشغول (<code>busy</code>)، أو انتهاء وقت الرنين (<code>missed</code>). كل حالة تولد حدث WebSocket يُرسل للطرف المعني.
+            </div>
+        </div>
+    </section>
+
+    <!-- إعدادات المكالمات -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔧</span> إعدادات المكالمات</h2>
+            <p class="section-desc">إعدادات مرنة تتحكم بسلوك المكالمات لكل مشروع — من التفعيل حتى الجودة والمدة.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الإعداد</th>
+                            <th>الوصف</th>
+                            <th>القيمة الافتراضية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>calls_enabled</code></td>
+                            <td>تفعيل خدمة المكالمات الصوتية للمشروع. عند التعطيل، أي محاولة لبدء مكالمة تُرفض تلقائياً.</td>
+                            <td><code>false</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>calls_video_enabled</code></td>
+                            <td>تفعيل مكالمات الفيديو. يحتاج أن يكون <code>calls_enabled</code> مفعلاً أولاً — لا يمكن تفعيل الفيديو بدون تفعيل المكالمات الصوتية.</td>
+                            <td><code>false</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>call_ring_timeout</code></td>
+                            <td>مدة الرنين قبل اعتبار المكالمة "فائتة" (missed). إذا لم يرد المتلقي خلال هذه المدة، تُغلق المكالمة ويُرسل حدث <code>callMissed</code> للمتصل.</td>
+                            <td>قابل للتعديل لكل مشروع</td>
+                        </tr>
+                        <tr>
+                            <td><code>max_call_duration</code></td>
+                            <td>المدة القصوى للمكالمة الواحدة. عند الوصول للحد الأقصى، تنتهي المكالمة تلقائياً ويُرسل حدث <code>callEnded</code> لكلا الطرفين.</td>
+                            <td>قابل للتعديل لكل مشروع</td>
+                        </tr>
+                        <tr>
+                            <td><code>max_call_video_quality</code></td>
+                            <td>أقصى جودة فيديو للمكالمات المرئية. كما في البث المباشر — هذه توصية وليست فرض، والحساب دائماً على الجودة الفعلية.</td>
+                            <td>HD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="warning-box">
+                <strong>تنبيه:</strong> المكالمات معطلة افتراضياً (<code>calls_enabled: false</code>). يجب على صاحب المشروع تفعيلها صراحة من الإعدادات. مكالمات الفيديو تحتاج تفعيل إضافي منفصل.
+            </div>
+        </div>
+    </section>
+
+    <!-- Signaling — أهم ميزة تنافسية -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🏆</span> Signaling — أهم ميزة تنافسية</h2>
+            <p class="section-desc">نظام call signaling الجاهز هو ما يميز UTD Stream Engine عن المنافسين — ويوفر على المطور أشهراً من العمل.</p>
+            <div class="cards-grid cards-grid-2">
+                <div class="card card-highlight" data-badge="UTD Stream Engine">
+                    <div class="card-icon">✅</div>
+                    <h3>ما يقدمه Engine</h3>
+                    <p>نظام signaling كامل وجاهز للاستخدام فوراً — كل شيء مبني ومختبر:</p>
+                    <ul>
+                        <li>رنين المكالمة (ring)</li>
+                        <li>قبول المكالمة (accept)</li>
+                        <li>رفض المكالمة (reject)</li>
+                        <li>حالة مشغول (busy)</li>
+                        <li>إنهاء المكالمة (end)</li>
+                        <li>المكالمات الفائتة (missed)</li>
+                        <li>كل شيء عبر WebSocket جاهز</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚠️</div>
+                    <h3>ما يحتاجه المطور بدون Engine</h3>
+                    <p>بدون نظام signaling جاهز، المطور يحتاج بناء كل شيء بنفسه من الصفر:</p>
+                    <ul>
+                        <li>بناء نظام رنين وإشعارات</li>
+                        <li>إدارة حالات المكالمة يدوياً</li>
+                        <li>التعامل مع السيناريوهات المعقدة (مشغول، timeout)</li>
+                        <li>بناء بنية WebSocket خاصة</li>
+                        <li>اختبار كل الحالات الحدية</li>
+                        <li>معقد جداً ويستغرق أشهراً</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-box">
+                <strong>لماذا هذا مهم؟</strong> LiveKit (وأغلب المنافسين) لا يملك نظام call signaling. المطور الذي يستخدم LiveKit مباشرة يحتاج يبني نظام الرنين والقبول والرفض بنفسه — وهذا يتطلب بناء بنية تحتية كاملة للإشعارات وإدارة الحالات. UTD Stream Engine يوفر كل هذا جاهزاً.
+            </div>
+        </div>
+    </section>
+
+    <!-- أحداث المكالمات عبر WebSocket -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">🔌</span> أحداث المكالمات عبر WebSocket</h2>
+            <p class="section-desc">كل تغيير في حالة المكالمة يولد حدث WebSocket يُرسل للطرف المعني في الوقت الحقيقي.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الحدث</th>
+                            <th>متى يُرسل</th>
+                            <th>من يستقبله</th>
+                            <th>التفاصيل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>callInvitation</code></td>
+                            <td>عند بدء مكالمة جديدة</td>
+                            <td>المتلقي (Callee)</td>
+                            <td>يحتوي على معلومات المتصل ونوع المكالمة (صوتية/مرئية). المتلقي يعرض واجهة الرنين بناءً عليه.</td>
+                        </tr>
+                        <tr>
+                            <td><code>callAccepted</code></td>
+                            <td>عند قبول المكالمة</td>
+                            <td>المتصل (Caller)</td>
+                            <td>المتلقي قبل المكالمة — المتصل يتلقى هذا الحدث ويبدأ الاتصال الصوتي/المرئي عبر LiveKit.</td>
+                        </tr>
+                        <tr>
+                            <td><code>callRejected</code></td>
+                            <td>عند رفض المكالمة</td>
+                            <td>المتصل (Caller)</td>
+                            <td>المتلقي رفض المكالمة صراحة — المتصل يتلقى هذا الحدث ويوقف الرنين ويعرض رسالة مناسبة.</td>
+                        </tr>
+                        <tr>
+                            <td><code>callBusy</code></td>
+                            <td>عند حالة "مشغول"</td>
+                            <td>المتصل (Caller)</td>
+                            <td>المتلقي في مكالمة أخرى حالياً — المتصل يتلقى هذا الحدث ويعرض رسالة "الخط مشغول".</td>
+                        </tr>
+                        <tr>
+                            <td><code>callEnded</code></td>
+                            <td>عند إنهاء المكالمة</td>
+                            <td>الطرف الآخر</td>
+                            <td>أحد الطرفين أنهى المكالمة — الطرف الآخر يتلقى هذا الحدث ويُغلق الاتصال من طرفه.</td>
+                        </tr>
+                        <tr>
+                            <td><code>callMissed</code></td>
+                            <td>عند انتهاء وقت الرنين</td>
+                            <td>المتصل (Caller)</td>
+                            <td>المتلقي لم يرد خلال مدة <code>call_ring_timeout</code> — المكالمة تُعتبر فائتة وتُغلق تلقائياً.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <strong>ملاحظة:</strong> كل هذه الأحداث تُرسل عبر اتصال WebSocket واحد. التطبيق يستمع لهذه الأحداث ويتصرف حسب نوعها — لا حاجة لعمل polling أو طلبات متكررة.
+            </div>
+        </div>
+    </section>
+
+    <!-- تتبع الاستخدام -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">📊</span> تتبع الاستخدام</h2>
+            <p class="section-desc">تتبع شامل لكل أنواع المكالمات — الصوتية والمرئية — مع تفاصيل عن الجودة والحالة.</p>
+            <div class="info-box">
+                <strong>وحدات القياس:</strong><br><br>
+                <strong><code>call_audio_minutes</code></strong> — دقائق المكالمات الصوتية. كل طرف يُحسب بشكل مستقل — مكالمة 10 دقائق = 20 دقيقة صوتية (10 لكل طرف).<br><br>
+                <strong><code>call_video_minutes</code></strong> — دقائق مكالمات الفيديو، مفصلة حسب الجودة الفعلية (SD/HD/FHD/2K/2K+). إذا تغيرت الجودة أثناء المكالمة، كل فترة تُحسب بجودتها.<br><br>
+                <strong>المكالمات الفائتة والمرفوضة:</strong> تُسجل وتُحسب في التقارير لكنها لا تستهلك دقائق — فقط المكالمات النشطة (<code>active</code>) تُحسب بالدقيقة.<br><br>
+                <strong>ذروة المكالمات المتزامنة:</strong> أقصى عدد مكالمات نشطة في نفس اللحظة — مؤشر مهم لتخطيط السعة.
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">بالدقيقة</span>
+                    <span class="stat-label">دقة الحساب</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">صوت + فيديو</span>
+                    <span class="stat-label">تتبع منفصل</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">حسب الجودة</span>
+                    <span class="stat-label">تصنيف الفيديو</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">ذروة التزامن</span>
+                    <span class="stat-label">مكالمات متزامنة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حالات الاستخدام -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="icon">💡</span> حالات الاستخدام</h2>
+            <p class="section-desc">المكالمات الصوتية والمرئية تناسب تطبيقات متنوعة — من المراسلة إلى الاستشارات المتخصصة.</p>
+            <div class="cards-grid cards-grid-3">
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>مكالمات تطبيقات المراسلة</h3>
+                    <p>مكالمات صوتية ومرئية داخل تطبيقات الدردشة — مثل WhatsApp أو Telegram. المستخدم يضغط زر الاتصال ويبدأ الرنين مباشرة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏥</div>
+                    <h3>استشارات طبية</h3>
+                    <p>مكالمات فيديو بين المريض والطبيب — استشارات طبية عن بُعد مع جودة عالية وخصوصية كاملة. نظام الرنين جاهز بالكامل.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎧</div>
+                    <h3>دعم عملاء صوتي</h3>
+                    <p>مكالمات صوتية بين العميل وممثل الدعم — المستخدم يطلب مكالمة وممثل الدعم يتلقى إشعار الرنين ويرد مباشرة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>مكالمات أعمال</h3>
+                    <p>مكالمات مرئية بين الزملاء أو الشركاء — اجتماعات سريعة بين شخصين بدون الحاجة لإنشاء غرفة أو رابط.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>استشارات قانونية</h3>
+                    <p>مكالمات فيديو بين المحامي والعميل — استشارات قانونية عن بُعد مع خصوصية كاملة وتتبع دقيق للمدة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>مقابلات عمل</h3>
+                    <p>مكالمات فيديو لإجراء مقابلات التوظيف — المحاور يتصل بالمرشح مباشرة بدون روابط أو تطبيقات خارجية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>UTD Software Solutions &copy; 2026 | <a href="../index.html">العودة للمشاريع</a></p></footer>
+</div>
+<script src="../shared/main.js"></script>
+</body>
+</html>
