@@ -52,11 +52,45 @@
       "Bash(python _update_sidebars.py)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(gh api *)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api repos/Utd-Software-Solutions/explanation-of-projects/pages/builds/latest)",
+      "Bash(cp /c/tmp/stream-engine-questions.md \"/c/Users/LENOVO/Desktop/stream-engine-questions.md\")",
+      "WebFetch(domain:bigo-forseleem.web.app)",
+      "Bash(find /c/Users/LENOVO -maxdepth 4 -name \"firebase.json\" -not -path \"*/node_modules/*\" -not -path \"*/AppData/*\" 2>/dev/null | head -20)",
+      "Read(//c/Users/LENOVO/**)",
+      "Bash(firebase --version)",
+      "Bash(firebase projects:list)",
+      "Bash(firebase hosting:sites:list --project bigo-room)",
+      "WebFetch(domain:bigo-room.web.app)",
+      "Bash(firebase hosting:channel:list --project bigo-room)",
+      "Bash(firebase hosting:releases:list --project bigo-room --limit 10)",
+      "Bash(firebase hosting:channel:list --project bigo-room --site bigo-room)",
+      "Bash(firebase --project bigo-room hosting:sites:list)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://bigo-room.web.app/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://bigo-forseleem.web.app/)",
+      "Bash(curl -s https://bigo-room.web.app/)",
+      "Bash(curl -s https://bigo-forseleem.web.app/)",
+      "Bash(firebase hosting:sites:get bigo-room --project bigo-room)",
+      "Bash(gcloud auth *)",
+      "Bash(curl -s -H \"Authorization: Bearer $\\(gcloud auth print-access-token \\)\" \"https://firebasehosting.googleapis.com/v1beta1/sites/bigo-room/releases?pageSize=5\")",
+      "Bash(firebase login:ci --no-localhost)",
+      "Bash(curl -s -H \"Authorization: Bearer $\\(firebase login:ci --no-localhost)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:webcache.googleusercontent.com)",
+      "Bash(curl -s \"https://cachedview.nl/cache/?url=bigo-forseleem.web.app\")",
+      "Bash(curl -s \"https://web.archive.org/cdx/search/cdx?url=bigo-forseleem.web.app&output=text&limit=10\")",
+      "Bash(start \"\" \"c:/Users/LENOVO/Desktop/New projects/Explanation of projects/tools/voice-chat.html\")",
+      "Bash(start \"\" \"c:/Users/LENOVO/Desktop/New projects/Explanation of projects/index.html\")",
+      "Bash(cd /c/Users/LENOVO/Desktop/\"New projects\"/\"Explanation of projects\" && find . -type f -name \"*voice*\" -o -name \"*speech*\" -o -name \"*audio*\" 2>/dev/null)",
+      "Read(//c/c/Users/LENOVO/Desktop/New projects/**)",
+      "Bash(python _migrate_cloud.py)",
+      "Bash(python _fix_sidebar_order.py)"
     ],
     "additionalDirectories": [
       "\\tmp",
-      "c:\\tmp"
+      "c:\\tmp",
+      "C:\\Users\\LENOVO\\Desktop"
     ]
   }
 }

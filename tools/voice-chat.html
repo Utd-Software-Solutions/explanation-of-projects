@@ -257,13 +257,13 @@
 
         .recording-indicator.active { display: flex; }
 
-        .recording-indicator.reconnecting {
+        .recording-indicator.mic-lost {
             background: #fffbeb;
             border-top-color: #fde68a;
             color: #b45309;
         }
 
-        .recording-indicator.reconnecting .rec-dot {
+        .recording-indicator.mic-lost .rec-dot {
             background: #f59e0b;
         }
 
@@ -407,31 +407,228 @@
 
 <script>
 (function() {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
         document.getElementById('notSupported').classList.add('show');
         return;
     }
 
-    const chatArea = document.getElementById('chatArea');
-    const emptyState = document.getElementById('emptyState');
-    const inputText = document.getElementById('inputText');
-    const btnMic = document.getElementById('btnMic');
-    const btnSend = document.getElementById('btnSend');
-    const btnClear = document.getElementById('btnClear');
-    const langSelect = document.getElementById('langSelect');
-    const statusText = document.getElementById('statusText');
-    const recordingBar = document.getElementById('recordingBar');
-    const recordingBarText = recordingBar.querySelector('span:last-child');
+    var chatArea = document.getElementById('chatArea');
+    var emptyState = document.getElementById('emptyState');
+    var inputText = document.getElementById('inputText');
+    var btnMic = document.getElementById('btnMic');
+    var btnSend = document.getElementById('btnSend');
+    var btnClear = document.getElementById('btnClear');
+    var langSelect = document.getElementById('langSelect');
+    var statusText = document.getElementById('statusText');
+    var recordingBar = document.getElementById('recordingBar');
+    var recordingBarText = recordingBar.querySelector('span:last-child');
 
-    let recognition = null;
-    let isRecording = false;
-    let prefixText = '';
-    let micPermissionGranted = false;
-    let reconnectAttempts = 0;
-    const MAX_RECONNECT = 10;
-    let lastResultTime = 0;
-    let silenceTimer = null;
+    var recognition = null;
+    var isRecording = false;
+    var prefixText = '';
+    var micPermissionGranted = false;
+    var reconnectAttempts = 0;
+    var lastResultTime = 0;
+    var proactiveTimer = null;
+    var micStream = null;
+    var rapidFailCount = 0;
+    var lastFailTime = 0;
+
+    // ===== English Terms Auto-Correction =====
+
+    function tp(arabic) {
+        var parts = arabic.trim().split(/\s+/);
+        var p = parts.join('\\s+');
+        p = p.replace(/[اإأآ]/g, '[اإأآ]');
+        p = p.replace(/[يى]/g, '[يى]');
+        return new RegExp(p, 'g');
+    }
+
+    var knownTerms = [
+        // 5+ letter acronyms
+        [tp('اتش تي تي بي اس'), 'HTTPS'],
+        // 4-letter acronyms
+        [tp('اتش تي تي بي'), 'HTTP'],
+        [tp('اتش تي ام ال'), 'HTML'],
+        [tp('جيه اس او ان'), 'JSON'],
+        [tp('ار اي اس تي'), 'REST'],
+        // 3-letter acronyms
+        [tp('سي اس اس'), 'CSS'],
+        [tp('اي بي اي'), 'API'],
+        [tp('اي بي كي'), 'APK'],
+        [tp('اس دي كي'), 'SDK'],
+        [tp('يو آر ال'), 'URL'],
+        [tp('يو ار ال'), 'URL'],
+        [tp('بي دي اف'), 'PDF'],
+        [tp('يو اس بي'), 'USB'],
+        [tp('جي بي اس'), 'GPS'],
+        [tp('اس اس ال'), 'SSL'],
+        [tp('اس اس اتش'), 'SSH'],
+        [tp('اس كيو ال'), 'SQL'],
+        [tp('اكس ام ال'), 'XML'],
+        [tp('بي اتش بي'), 'PHP'],
+        [tp('يو تي دي'), 'UTD'],
+        [tp('جي بي تي'), 'GPT'],
+        [tp('ان بي ام'), 'NPM'],
+        [tp('سي ال آي'), 'CLI'],
+        [tp('سي ال اي'), 'CLI'],
+        [tp('جي يو آي'), 'GUI'],
+        [tp('جي يو اي'), 'GUI'],
+        [tp('دي ان اس'), 'DNS'],
+        [tp('سي دي ان'), 'CDN'],
+        [tp('في بي ان'), 'VPN'],
+        [tp('اف تي بي'), 'FTP'],
+        [tp('تي سي بي'), 'TCP'],
+        [tp('يو دي بي'), 'UDP'],
+        [tp('او تي بي'), 'OTP'],
+        [tp('جي سي بي'), 'GCP'],
+        [tp('اي او اس'), 'iOS'],
+        [tp('آي او اس'), 'iOS'],
+        [tp('آي دي اي'), 'IDE'],
+        [tp('اي دي اي'), 'IDE'],
+        [tp('اي دبليو اس'), 'AWS'],
+        [tp('اي دابليو اس'), 'AWS'],
+        [tp('سي اس في'), 'CSV'],
+        // 2-letter acronyms
+        [tp('يو آي'), 'UI'],
+        [tp('يو اي'), 'UI'],
+        [tp('يو اكس'), 'UX'],
+        [tp('اي آي'), 'AI'],
+        [tp('آي تي'), 'IT'],
+        [tp('اي تي'), 'IT'],
+        [tp('كيو آر'), 'QR'],
+        [tp('كيو ار'), 'QR'],
+        [tp('في آر'), 'VR'],
+        [tp('في ار'), 'VR'],
+        [tp('اي آر'), 'AR'],
+        [tp('اي ار'), 'AR'],
+        [tp('آي بي'), 'IP'],
+        [tp('اي بي'), 'IP'],
+        // Multi-word tech terms
+        [tp('جافا سكريبت'), 'JavaScript'],
+        [tp('جافاسكريبت'), 'JavaScript'],
+        [tp('تايب سكريبت'), 'TypeScript'],
+        [tp('تايبسكريبت'), 'TypeScript'],
+        [tp('مايكروسوفت'), 'Microsoft'],
+        [tp('واتس اب'), 'WhatsApp'],
+        [tp('فيس بوك'), 'Facebook'],
+        [tp('انستجرام'), 'Instagram'],
+        [tp('انستقرام'), 'Instagram'],
+        [tp('واي فاي'), 'WiFi'],
+        [tp('جيت هب'), 'GitHub'],
+        [tp('قيت هب'), 'GitHub'],
+        [tp('داتا بيس'), 'Database'],
+        [tp('داتابيس'), 'Database'],
+        [tp('ديتا بيس'), 'Database'],
+        [tp('باك اند'), 'Backend'],
+        [tp('باكاند'), 'Backend'],
+        [tp('فرونت اند'), 'Frontend'],
+        [tp('فرونتاند'), 'Frontend'],
+        [tp('فريم ورك'), 'Framework'],
+        [tp('فريمورك'), 'Framework'],
+        // Single-word brands
+        [tp('واتساب'), 'WhatsApp'],
+        [tp('يوتيوب'), 'YouTube'],
+        [tp('يوتوب'), 'YouTube'],
+        [tp('فيسبوك'), 'Facebook'],
+        [tp('تيليجرام'), 'Telegram'],
+        [tp('تليجرام'), 'Telegram'],
+        [tp('تلجرام'), 'Telegram'],
+        [tp('تويتر'), 'Twitter'],
+        [tp('جوجل'), 'Google'],
+        [tp('قوقل'), 'Google'],
+        [tp('اندرويد'), 'Android'],
+        [tp('أندرويد'), 'Android'],
+        [tp('آيفون'), 'iPhone'],
+        [tp('ايفون'), 'iPhone'],
+        [tp('آيباد'), 'iPad'],
+        [tp('ايباد'), 'iPad'],
+        [tp('لينكس'), 'Linux'],
+        [tp('لينوكس'), 'Linux'],
+        [tp('ويندوز'), 'Windows'],
+        [tp('بايثون'), 'Python'],
+        [tp('ريأكت'), 'React'],
+        [tp('ريآكت'), 'React'],
+        [tp('رياكت'), 'React'],
+        [tp('فلاتر'), 'Flutter'],
+        [tp('انجولار'), 'Angular'],
+        [tp('أنجولار'), 'Angular'],
+        [tp('بلوتوث'), 'Bluetooth'],
+        [tp('دوكر'), 'Docker'],
+        [tp('وايفاي'), 'WiFi'],
+        [tp('جيسون'), 'JSON'],
+        [tp('سيرفر'), 'Server'],
+        [tp('كوتلن'), 'Kotlin'],
+        [tp('سويفت'), 'Swift'],
+        [tp('لارافيل'), 'Laravel'],
+    ];
+
+    var letterMap = {
+        'بي': 'B', 'سي': 'C', 'دي': 'D',
+        'اف': 'F', 'إف': 'F',
+        'جي': 'G',
+        'اتش': 'H', 'إتش': 'H', 'ايتش': 'H',
+        'آي': 'I',
+        'جيه': 'J',
+        'كي': 'K', 'كاي': 'K',
+        'إل': 'L',
+        'ام': 'M', 'إم': 'M',
+        'آر': 'R', 'أر': 'R', 'ار': 'R',
+        'اس': 'S', 'إس': 'S',
+        'تي': 'T',
+        'يو': 'U',
+        'دبليو': 'W', 'دابليو': 'W',
+        'اكس': 'X', 'إكس': 'X',
+        'واي': 'Y',
+        'زد': 'Z', 'زي': 'Z',
+        'كيو': 'Q',
+        'اي': 'A',
+        'ال': 'L', 'او': 'O', 'أو': 'O',
+        'ان': 'N', 'إن': 'N',
+        'في': 'V',
+    };
+
+    var ambiguousWords = new Set(['في', 'ال', 'او', 'أو', 'ان', 'إن', 'اي']);
+
+    function detectLetterSequences(text) {
+        var words = text.split(/\s+/);
+        var result = [];
+        var i = 0;
+        while (i < words.length) {
+            var seq = [];
+            var safeCount = 0;
+            var j = i;
+            while (j < words.length && letterMap[words[j]] !== undefined) {
+                seq.push(letterMap[words[j]]);
+                if (!ambiguousWords.has(words[j])) safeCount++;
+                j++;
+            }
+            if ((seq.length >= 3 && safeCount >= 2) || (seq.length >= 2 && safeCount >= 2)) {
+                result.push(seq.join(''));
+                i = j;
+            } else {
+                result.push(words[i]);
+                i++;
+            }
+        }
+        return result.join(' ');
+    }
+
+    function fixEnglishTerms(text) {
+        if (!text) return text;
+        for (var i = 0; i < knownTerms.length; i++) {
+            text = text.replace(knownTerms[i][0], knownTerms[i][1]);
+        }
+        text = detectLetterSequences(text);
+        return text;
+    }
+
+    function isArabicLang() {
+        return langSelect.value.startsWith('ar');
+    }
+
+    // ===== Audio =====
 
     var audioCtx = null;
     function playBeep(type) {
@@ -441,38 +638,7 @@
             var gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-
-            if (type === 'disconnect') {
-                osc.frequency.value = 400;
-                gain.gain.value = 0.3;
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.15);
-                setTimeout(function() {
-                    var osc2 = audioCtx.createOscillator();
-                    var gain2 = audioCtx.createGain();
-                    osc2.connect(gain2);
-                    gain2.connect(audioCtx.destination);
-                    osc2.frequency.value = 300;
-                    gain2.gain.value = 0.3;
-                    osc2.start();
-                    osc2.stop(audioCtx.currentTime + 0.2);
-                }, 180);
-            } else if (type === 'reconnect') {
-                osc.frequency.value = 500;
-                gain.gain.value = 0.2;
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.1);
-                setTimeout(function() {
-                    var osc2 = audioCtx.createOscillator();
-                    var gain2 = audioCtx.createGain();
-                    osc2.connect(gain2);
-                    gain2.connect(audioCtx.destination);
-                    osc2.frequency.value = 700;
-                    gain2.gain.value = 0.2;
-                    osc2.start();
-                    osc2.stop(audioCtx.currentTime + 0.1);
-                }, 130);
-            } else if (type === 'failed') {
+            if (type === 'failed') {
                 osc.frequency.value = 300;
                 gain.gain.value = 0.35;
                 osc.start();
@@ -481,35 +647,65 @@
         } catch(e) {}
     }
 
-    function showReconnecting() {
-        recordingBar.classList.add('reconnecting');
-        recordingBarText.textContent = 'انقطع الصوت — جاري إعادة الاتصال...';
-        statusText.textContent = 'جاري إعادة الاتصال...';
-    }
+    // ===== UI Helpers =====
 
     function showListening() {
-        recordingBar.classList.remove('reconnecting');
+        recordingBar.classList.remove('mic-lost');
         recordingBarText.textContent = 'جاري التسجيل... اتكلم براحتك';
         statusText.textContent = 'بيسمعك...';
     }
+
+    function showMicDisconnected() {
+        recordingBar.classList.add('mic-lost');
+        recordingBarText.textContent = 'الميكروفون اتفصل — وصّله واضغط الميكروفون تاني';
+        statusText.textContent = 'الميكروفون اتفصل';
+    }
+
+    // ===== Proactive Restart =====
+
+    var PROACTIVE_INTERVAL = 8000;
+
+    function startProactiveTimer() {
+        clearProactiveTimer();
+        proactiveTimer = setTimeout(function() {
+            if (!isRecording || !recognition) return;
+            prefixText = inputText.value.trim();
+            try { recognition.stop(); } catch(e) {}
+        }, PROACTIVE_INTERVAL);
+    }
+
+    function resetProactiveTimer() {
+        startProactiveTimer();
+    }
+
+    function clearProactiveTimer() {
+        if (proactiveTimer) {
+            clearTimeout(proactiveTimer);
+            proactiveTimer = null;
+        }
+    }
+
+    // ===== Speech Recognition =====
 
     function buildRecognition() {
         var r = new SpeechRecognition();
         r.continuous = true;
         r.interimResults = true;
+        r.maxAlternatives = 3;
         r.lang = langSelect.value;
 
         r.onstart = function() {
-            if (reconnectAttempts > 0) {
-                playBeep('reconnect');
-                reconnectAttempts = 0;
-            }
+            reconnectAttempts = 0;
             showListening();
             lastResultTime = Date.now();
+            startProactiveTimer();
         };
 
         r.onresult = function(e) {
             lastResultTime = Date.now();
+            resetProactiveTimer();
+            rapidFailCount = 0;
+
             var sessionFinal = '';
             var interim = '';
             for (var i = 0; i < e.results.length; i++) {
@@ -520,11 +716,14 @@
                 }
             }
 
-            var display = prefixText;
-            if (display && (sessionFinal || interim)) display += ' ';
-            display += sessionFinal;
+            var textToFix = prefixText;
+            if (textToFix && sessionFinal) textToFix += ' ';
+            textToFix += sessionFinal;
+
+            var display = isArabicLang() ? fixEnglishTerms(textToFix) : textToFix;
+
             if (interim) {
-                if (sessionFinal) display += ' ';
+                if (display) display += ' ';
                 display += interim;
             }
 
@@ -536,32 +735,39 @@
 
         r.onend = function() {
             if (!isRecording) return;
+            clearProactiveTimer();
 
             prefixText = inputText.value.trim();
-            reconnectAttempts++;
 
-            if (reconnectAttempts > MAX_RECONNECT) {
+            var now = Date.now();
+            if (now - lastFailTime < 1000) {
+                rapidFailCount++;
+            } else {
+                rapidFailCount = 0;
+            }
+            lastFailTime = now;
+
+            if (rapidFailCount > 15) {
                 playBeep('failed');
-                statusText.textContent = 'الاتصال انقطع — اضغط الميكروفون تاني';
+                statusText.textContent = 'حصلت مشكلة — اضغط الميكروفون تاني';
                 stopRecording();
                 return;
             }
 
-            if (reconnectAttempts > 1) {
-                playBeep('disconnect');
-                showReconnecting();
+            recognition = null;
+            recognition = buildRecognition();
+            try {
+                recognition.start();
+            } catch(e) {
+                setTimeout(function() {
+                    if (!isRecording) return;
+                    recognition = buildRecognition();
+                    try { recognition.start(); } catch(e2) {
+                        playBeep('failed');
+                        stopRecording();
+                    }
+                }, 200);
             }
-
-            var delay = Math.min(reconnectAttempts * 300, 2000);
-            setTimeout(function() {
-                if (!isRecording) return;
-                recognition = null;
-                recognition = buildRecognition();
-                try { recognition.start(); } catch(e) {
-                    playBeep('failed');
-                    stopRecording();
-                }
-            }, delay);
         };
 
         r.onerror = function(e) {
@@ -570,22 +776,13 @@
                 stopRecording();
                 return;
             }
-            if (e.error === 'network') {
-                playBeep('disconnect');
-                showReconnecting();
-                return;
-            }
-            if (e.error === 'no-speech') {
-                return;
-            }
-            if (e.error !== 'aborted') {
-                playBeep('disconnect');
-                showReconnecting();
-            }
+            if (e.error === 'no-speech') return;
         };
 
         return r;
     }
+
+    // ===== Recording Control =====
 
     async function requestMicPermission() {
         if (micPermissionGranted) return true;
@@ -606,11 +803,26 @@
 
         prefixText = inputText.value.trim();
         reconnectAttempts = 0;
+        rapidFailCount = 0;
 
         if (recognition) {
             try { recognition.stop(); } catch(e) {}
             recognition = null;
         }
+
+        try {
+            micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            var track = micStream.getAudioTracks()[0];
+            if (track) {
+                track.onended = function() {
+                    if (isRecording) {
+                        playBeep('failed');
+                        showMicDisconnected();
+                        stopRecording();
+                    }
+                };
+            }
+        } catch(e) {}
 
         recognition = buildRecognition();
 
@@ -625,14 +837,20 @@
     function stopRecording() {
         isRecording = false;
         reconnectAttempts = 0;
+        rapidFailCount = 0;
+        clearProactiveTimer();
         btnMic.classList.remove('recording');
         btnMic.innerHTML = '&#127908;';
-        recordingBar.classList.remove('active', 'reconnecting');
+        recordingBar.classList.remove('active', 'mic-lost');
         recordingBarText.textContent = 'جاري التسجيل... اتكلم براحتك';
         statusText.textContent = 'اضغط الميكروفون وابدأ اتكلم';
         if (recognition) {
             try { recognition.stop(); } catch(e) {}
             recognition = null;
+        }
+        if (micStream) {
+            micStream.getTracks().forEach(function(t) { t.stop(); });
+            micStream = null;
         }
         prefixText = inputText.value.trim();
     }
@@ -644,6 +862,8 @@
             startRecording();
         }
     });
+
+    // ===== Message Sending =====
 
     async function sendMessage() {
         var text = inputText.value.trim();
@@ -703,6 +923,8 @@
         document.execCommand('copy');
         document.body.removeChild(ta);
     }
+
+    // ===== Event Listeners =====
 
     btnSend.addEventListener('click', sendMessage);
 
